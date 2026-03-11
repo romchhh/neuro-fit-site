@@ -382,7 +382,7 @@ export default function ProgramsSection() {
         }
       `}</style>
 
-      <section className="prog-section reveal-up" data-animate>
+      <section id="programs" className="prog-section reveal-up" data-animate>
         <div className="prog-inner">
 
           {/* Header */}
@@ -461,9 +461,25 @@ export default function ProgramsSection() {
                     </ul>
                   </div>
 
-                  <button className={`prog-btn ${program.soon ? 'prog-btn-soon' : ''}`}>
-                    {program.buttonLabel}
-                  </button>
+                  {program.number === '01' ? (
+                    <a
+                      href="/neurofit"
+                      className={`prog-btn ${program.soon ? 'prog-btn-soon' : ''}`}
+                    >
+                      {program.buttonLabel}
+                    </a>
+                  ) : program.number === '02' ? (
+                    <a
+                      href="/neuro-intensive"
+                      className={`prog-btn ${program.soon ? 'prog-btn-soon' : ''}`}
+                    >
+                      {program.buttonLabel}
+                    </a>
+                  ) : (
+                    <button className={`prog-btn ${program.soon ? 'prog-btn-soon' : ''}`}>
+                      {program.buttonLabel}
+                    </button>
+                  )}
                 </div>
               </div>
             ))}

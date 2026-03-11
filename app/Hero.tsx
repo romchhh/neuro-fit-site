@@ -40,7 +40,7 @@ export default function Hero() {
           <div className="hidden md:flex flex-1 items-center w-full reveal-up reveal-delay-1" data-animate>
             <div className="container mx-auto px-8 lg:px-16 flex justify-end">
               <div className="max-w-2xl xl:max-w-3xl text-center space-y-8">
-                <h1 className="text-4xl lg:text-[3.2rem] xl:text-[3.75rem] font-semibold text-gray-900 leading-none tracking-[0.08em]">
+                <h1 className="text-[2.8rem] lg:text-[3.4rem] xl:text-[3.9rem] font-semibold text-gray-900 leading-none tracking-[0.1em]">
                   NeuroFit —{' '}
                   <span className="italic font-semibold text-gray-900 tracking-[0.08em]">
                     унікальна система довголіття через рух і мозок
@@ -54,10 +54,13 @@ export default function Hero() {
                   патернами й стабільністю тіла.
                 </p>
 
-                <div className="pt-2 flex justify-center">
-                  <button className="bg-white/70 backdrop-blur-sm border border-purple-200 text-[#764F75] font-bold px-12 py-5 rounded-full text-base lg:text-lg leading-[1] uppercase tracking-widest shadow-md transition-all duration-200 hover:scale-[1.03] hover:bg-white/90 hover:shadow-lg">
+                <div className="pt-5 flex justify-center">
+                  <a
+                    href="#programs"
+                    className="inline-block bg-white/60 backdrop-blur-2xl border border-white/70 text-[#5f3a6b] font-bold px-20 py-6 rounded-full text-[1.5rem] lg:text-[1.7rem] leading-[1] uppercase tracking-[0.26em] shadow-lg transition-all duration-200 hover:scale-[1.06] hover:bg-white/80 hover:shadow-xl"
+                  >
                     ОБРАТИ ПРОГРАМУ
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -66,7 +69,7 @@ export default function Hero() {
           {/* Mobile layout — текстовий блок внизу */}
           <div className="md:hidden mt-auto pb-10 px-5 reveal-up reveal-delay-1" data-animate>
             <div className="bg-white/75 backdrop-blur-md rounded-3xl px-6 py-8 shadow-lg border border-white/60 space-y-5 text-center">
-              <h1 className="text-[1.9rem] font-semibold text-gray-900 leading-none tracking-[0.08em]">
+              <h1 className="text-[2.05rem] font-semibold text-gray-900 leading-none tracking-[0.1em]">
                 NeuroFit —{' '}
                 <span className="italic font-semibold text-gray-900 tracking-[0.08em]">
                   унікальна система довголіття через рух і мозок
@@ -80,10 +83,13 @@ export default function Hero() {
                 патернами й стабільністю тіла.
               </p>
 
-              <div className="pt-1">
-                <button className="w-full bg-white/80 backdrop-blur-sm border border-purple-200 text-[#764F75] font-bold px-8 py-4 rounded-full text-sm uppercase tracking-widest shadow-md transition-all duration-200 active:scale-[0.98] hover:bg-white">
+              <div className="pt-3">
+                <a
+                  href="#programs"
+                  className="inline-block w-full text-center bg-white/60 backdrop-blur-2xl border border-white/70 text-[#5f3a6b] font-bold px-14 py-5 rounded-full text-[1.3rem] uppercase tracking-[0.26em] shadow-lg transition-all duration-200 active:scale-[0.97] hover:bg-white/80 hover:shadow-xl"
+                >
                   ОБРАТИ ПРОГРАМУ
-                </button>
+                </a>
               </div>
             </div>
           </div>

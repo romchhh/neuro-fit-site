@@ -93,7 +93,7 @@ export default function FaqSection() {
         .faq-question {
           font-family: 'Montserrat', sans-serif;
           font-weight: 500;
-          font-size: 18px;
+          font-size: 21px; /* збільшено для десктопа й мобільного */
           color: #222222;
         }
 
@@ -170,6 +170,7 @@ export default function FaqSection() {
           }
           .faq-title-wrap {
             order: -1;
+            text-align: center; /* центруємо заголовок і FAQ на мобільному */
           }
           .faq-bg-title {
             font-size: clamp(60px, 20vw, 96px);

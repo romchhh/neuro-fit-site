@@ -138,7 +138,7 @@ export default function ReviewsSection() {
         .reviews-section {
           position: relative;
           background: white;
-          padding: 40px 0 48px;
+          padding: 32px 0 48px;
           overflow-x: visible;
           overflow-y: hidden;
         }
@@ -246,6 +246,7 @@ export default function ReviewsSection() {
         @media (max-width: 640px) {
           .reviews-scroll-outer {
             margin-left: -16px; /* вже є, дублюємо для надійності */
+            margin-top: 16px;   /* трохи опускаємо самі картки відгуків */
           }
           .reviews-scroll::before,
           .reviews-scroll::after {
@@ -368,12 +369,19 @@ export default function ReviewsSection() {
         }
 
         @media (max-width: 640px) {
+          .reviews-section {
+            padding-top: 24px; /* трохи вище на мобільній версії */
+          }
           .reviews-inner { padding: 0 16px; }
           .reviews-scroll-outer { margin-left: -16px; }
           .reviews-subtitle { font-size: 20px; }
           .review-card { width: 85vw; }
           .review-avatar { width: 70px; padding-left: 18px; }
           .review-avatar-dot { width: 44px; height: 44px; }
+          .reviews-bg-title {
+            font-size: clamp(42px, 23vw, 83px); /* ~30% більше заголовок на мобільному */
+            white-space: normal;
+          }
         }
       `}</style>
 

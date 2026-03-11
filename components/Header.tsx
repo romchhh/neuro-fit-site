@@ -8,31 +8,50 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-20 pt-4 pb-3">
+    <header className="fixed top-0 left-0 w-full z-20 pt-5 pb-4">
       {/* Desktop nav */}
       <nav className="hidden md:flex justify-center">
-        <ul className="inline-flex flex-nowrap gap-1 rounded-full bg-white/70 backdrop-blur-sm px-3 py-2 shadow-sm border border-purple-100">
-          {navItems.map((item) => (
-            <li key={item}>
-              <a
-                href="#"
-                className="px-6 lg:px-8 py-2.5 rounded-full text-sm lg:text-base font-bold uppercase tracking-wider text-[#764F75] whitespace-nowrap hover:text-[#764F75]/80 hover:bg-purple-50/80 transition block"
-              >
-                {item}
-              </a>
-            </li>
-          ))}
+        <ul className="inline-flex flex-nowrap gap-2 rounded-full bg-white/20 backdrop-blur-2xl px-5 py-3.5 shadow-lg border border-white/60">
+          <li>
+            <a
+              href="/"
+              className="px-8 lg:px-10 py-3 rounded-full text-sm lg:text-lg font-bold uppercase tracking-[0.22em] text-[#5f3a6b] whitespace-nowrap hover:text-[#5f3a6b] hover:bg-white/45 hover:shadow-xl transition-all duration-200"
+            >
+              HOME
+            </a>
+          </li>
+          <li>
+            <a
+              href="/neurofit"
+              className="px-8 lg:px-10 py-3 rounded-full text-sm lg:text-lg font-bold uppercase tracking-[0.22em] text-[#5f3a6b] whitespace-nowrap hover:text-[#5f3a6b] hover:bg-white/45 hover:shadow-xl transition-all duration-200"
+            >
+              NEUROFIT
+            </a>
+          </li>
+          <li>
+            <a
+              href="/neuro-intensive"
+              className="px-8 lg:px-10 py-3 rounded-full text-sm lg:text-lg font-bold uppercase tracking-[0.22em] text-[#5f3a6b] whitespace-nowrap hover:text-[#5f3a6b] hover:bg-white/45 hover:shadow-xl transition-all duration-200"
+            >
+              NEURO-ІНТЕНСИВ
+            </a>
+          </li>
         </ul>
       </nav>
 
       {/* Mobile nav */}
       <div className="md:hidden px-4">
-        <div className="flex items-center justify-between bg-white/70 backdrop-blur-sm rounded-full px-5 py-3 shadow-sm border border-purple-100">
-          <span className="text-[#764F75] font-bold text-sm uppercase tracking-wider">NeuroFit</span>
+        <div className="flex items-center justify-between bg-white/20 backdrop-blur-2xl rounded-full px-7 py-4 shadow-lg border border-white/70">
+          <a
+            href="/"
+            className="text-[#5f3a6b] font-bold text-base uppercase tracking-[0.22em]"
+          >
+            NeuroFit
+          </a>
 
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="text-[#764F75] p-1 rounded-full hover:bg-purple-50 transition"
+            className="text-[#5f3a6b] p-1.5 rounded-full hover:bg-white/40 transition"
             aria-label="Toggle menu"
           >
             {menuOpen ? (
@@ -53,16 +72,27 @@ export default function Header() {
         {/* Dropdown menu */}
         {menuOpen && (
           <div className="mt-2 bg-white/85 backdrop-blur-md rounded-2xl shadow-lg border border-purple-100 overflow-hidden">
-            {navItems.map((item, i) => (
-              <a
-                key={item}
-                href="#"
-                onClick={() => setMenuOpen(false)}
-                className={`block px-6 py-4 text-sm font-bold uppercase tracking-wider text-[#764F75] hover:bg-purple-50 transition ${i < navItems.length - 1 ? 'border-b border-purple-100/60' : ''}`}
-              >
-                {item}
-              </a>
-            ))}
+            <a
+              href="/"
+              onClick={() => setMenuOpen(false)}
+              className="block px-6 py-4 text-sm font-bold uppercase tracking-wider text-[#764F75] hover:bg-purple-50 transition border-b border-purple-100/60"
+            >
+              HOME
+            </a>
+            <a
+              href="/neurofit"
+              onClick={() => setMenuOpen(false)}
+              className="block px-6 py-4 text-sm font-bold uppercase tracking-wider text-[#764F75] hover:bg-purple-50 transition border-b border-purple-100/60"
+            >
+              NEUROFIT
+            </a>
+            <a
+              href="/neuro-intensive"
+              onClick={() => setMenuOpen(false)}
+              className="block px-6 py-4 text-sm font-bold uppercase tracking-wider text-[#764F75] hover:bg-purple-50 transition"
+            >
+              NEURO-ІНТЕНСИВ
+            </a>
           </div>
         )}
       </div>

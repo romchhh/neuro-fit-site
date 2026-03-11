@@ -14,17 +14,16 @@ export default function SuitableSection() {
       <div className="max-w-6xl mx-auto relative">
 
         {/* label */}
-        <div className="flex justify-end mb-6">
-          <span className="text-right text-[20px] md:text-[32px] leading-[1] font-bold italic text-[#EAC6EF]">
+        <div className="flex justify-end mb-4 md:mb-6">
+          <span className="author-label text-right block">
             Кому підійде
           </span>
         </div>
 
         {/* title */}
-        <h2 className="text-right text-[24px] md:text-[64px] leading-[1] font-bold italic text-gray-900 mb-8 md:mb-14">
-          Для жінок, які хочуть результат без насилля над собою і
-          <br className="hidden md:block" />
-          виснажливих тренувань
+        <h2 className="text-[1.9rem] md:text-[3rem] font-light text-right mb-8 md:mb-14 text-gray-900 leading-none">
+          Для жінок, які хочуть результат без насилля над собою і виснажливих тренувань
+          <br />
         </h2>
 
         {/* content */}
@@ -44,7 +43,7 @@ export default function SuitableSection() {
 
           {/* list */}
           <div className="w-full md:w-5/12">
-            <ul className="space-y-3 text-[16px] md:text-[24px] font-light text-gray-800 leading-[1.25] text-right">
+            <ul className="space-y-3 text-[16px] md:text-[24px] font-light text-gray-800 leading-[1.25] text-left">
               {items.map((item) => (
                 <li key={item} className="flex gap-3">
                   <span className="mt-[14px] w-[8px] h-[8px] rounded-full bg-black shrink-0" />
