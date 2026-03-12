@@ -1,8 +1,6 @@
 import crypto from 'crypto';
 import { NextRequest, NextResponse } from 'next/server';
 
-// WayForPay надсилає POST server-to-server після транзакції.
-// Відповідаємо підписаним JSON { orderReference, status, time, signature }.
 export async function POST(req: NextRequest) {
   try {
     const contentType = req.headers.get('content-type') ?? '';
