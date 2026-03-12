@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 const navItems = ['HOME', 'NEUROFIT', 'NEURO-ІНТЕНСИВ'];
@@ -22,7 +23,21 @@ export default function Header() {
     <header className="fixed top-0 left-0 w-full z-20 pt-5 pb-4">
       {/* Desktop nav */}
       <nav className="hidden md:flex justify-center">
-        <ul className="inline-flex flex-nowrap gap-2 rounded-full bg-white/20 backdrop-blur-2xl px-5 py-3.5 shadow-lg border border-white/60">
+        <ul className="inline-flex items-center flex-nowrap gap-3 rounded-full bg-white/20 backdrop-blur-2xl px-5 py-3.5 shadow-lg border border-white/60">
+          <li className="pl-1 pr-2">
+            <a href="/" className="flex items-center gap-2">
+              <div className="flex items-center justify-center rounded-full bg-white p-1.5 shadow-lg shadow-black/30">
+                <Image
+                  src="/logo-neurofit.png"
+                  alt="NeuroFit logo"
+                  width={96}
+                  height={96}
+                  className="rounded-full object-contain"
+                  priority
+                />
+              </div>
+            </a>
+          </li>
           <li>
             <a
               href="/"
@@ -61,15 +76,26 @@ export default function Header() {
 
       {/* Mobile nav */}
       <div className="md:hidden px-4">
-        <div className="flex items-center justify-between bg-white/20 backdrop-blur-2xl rounded-full px-7 py-4 shadow-lg border border-white/70">
-          <a
-            href="/"
-            className={`font-bold text-base uppercase tracking-[0.22em] ${
-              scrolled ? 'text-[#5f3a6b]' : 'text-white'
-            }`}
-            style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}
-          >
-            NeuroFit
+        <div className="flex items-center justify-between bg-white/20 backdrop-blur-2xl rounded-full px-4 py-3 shadow-lg border border-white/70">
+          <a href="/" className="flex items-center gap-3">
+            <div className="flex items-center justify-center rounded-full bg-white p-1.5 shadow-md shadow-black/30">
+              <Image
+                src="/logo-neurofit.png"
+                alt="NeuroFit logo"
+                width={84}
+                height={84}
+                className="rounded-full object-contain"
+                priority
+              />
+            </div>
+            <span
+              className={`font-bold text-base uppercase tracking-[0.22em] ${
+                scrolled ? 'text-[#5f3a6b]' : 'text-white'
+              }`}
+              style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}
+            >
+              NeuroFit
+            </span>
           </a>
 
           <button

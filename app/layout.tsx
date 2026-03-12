@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.png",
+    icon: "/logo-neurofit.png",
   },
   robots: {
     index: true,
