@@ -16,108 +16,85 @@ export default function Hero() {
         priority
         sizes="100vw"
         className="hidden md:block object-cover"
-        style={{ objectPosition: 'center 25%' }}
+        style={{ objectPosition: 'center 43%' }}
       />
 
       <Image
-        src="/hero-mobile.jpg"
+        src="/hero-desktop.jpg"
         alt="NeuroFit background mobile"
         fill
         priority
         sizes="100vw"
-        className="md:hidden object-cover object-top"
+        className="md:hidden object-cover"
+        style={{ objectPosition: 'center 20%' }}
       />
 
-      {/* Легке сіре затемнення на весь фон */}
+      {/* Мінімальне затемнення */}
       <div
         className="absolute inset-0 pointer-events-none z-[1]"
-        style={{ background: 'rgba(30,25,35,0.28)' }}
-      />
-
-      {/* Мінімальний блюр знизу */}
-      <div
-        className="absolute inset-x-0 bottom-0 pointer-events-none z-[2]"
-        style={{
-          height: '30%',
-          backdropFilter: 'blur(6px)',
-          WebkitBackdropFilter: 'blur(6px)',
-          maskImage: 'linear-gradient(to bottom, transparent 0%, black 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 100%)',
-        }}
+        style={{ background: 'rgba(20,15,25,0.06)' }}
       />
 
       <div className="relative z-10 flex flex-col min-h-screen">
         <Header />
 
-        {/* Mobile */}
-        <div className="md:hidden flex flex-col flex-1 reveal-up reveal-delay-1" data-animate>
-          {/* NeuroFit по центру */}
-          <div className="flex-1 flex items-center justify-center px-6">
-            <h1
-              className="font-semibold italic text-white leading-none tracking-[0.06em] text-center"
-              style={{ fontSize: 'clamp(2.6rem, 14vw, 4rem)', textShadow: '0 2px 16px rgba(0,0,0,0.35)' }}
-            >
-              NeuroFit
-            </h1>
-          </div>
+        {/* Content — однакова структура для mobile і desktop */}
+        <div className="flex flex-col flex-1 reveal-up reveal-delay-1" data-animate>
 
-          {/* Опис + кнопка внизу */}
-          <div className="px-6 pb-10 space-y-5 text-center">
-            <p
-              className="font-semibold leading-snug text-center"
-              style={{
-                fontSize: 'clamp(0.9rem, 3.8vw, 1.1rem)',
-                letterSpacing: '0.08em',
-                color: 'rgba(255,255,255,0.92)',
-                textShadow: '0 1px 8px rgba(0,0,0,0.3)',
-              }}
-            >
-              Унікальна система довголіття через рух і мозок
-            </p>
-            <div className="flex justify-center">
-              <a
-                href="#programs"
-                className="inline-block w-full text-center bg-white/20 backdrop-blur-2xl border border-white/60 text-white font-bold px-8 py-5 rounded-full text-[1.1rem] leading-[1] uppercase tracking-[0.18em] whitespace-nowrap shadow-lg transition-all duration-200 active:scale-[0.97] hover:bg-white/30"
+          {/* Назва — вертикально по центру */}
+          <div className="flex-1 flex items-center justify-center px-6 pt-32 md:pt-40">
+            <div className="text-center">
+              <h1
+                className="text-center"
+                style={{
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontWeight: 600,
+                  fontStyle: 'normal',
+                  fontSize: 'clamp(5.25rem, 13vw, 15.625rem)',
+                  lineHeight: 1,
+                  letterSpacing: 0,
+                  color: 'rgba(255,255,255,0.941)',
+                  filter: 'drop-shadow(0px 4px 4.8px rgba(0,0,0,0.251))',
+                }}
               >
-                ОБРАТИ ПРОГРАМУ
-              </a>
+                NeuroFit
+              </h1>
+
+              {/* Опис одразу під назвою */}
+              <p
+                className="mt-3 text-center mx-auto"
+                style={{
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontWeight: 600,
+                  fontStyle: 'italic',
+                  fontSize: 'clamp(1rem, 2.2vw, 1.9rem)',
+                  lineHeight: 1,
+                  letterSpacing: 0,
+                  color: 'rgba(255,255,255,0.941)',
+                  filter: 'drop-shadow(0px 4px 4.8px rgba(0,0,0,0.251))',
+                }}
+              >
+                унікальна система довголіття через рух і мозок
+              </p>
             </div>
           </div>
-        </div>
 
-        {/* Desktop */}
-        <div className="hidden md:flex flex-col flex-1 reveal-up reveal-delay-1" data-animate>
-          {/* NeuroFit по центру */}
-          <div className="flex-1 flex items-center justify-center px-8">
-            <h1
-              className="font-semibold italic text-white leading-none tracking-[0.06em] text-center"
-              style={{ fontSize: 'clamp(4rem, 8vw, 7rem)', textShadow: '0 2px 24px rgba(0,0,0,0.35)' }}
-            >
-              NeuroFit
-            </h1>
-          </div>
-
-          {/* Опис + кнопка внизу */}
-          <div className="pb-14 space-y-7 text-center px-8">
-            <p
-              className="font-semibold leading-snug text-center"
+          {/* Кнопка внизу */}
+          <div className="pb-12 md:pb-16 flex justify-center px-6">
+            <a
+              href="#programs"
+              className="inline-block text-center border border-white/70 text-white font-bold rounded-full uppercase tracking-[0.2em] whitespace-nowrap transition-all duration-200 hover:bg-white/20 active:scale-[0.97]"
               style={{
-                fontSize: 'clamp(1rem, 1.4vw, 1.25rem)',
-                letterSpacing: '0.07em',
-                color: 'rgba(255,255,255,0.92)',
-                textShadow: '0 1px 10px rgba(0,0,0,0.3)',
+                fontSize: 'clamp(0.95rem, 1.8vw, 1.2rem)',
+                padding: 'clamp(14px, 2.5vw, 22px) clamp(36px, 8vw, 80px)',
+                background: 'rgba(255,255,255,0.12)',
+                backdropFilter: 'blur(24px)',
+                WebkitBackdropFilter: 'blur(24px)',
+                boxShadow: '0 4px 32px rgba(0,0,0,0.12)',
               }}
             >
-              Унікальна система довголіття через рух і мозок
-            </p>
-            <div className="flex justify-center">
-              <a
-                href="#programs"
-                className="inline-block bg-white/20 backdrop-blur-2xl border border-white/60 text-white font-bold px-16 py-6 rounded-full text-[1.35rem] lg:text-[1.5rem] leading-[1] uppercase tracking-[0.2em] whitespace-nowrap shadow-lg transition-all duration-200 hover:scale-[1.06] hover:bg-white/30"
-              >
-                ОБРАТИ ПРОГРАМУ
-              </a>
-            </div>
+              ОБРАТИ ПРОГРАМУ
+            </a>
           </div>
         </div>
       </div>

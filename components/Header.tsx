@@ -1,11 +1,22 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const navItems = ['HOME', 'NEUROFIT', 'NEURO-ІНТЕНСИВ'];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 w-full z-20 pt-5 pb-4">
@@ -15,7 +26,10 @@ export default function Header() {
           <li>
             <a
               href="/"
-              className="px-8 lg:px-10 py-3 rounded-full text-sm lg:text-lg font-bold uppercase tracking-[0.22em] text-[#5f3a6b] whitespace-nowrap hover:text-[#5f3a6b] hover:bg-white/45 hover:shadow-xl transition-all duration-200"
+              className={`px-8 lg:px-10 py-3 rounded-full text-sm lg:text-lg font-bold uppercase tracking-[0.22em] whitespace-nowrap hover:bg-white/25 hover:shadow-xl transition-all duration-200 ${
+                scrolled ? 'text-[#5f3a6b]' : 'text-white'
+              }`}
+              style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}
             >
               HOME
             </a>
@@ -23,7 +37,10 @@ export default function Header() {
           <li>
             <a
               href="/neurofit"
-              className="px-8 lg:px-10 py-3 rounded-full text-sm lg:text-lg font-bold uppercase tracking-[0.22em] text-[#5f3a6b] whitespace-nowrap hover:text-[#5f3a6b] hover:bg-white/45 hover:shadow-xl transition-all duration-200"
+              className={`px-8 lg:px-10 py-3 rounded-full text-sm lg:text-lg font-bold uppercase tracking-[0.22em] whitespace-nowrap hover:bg-white/25 hover:shadow-xl transition-all duration-200 ${
+                scrolled ? 'text-[#5f3a6b]' : 'text-white'
+              }`}
+              style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}
             >
               NEUROFIT
             </a>
@@ -31,7 +48,10 @@ export default function Header() {
           <li>
             <a
               href="/neuro-intensive"
-              className="px-8 lg:px-10 py-3 rounded-full text-sm lg:text-lg font-bold uppercase tracking-[0.22em] text-[#5f3a6b] whitespace-nowrap hover:text-[#5f3a6b] hover:bg-white/45 hover:shadow-xl transition-all duration-200"
+              className={`px-8 lg:px-10 py-3 rounded-full text-sm lg:text-lg font-bold uppercase tracking-[0.22em] whitespace-nowrap hover:bg-white/25 hover:shadow-xl transition-all duration-200 ${
+                scrolled ? 'text-[#5f3a6b]' : 'text-white'
+              }`}
+              style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}
             >
               NEURO-ІНТЕНСИВ
             </a>
@@ -44,14 +64,19 @@ export default function Header() {
         <div className="flex items-center justify-between bg-white/20 backdrop-blur-2xl rounded-full px-7 py-4 shadow-lg border border-white/70">
           <a
             href="/"
-            className="text-[#5f3a6b] font-bold text-base uppercase tracking-[0.22em]"
+            className={`font-bold text-base uppercase tracking-[0.22em] ${
+              scrolled ? 'text-[#5f3a6b]' : 'text-white'
+            }`}
+            style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}
           >
             NeuroFit
           </a>
 
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="text-[#5f3a6b] p-1.5 rounded-full hover:bg-white/40 transition"
+            className={`p-1.5 rounded-full hover:bg-white/30 transition ${
+              scrolled ? 'text-[#5f3a6b]' : 'text-white'
+            }`}
             aria-label="Toggle menu"
           >
             {menuOpen ? (
@@ -107,7 +132,7 @@ export default function Header() {
               onClick={() => setMenuOpen(false)}
               className="block px-6 py-4 text-sm font-bold uppercase tracking-wider text-[#764F75] hover:bg-purple-50 transition"
             >
-              NEURO-ІНТЕНСИВ
+              NEUРО-ІНТЕНСИВ
             </a>
           </div>
         )}

@@ -224,7 +224,7 @@ export default function HeroNeuroIntensive() {
               </p>
 
               <p className="hero-ni-meta">
-                Ціна: [ЦІНА]<br />
+                Ціна: 380 грн<br />
                 Доступ: 4 місяці
               </p>
 
@@ -232,8 +232,7 @@ export default function HeroNeuroIntensive() {
                 className="hero-ni-btn"
                 onClick={() =>
                   handlePayment({
-                    // TODO: замінити на реальну ціну
-                    price: 1,
+                    price: 380,
                     eventTitle:
                       'Neuro-інтенсив (міні-програма) — доступ 4 місяці',
                     tariffType: 'neuro_intensive',

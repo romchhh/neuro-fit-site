@@ -94,8 +94,7 @@ export default function ForWhoSection() {
             className="forwho-btn"
             onClick={() =>
               handlePayment({
-                // TODO: замінити на реальну ціну
-                price: 1,
+                price: 1490,
                 eventTitle: 'NeuroFit — приєднання до програми (доступ 4 місяці)',
                 tariffType: 'join_neurofit',
               })

@@ -229,7 +229,7 @@ export default function HeroNeurofit() {
               </p>
 
               <p className="hero-nf-meta">
-                Ціна: [ЦІНА]<br />
+                Ціна: 1490 грн<br />
                 Доступ: 4 місяці
               </p>
 
@@ -237,8 +237,7 @@ export default function HeroNeurofit() {
                 className="hero-nf-btn"
                 onClick={() =>
                   handlePayment({
-                    // TODO: замінити на реальну ціну
-                    price: 1,
+                    price: 1490,
                     eventTitle:
                       'NeuroFit (Основна програма) — доступ 4 місяці',
                     tariffType: 'neurofit_main',
