@@ -72,7 +72,7 @@ export default function NeuroIntensiveFormatSection() {
           font-family: 'Montserrat', sans-serif;
           font-weight: 300;
           font-style: italic;
-          font-size: 18px;
+          font-size: 28px;
           line-height: 1.7;
           color: #3a3040;
         }
@@ -85,7 +85,7 @@ export default function NeuroIntensiveFormatSection() {
             padding: 14px 20px;
           }
           .ni-format-text {
-            font-size: 16px;
+            font-size: 20px;
           }
           .ni-format-bg-title {
             font-size: clamp(42px, 23vw, 83px); /* ~30% більше на мобільному */

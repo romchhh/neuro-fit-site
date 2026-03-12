@@ -40,16 +40,16 @@ export default function HeroNeuroIntensive() {
         <Header />
 
         <div className="flex flex-col flex-1 reveal-up reveal-delay-1" data-animate>
-          {/* Центрований текстовий блок */}
-          <div className="flex-1 flex items-center justify-center px-6 pt-28 md:pt-36">
-            <div className="text-center max-w-3xl mx-auto">
+          {/* Центрований текстовий блок — трохи менший та вище, щоб більше відкривати фото */}
+          <div className="flex-1 flex items-end justify-center px-6 pb-10 md:pb-14">
+            <div className="text-center max-w-2xl mx-auto">
               <h1
                 className="text-center"
                 style={{
                   fontFamily: "'Montserrat', sans-serif",
                   fontWeight: 600,
                   fontStyle: 'normal',
-                  fontSize: 'clamp(3rem, 7vw, 5.4rem)',
+                  fontSize: 'clamp(2.7rem, 6vw, 4.6rem)',
                   lineHeight: 1,
                   letterSpacing: 0,
                   color: 'rgba(255,255,255,0.941)',
@@ -65,7 +65,7 @@ export default function HeroNeuroIntensive() {
                   fontFamily: "'Montserrat', sans-serif",
                   fontWeight: 600,
                   fontStyle: 'italic',
-                  fontSize: 'clamp(1rem, 2.1vw, 1.6rem)',
+                  fontSize: 'clamp(0.95rem, 2vw, 1.45rem)',
                   lineHeight: 1.1,
                   letterSpacing: 0,
                   color: 'rgba(255,255,255,0.941)',
@@ -81,7 +81,7 @@ export default function HeroNeuroIntensive() {
                   fontFamily: "'Montserrat', sans-serif",
                   fontWeight: 600,
                   fontStyle: 'italic',
-                  fontSize: 'clamp(0.98rem, 1.9vw, 1.4rem)',
+                  fontSize: 'clamp(0.9rem, 1.7vw, 1.25rem)',
                   lineHeight: 1.2,
                   letterSpacing: 0,
                   color: 'rgba(255,255,255,0.941)',
@@ -99,7 +99,7 @@ export default function HeroNeuroIntensive() {
                   fontFamily: "'Montserrat', sans-serif",
                   fontWeight: 600,
                   fontStyle: 'italic',
-                  fontSize: 'clamp(0.95rem, 1.6vw, 1.25rem)',
+                  fontSize: 'clamp(0.9rem, 1.5vw, 1.15rem)',
                   lineHeight: 1.2,
                   letterSpacing: 0,
                   color: 'rgba(255,255,255,0.941)',
@@ -118,8 +118,8 @@ export default function HeroNeuroIntensive() {
             <button
               className="inline-block text-center border border-white/70 text-white font-bold rounded-full uppercase tracking-[0.2em] whitespace-nowrap transition-all duration-200 hover:bg:white/20 hover:bg-white/20 active:scale-[0.97]"
               style={{
-                fontSize: 'clamp(0.95rem, 1.8vw, 1.2rem)',
-                padding: 'clamp(14px, 2.5vw, 22px) clamp(36px, 8vw, 80px)',
+                fontSize: 'clamp(1.09rem, 1.8vw, 1.2rem)',
+                padding: 'clamp(16px, 2.5vw, 22px) clamp(41px, 8vw, 80px)',
                 background: 'rgba(255,255,255,0.12)',
                 backdropFilter: 'blur(24px)',
                 WebkitBackdropFilter: 'blur(24px)',
