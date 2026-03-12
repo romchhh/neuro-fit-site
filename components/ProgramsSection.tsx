@@ -215,12 +215,12 @@ export default function ProgramsSection() {
         /* ── Single card ── */
         .prog-card {
           background: #ffffff;
-          border-radius: 28px;
+          border-radius: 30px;
           overflow: hidden;
           border: 1px solid #f3c4e3;
           flex-shrink: 0;
-          /* wider cards, similar to design */
-          width: min(640px, 88vw);
+          /* трохи менші, але все ще акцентні картки */
+          width: min(740px, 94vw);
           scroll-snap-align: start;
           display: flex;
           flex-direction: row;
@@ -228,7 +228,7 @@ export default function ProgramsSection() {
 
         /* image column */
         .prog-card-img-wrap {
-          width: 220px;
+          width: 260px;
           flex-shrink: 0;
           position: relative;
           background: #ede0ea;
@@ -270,8 +270,8 @@ export default function ProgramsSection() {
         .prog-card-img-tag {
           font-family: 'Montserrat', sans-serif;
           font-weight: 700;
-          font-size: 10px;
-          letter-spacing: 0.18em;
+          font-size: 11px;
+          letter-spacing: 0.2em;
           text-transform: uppercase;
           color: #b47fc0;
           display: block;
@@ -280,8 +280,8 @@ export default function ProgramsSection() {
         .prog-card-img-title {
           font-family: 'Montserrat', sans-serif;
           font-weight: 700;
-          font-size: 24px;
-          line-height: 1.05;
+          font-size: 26px;
+          line-height: 1.08;
           color: #1a1a1a;
         }
 
@@ -290,8 +290,8 @@ export default function ProgramsSection() {
           flex: 1;
           display: flex;
           flex-direction: column;
-          gap: 12px;
-          padding: 24px 20px 20px;
+          gap: 16px;
+          padding: 34px 30px 28px;
         }
 
         .prog-card-tag-row {
@@ -304,8 +304,8 @@ export default function ProgramsSection() {
         .prog-card-tag {
           font-family: 'Montserrat', sans-serif;
           font-weight: 700;
-          font-size: 10px;
-          letter-spacing: 0.18em;
+          font-size: 12px;
+          letter-spacing: 0.2em;
           text-transform: uppercase;
           color: #b47fc0;
         }
@@ -313,8 +313,8 @@ export default function ProgramsSection() {
         .prog-card-title {
           font-family: 'Montserrat', sans-serif;
           font-weight: 700;
-          font-size: 38px;
-          line-height: 1.05;
+          font-size: 52px;
+          line-height: 1.03;
           color: #1a1a1a;
         }
 
@@ -322,8 +322,8 @@ export default function ProgramsSection() {
           font-family: 'Montserrat', sans-serif;
           font-weight: 400;
           font-style: italic;
-          font-size: 13px;
-          line-height: 1.55;
+          font-size: 18px;
+          line-height: 1.6;
           color: #6b6b6b;
         }
 
@@ -340,22 +340,22 @@ export default function ProgramsSection() {
         .prog-benefit {
           font-family: 'Montserrat', sans-serif;
           font-weight: 400;
-          font-size: 12px;
-          line-height: 1.5;
+          font-size: 17px;
+          line-height: 1.6;
           color: #3a3a3a;
         }
 
         .prog-btn {
           font-family: 'Montserrat', sans-serif;
           font-weight: 700;
-          font-size: 13px;
-          letter-spacing: 0.16em;
+          font-size: 17px;
+          letter-spacing: 0.21em;
           text-transform: uppercase;
           background: #E8A0C8;
           color: white;
           border: none;
           border-radius: 999px;
-          padding: 16px 34px;
+          padding: 22px 52px;
           cursor: pointer;
           transition: background 0.2s, transform 0.15s;
           align-self: flex-end;
@@ -406,8 +406,8 @@ export default function ProgramsSection() {
 
         /* ── MOBILE ── */
         @media (max-width: 640px) {
-          .prog-inner { padding: 0 14px; }
-          .prog-subtitle { font-size: 20px; line-height: 1.25; }
+          .prog-inner { padding: 0 16px; }
+          .prog-subtitle { font-size: 21px; line-height: 1.28; }
           .prog-bg-title-wrap { margin: 4px 0 -10px 0; }
           .prog-bg-title {
             font-size: clamp(32px, 12vw, 72px);
@@ -418,9 +418,9 @@ export default function ProgramsSection() {
             margin-top: 16px; /* опускаємо картки нижче під текстом */
           }
           .prog-card {
-            width: 92vw;
+            width: 94vw;
             flex-direction: column;     /* на мобільному: фото зверху, текст знизу */
-            border-radius: 22px;
+            border-radius: 24px;
           }
           .prog-dots {
             justify-content: center;
@@ -429,7 +429,7 @@ export default function ProgramsSection() {
             width: 100% !important;
             height: auto !important;
             min-height: 0;
-            border-radius: 22px 22px 0 0; /* заокруглення зверху фото з обох боків */
+            border-radius: 24px 24px 0 0; /* заокруглення зверху фото з обох боків */
             overflow: hidden;
           }
           .prog-card-img-wrap img {
@@ -438,34 +438,39 @@ export default function ProgramsSection() {
           .prog-card-img-overlay {
             display: flex;
           }
-          .prog-card-img-title { font-size: 26px; }
+          .prog-card-img-title { font-size: 30px; }
           .prog-card-tag-row { display: none; }
           .prog-card-title { display: none; }
           .prog-card-content {
-            padding: 18px 16px 16px;
-            gap: 10px;
+            padding: 22px 18px 18px;
+            gap: 12px;
           }
           .prog-card-desc {
-            font-size: 15px;
-            line-height: 1.45;
+            font-size: 17px;
+            line-height: 1.55;
           }
           .prog-benefit {
-            font-size: 14px;
-            line-height: 1.45;
+            font-size: 16px;
+            line-height: 1.55;
           }
           .prog-btn {
             align-self: stretch;
             width: 100%;
             text-align: center;
+            font-size: 16px;
+            padding: 22px 48px;
           }
         }
 
         /* ── TABLET ── */
         @media (min-width: 641px) and (max-width: 1024px) {
-          .prog-subtitle { font-size: 24px; }
-          .prog-card { width: min(540px, 82vw); }
-          .prog-card-img-wrap { width: 180px; }
-          .prog-card-title { font-size: 32px; }
+          .prog-subtitle { font-size: 26px; }
+          .prog-card { width: min(620px, 90vw); }
+          .prog-card-img-wrap { width: 210px; }
+          .prog-card-title { font-size: 48px; }
+          .prog-card-desc { font-size: 17px; }
+          .prog-benefit { font-size: 16px; }
+          .prog-btn { font-size: 17px; padding: 22px 52px; }
         }
       `}</style>
 
