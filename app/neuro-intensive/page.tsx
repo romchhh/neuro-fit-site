@@ -2,6 +2,7 @@ import ScrollRevealProvider from '../scroll-reveal';
 import HeroNeuroIntensive from './HeroNeuroIntensive';
 import NeuroIntensiveChangesSection from '@/components/NeuroIntensiveChangesSection';
 import NeuroIntensiveFormatSection from '@/components/NeuroIntensiveFormatSection';
+import NeuroIntensiveWhatIncludedSection from '@/components/NeuroIntensiveWhatIncludedSection';
 import FooterSection from '@/components/FooterSection';
 import ForWhoSection from '@/components/ForWhoSection';
 
@@ -12,6 +13,7 @@ export default function NeuroIntensivePage() {
         <HeroNeuroIntensive />
         <NeuroIntensiveChangesSection />
         <NeuroIntensiveFormatSection />
+        <NeuroIntensiveWhatIncludedSection />
         <ForWhoSection />
         <FooterSection />
       </div>

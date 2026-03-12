@@ -138,9 +138,8 @@ export default function ReviewsSection() {
         .reviews-section {
           position: relative;
           background: white;
-          padding: 32px 0 48px;
-          overflow-x: visible;
-          overflow-y: hidden;
+          padding: 40px 0 56px;
+          overflow: visible; /* щоб підсвічування та масштаб не обрізались */
         }
 
         .reviews-inner {
@@ -217,16 +216,21 @@ export default function ReviewsSection() {
           z-index: 1;
           width: 100vw;
           margin-left: calc(-32px);  /* pull out of .reviews-inner padding */
+          overflow: visible;
+          padding-top: 20px; /* простір щоб scale і тінь зверху не обрізались */
+          margin-top: -20px; /* компенсуємо відступ, щоб не зміщувати лейаут */
         }
 
         .reviews-scroll {
           display: flex;
           gap: 24px;
           overflow-x: auto;
+          overflow-y: visible; /* дозволяємо картці та тіням виходити за межі контейнера по вертикалі */
           scroll-snap-type: x mandatory;
           scrollbar-width: none;
           scroll-behavior: smooth;
-          padding-bottom: 10px;
+          padding-top: 8px;   /* щоб тінь і scale зверху не обрізались */
+          padding-bottom: 16px;
         }
         .reviews-scroll::-webkit-scrollbar { display: none; }
 
@@ -373,7 +377,11 @@ export default function ReviewsSection() {
             padding-top: 24px; /* трохи вище на мобільній версії */
           }
           .reviews-inner { padding: 0 16px; }
-          .reviews-scroll-outer { margin-left: -16px; }
+          .reviews-scroll-outer {
+            margin-left: -16px;
+            padding-top: 20px;
+            margin-top: -20px;
+          }
           .reviews-subtitle { font-size: 20px; }
           .review-card { width: 85vw; }
           .review-avatar { width: 70px; padding-left: 18px; }

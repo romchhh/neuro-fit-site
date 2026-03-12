@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Header from '@/components/Header';
+import { handlePayment } from '@/utils/handlePayment';
 
 export default function HeroNeurofit() {
   return (
@@ -80,8 +81,8 @@ export default function HeroNeurofit() {
         .hero-nf-btn {
           font-family: 'Montserrat', sans-serif;
           font-weight: 700;
-          font-size: 1.5rem; /* ~20% більше */
-          letter-spacing: 0.26em; /* як у хедері */
+          font-size: 1.35rem;
+          letter-spacing: 0.2em;
           text-transform: uppercase;
           white-space: nowrap; /* "Купити програму" завжди в один рядок */
           color: #5f3a6b;
@@ -130,6 +131,15 @@ export default function HeroNeurofit() {
 
           .hero-nf-btn {
             max-width: 100%;
+          }
+        }
+
+        /* ── EXTRA NARROW PHONES ── */
+        @media (max-width: 430px) {
+          .hero-nf-btn {
+            font-size: 1.1rem;
+            letter-spacing: 0.14em;
+            padding: 20px 42px;
           }
         }
       `}</style>
@@ -181,7 +191,18 @@ export default function HeroNeurofit() {
                 Доступ: 4 місяці
               </p>
 
-              <button className="hero-nf-btn">
+              <button
+                className="hero-nf-btn"
+                onClick={() =>
+                  handlePayment({
+                    // TODO: замінити на реальну ціну
+                    price: 1,
+                    eventTitle:
+                      'NeuroFit (Основна програма) — доступ 4 місяці',
+                    tariffType: 'neurofit_main',
+                  })
+                }
+              >
                 Купити програму
               </button>
             </div>

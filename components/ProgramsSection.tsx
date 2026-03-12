@@ -16,7 +16,7 @@ const programs = [
       "краща увага, концентрація й пам'ять; нижчий рівень стресу.",
     ],
     buttonLabel: 'ДОЛУЧИТИСЯ',
-    image: '/programs/IMG_9142 3.jpg',
+    image: '/programs/IMG_9137.jpg',
     soon: false,
   },
   {
@@ -31,7 +31,7 @@ const programs = [
       'покращуються увага й концентрація, знижується психофізіологічна напруга.',
     ],
     buttonLabel: 'СПРОБУВАТИ ІНТЕНСИВ',
-    image: '/programs/IMG_9197 2.jpg',
+    image: '/programs/IMG_9197.jpg',
     soon: false,
   },
   {
@@ -46,7 +46,7 @@ const programs = [
       'зникає сутулість, живіт виглядає більш підтягнутим, фігура стає гармонійнішою.',
     ],
     buttonLabel: 'ЗАПИСАТИСЯ В ЛИСТ ОЧІКУВАННЯ',
-    image: '/programs/IMG_9222 2.jpg',
+    image: '/programs/IMG_9222.jpg',
     soon: true,
   },
 ];
@@ -201,6 +201,7 @@ export default function ProgramsSection() {
           display: flex;
           gap: 24px;
           overflow-x: auto;
+          overflow-y: hidden;
           scroll-snap-type: x mandatory;
           padding-bottom: 8px;
           /* let cards bleed to edges */
@@ -232,6 +233,56 @@ export default function ProgramsSection() {
           position: relative;
           background: #ede0ea;
           min-height: 300px;
+          /* фіксована пропорція зображення */
+          aspect-ratio: 4 / 5;
+        }
+
+        .prog-card-img-overlay {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          padding: 14px 16px;
+          display: none;
+          align-items: flex-end;
+          justify-content: flex-start;
+        }
+
+        .prog-card-img-overlay-inner {
+          flex: 1;
+          background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.55) 0%,
+            rgba(255, 245, 255, 0.35) 100%
+          );
+          backdrop-filter: blur(28px) saturate(1.6);
+          -webkit-backdrop-filter: blur(28px) saturate(1.6);
+          border-radius: 18px;
+          border: 1px solid rgba(255, 255, 255, 0.55);
+          box-shadow:
+            0 4px 24px rgba(180, 130, 200, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.7),
+            inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+          padding: 10px 14px;
+        }
+
+        .prog-card-img-number,
+        .prog-card-img-tag {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 700;
+          font-size: 10px;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: #b47fc0;
+          display: block;
+        }
+
+        .prog-card-img-title {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 700;
+          font-size: 24px;
+          line-height: 1.05;
+          color: #1a1a1a;
         }
 
         /* content column */
@@ -297,14 +348,14 @@ export default function ProgramsSection() {
         .prog-btn {
           font-family: 'Montserrat', sans-serif;
           font-weight: 700;
-          font-size: 11px;
-          letter-spacing: 0.14em;
+          font-size: 13px;
+          letter-spacing: 0.16em;
           text-transform: uppercase;
           background: #E8A0C8;
           color: white;
           border: none;
           border-radius: 999px;
-          padding: 13px 28px;
+          padding: 16px 34px;
           cursor: pointer;
           transition: background 0.2s, transform 0.15s;
           align-self: flex-end;
@@ -355,22 +406,55 @@ export default function ProgramsSection() {
 
         /* ── MOBILE ── */
         @media (max-width: 640px) {
-          .prog-inner { padding: 0 16px; }
-          .prog-subtitle { font-size: 18px; }
+          .prog-inner { padding: 0 14px; }
+          .prog-subtitle { font-size: 20px; line-height: 1.25; }
+          .prog-bg-title-wrap { margin: 4px 0 -10px 0; }
+          .prog-bg-title {
+            font-size: clamp(32px, 12vw, 72px);
+            white-space: normal;
+          }
           .prog-scroll-area {
-            padding-right: 16px;
-            margin-top: 18px; /* опускаємо картки нижче під текстом */
+            padding-right: 14px;
+            margin-top: 16px; /* опускаємо картки нижче під текстом */
           }
           .prog-card {
-            width: min(640px, 96vw); /* майже як на десктопі, але з невеликим запасом */
-            flex-direction: row;     /* така ж структура, як на комп версії */
+            width: 92vw;
+            flex-direction: column;     /* на мобільному: фото зверху, текст знизу */
+            border-radius: 22px;
           }
           .prog-card-img-wrap {
-            width: 200px !important;
+            width: 100% !important;
             height: auto !important;
-            min-height: 260px;
+            min-height: 0;
+            border-radius: 22px 22px 0 0; /* заокруглення зверху фото з обох боків */
+            overflow: hidden;
           }
-          .prog-card-title { font-size: 28px; }
+          .prog-card-img-wrap img {
+            object-position: center bottom; /* на мобільних обрізається зверху, показуємо нижню частину */
+          }
+          .prog-card-img-overlay {
+            display: flex;
+          }
+          .prog-card-img-title { font-size: 26px; }
+          .prog-card-tag-row { display: none; }
+          .prog-card-title { display: none; }
+          .prog-card-content {
+            padding: 18px 16px 16px;
+            gap: 10px;
+          }
+          .prog-card-desc {
+            font-size: 15px;
+            line-height: 1.45;
+          }
+          .prog-benefit {
+            font-size: 14px;
+            line-height: 1.45;
+          }
+          .prog-btn {
+            align-self: stretch;
+            width: 100%;
+            text-align: center;
+          }
         }
 
         /* ── TABLET ── */
@@ -426,8 +510,14 @@ export default function ProgramsSection() {
                     alt={program.title}
                     fill
                     className="object-cover object-top"
-                    style={{ borderRadius: '28px 0 0 28px' }}
                   />
+                  <div className="prog-card-img-overlay">
+                    <div className="prog-card-img-overlay-inner">
+                      <span className="prog-card-img-number">[{program.number}]</span>
+                      <span className="prog-card-img-tag">{program.tag}</span>
+                      <h3 className="prog-card-img-title">{program.title}</h3>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Text */}
@@ -461,24 +551,21 @@ export default function ProgramsSection() {
                     </ul>
                   </div>
 
-                  {program.number === '01' ? (
+                  {program.number === '01' && (
                     <a
                       href="/neurofit"
                       className={`prog-btn ${program.soon ? 'prog-btn-soon' : ''}`}
                     >
                       {program.buttonLabel}
                     </a>
-                  ) : program.number === '02' ? (
+                  )}
+                  {program.number === '02' && (
                     <a
                       href="/neuro-intensive"
                       className={`prog-btn ${program.soon ? 'prog-btn-soon' : ''}`}
                     >
                       {program.buttonLabel}
                     </a>
-                  ) : (
-                    <button className={`prog-btn ${program.soon ? 'prog-btn-soon' : ''}`}>
-                      {program.buttonLabel}
-                    </button>
                   )}
                 </div>
               </div>

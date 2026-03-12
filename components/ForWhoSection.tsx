@@ -1,3 +1,7 @@
+'use client';
+
+import { handlePayment } from '@/utils/handlePayment';
+
 export default function ForWhoSection() {
   return (
     <>
@@ -86,7 +90,19 @@ export default function ForWhoSection() {
             голова ясніша.
           </p>
 
-          <button className="forwho-btn">ДОЄДНАТИСЯ</button>
+          <button
+            className="forwho-btn"
+            onClick={() =>
+              handlePayment({
+                // TODO: замінити на реальну ціну
+                price: 1,
+                eventTitle: 'NeuroFit — приєднання до програми (доступ 4 місяці)',
+                tariffType: 'join_neurofit',
+              })
+            }
+          >
+            ДОЄДНАТИСЯ
+          </button>
         </div>
       </section>
     </>

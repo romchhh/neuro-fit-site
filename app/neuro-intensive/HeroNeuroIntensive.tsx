@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Header from '@/components/Header';
+import { handlePayment } from '@/utils/handlePayment';
 
 export default function HeroNeuroIntensive() {
   return (
@@ -78,8 +79,8 @@ export default function HeroNeuroIntensive() {
         .hero-ni-btn {
           font-family: 'Montserrat', sans-serif;
           font-weight: 700;
-          font-size: 1.5rem; /* ~20% більше */
-          letter-spacing: 0.26em; /* як у хедері */
+          font-size: 1.35rem;
+          letter-spacing: 0.2em;
           text-transform: uppercase;
           white-space: nowrap; /* "Купити програму" завжди в один рядок */
           color: #5f3a6b;
@@ -129,6 +130,15 @@ export default function HeroNeuroIntensive() {
             max-width: 100%;
           }
         }
+
+        /* ── EXTRA NARROW PHONES ── */
+        @media (max-width: 430px) {
+          .hero-ni-btn {
+            font-size: 1.1rem;
+            letter-spacing: 0.14em;
+            padding: 20px 42px;
+          }
+        }
       `}</style>
 
       <section className="hero-ni">
@@ -176,7 +186,18 @@ export default function HeroNeuroIntensive() {
                 Доступ: 4 місяці
               </p>
 
-              <button className="hero-ni-btn">
+              <button
+                className="hero-ni-btn"
+                onClick={() =>
+                  handlePayment({
+                    // TODO: замінити на реальну ціну
+                    price: 1,
+                    eventTitle:
+                      'Neuro-інтенсив (міні-програма) — доступ 4 місяці',
+                    tariffType: 'neuro_intensive',
+                  })
+                }
+              >
                 Купити програму
               </button>
             </div>

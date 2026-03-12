@@ -1,4 +1,5 @@
 export default function FooterSection() {
+  const year = new Date().getFullYear();
   return (
     <>
       <style>{`
@@ -90,6 +91,23 @@ export default function FooterSection() {
           justify-content: center;
         }
 
+        .nf-footer-bottom {
+          padding: 14px 24px 18px;
+          text-align: center;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 400;
+          font-size: 12px;
+          color: #6b5b73;
+          background: #FFE9FF;
+        }
+
+        .nf-footer-bottom a {
+          color: #6b5b73;
+          text-decoration: underline;
+          text-decoration-thickness: 1px;
+          text-underline-offset: 3px;
+        }
+
         @media (max-width: 640px) {
           .nf-footer-inner {
             border-radius: 28px 28px 0 0;
@@ -99,19 +117,21 @@ export default function FooterSection() {
             justify-items: flex-start;
           }
 
-          /* 1. HOME / NEUROFIT / NEURO-ІНТЕНСИВ — в один ряд, по центру, більший розмір */
+          /* 1. HOME / NEUROFIT / NEURO-ІНТЕНСИВ — в стовпчик, по центру */
           .nf-footer-nav {
             grid-column: 1 / -1;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 14px;
+            gap: 6px;
+            margin: 0 auto; /* центрований блок навігації */
           }
           .nf-footer-nav-item {
             font-size: 20px;
             padding: 4px 0;
             letter-spacing: 0.12em;
             white-space: nowrap;
+            text-align: center;
           }
 
           /* 2. Контакти — по лівому краю */
@@ -214,6 +234,12 @@ export default function FooterSection() {
             </a>
 
           </div>
+        </div>
+        <div className="nf-footer-bottom">
+          © {year} NeuroFit. Всі права захищені.{' '}
+          <a href="https://telebots.site/uk" target="_blank" rel="noreferrer">
+            Telebots&nbsp;|&nbsp;Розробка сайтів
+          </a>
         </div>
       </footer>
     </>

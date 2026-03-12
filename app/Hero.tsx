@@ -57,7 +57,7 @@ export default function Hero() {
                 <div className="pt-5 flex justify-center">
                   <a
                     href="#programs"
-                    className="inline-block bg-white/60 backdrop-blur-2xl border border-white/70 text-[#5f3a6b] font-bold px-20 py-6 rounded-full text-[1.5rem] lg:text-[1.7rem] leading-[1] uppercase tracking-[0.26em] shadow-lg transition-all duration-200 hover:scale-[1.06] hover:bg-white/80 hover:shadow-xl"
+                    className="inline-block bg-white/60 backdrop-blur-2xl border border-white/70 text-[#5f3a6b] font-bold px-16 py-6 rounded-full text-[1.35rem] lg:text-[1.5rem] leading-[1] uppercase tracking-[0.2em] whitespace-nowrap shadow-lg transition-all duration-200 hover:scale-[1.06] hover:bg-white/80 hover:shadow-xl text-center"
                   >
                     ОБРАТИ ПРОГРАМУ
                   </a>
@@ -86,7 +86,7 @@ export default function Hero() {
               <div className="pt-3">
                 <a
                   href="#programs"
-                  className="inline-block w-full text-center bg-white/60 backdrop-blur-2xl border border-white/70 text-[#5f3a6b] font-bold px-14 py-5 rounded-full text-[1.3rem] uppercase tracking-[0.26em] shadow-lg transition-all duration-200 active:scale-[0.97] hover:bg-white/80 hover:shadow-xl"
+                  className="inline-block w-full text-center bg-white/60 backdrop-blur-2xl border border-white/70 text-[#5f3a6b] font-bold px-8 py-5 rounded-full text-[1.1rem] leading-[1] uppercase tracking-[0.18em] whitespace-nowrap shadow-lg transition-all duration-200 active:scale-[0.97] hover:bg-white/80 hover:shadow-xl"
                 >
                   ОБРАТИ ПРОГРАМУ
                 </a>
