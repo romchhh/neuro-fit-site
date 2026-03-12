@@ -20,7 +20,7 @@ export default function AuthorSection() {
           font-family: 'Montserrat', sans-serif;
           font-weight: 700;
           font-style: italic;
-          font-size: 40px;
+          font-size: 48px;
           line-height: 1;
           letter-spacing: 0;
           color: #EAC6EF;
@@ -38,9 +38,7 @@ export default function AuthorSection() {
 
         .author-item {
           font-family: 'Montserrat', sans-serif;
-          font-weight: 275;
           font-style: normal;
-          font-size: 18px;
           line-height: 1.45;
           letter-spacing: 0;
           color: #1a1a1a;
@@ -48,16 +46,15 @@ export default function AuthorSection() {
 
         /* Tablet */
         @media (max-width: 1024px) {
-          .author-label { font-size: 32px; }
+          .author-label { font-size: 36px; }
           .author-name  { font-size: 42px; }
           .author-item  { font-size: 16px; }
         }
 
         /* Mobile */
         @media (max-width: 640px) {
-          .author-label { font-size: 24px; }
+          .author-label { font-size: 28px; }
           .author-name  { font-size: 34px; }
-          .author-item  { font-size: 14px; line-height: 1.5; }
         }
       `}</style>
 
@@ -65,7 +62,7 @@ export default function AuthorSection() {
         className="relative bg-white py-16 md:py-24 px-4 overflow-hidden reveal-up"
         data-animate
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div
             className="rounded-[28px] overflow-hidden flex flex-col md:flex-row reveal-scale"
             style={{ background: "#FFF6FF" }}
@@ -79,13 +76,10 @@ export default function AuthorSection() {
 
               <h2 className="author-name mb-8 md:mb-10">Юлія Бутенко</h2>
 
-              <ul className="space-y-3 md:space-y-4">
+              <ul className="space-y-3 text-[16px] md:text-[24px] font-light text-gray-800 leading-[1.25] text-left">
                 {items.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span
-                      className="shrink-0 rounded-full bg-gray-700"
-                      style={{ width: 5, height: 5, marginTop: "0.6em" }}
-                    />
+                  <li key={item} className="flex gap-3">
+                    <span className="mt-[14px] w-[8px] h-[8px] rounded-full bg-black shrink-0" />
                     <span className="author-item">{item}</span>
                   </li>
                 ))}

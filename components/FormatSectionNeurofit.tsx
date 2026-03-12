@@ -61,8 +61,10 @@ export default function FormatSectionNeurofit() {
           background: #ffffff;
           border-radius: 36px;
           padding: 52px 44px 48px;
-          box-shadow: 0 24px 60px rgba(153, 67, 152, 0.14);
-          border: 1px solid #f3d9f2;
+          /* нейтральна тінь без рожевого відтінку */
+          box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+          /* нейтральна сіра рамка замість рожевої */
+          border: 1px solid #e2e2e2;
           display: flex;
           flex-direction: column;
           align-items: center;

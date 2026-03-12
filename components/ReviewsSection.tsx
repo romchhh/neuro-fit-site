@@ -264,8 +264,8 @@ export default function ReviewsSection() {
         .review-card {
           background: #ffffff;
           border-radius: 28px;
-          box-shadow: 0 18px 45px rgba(153,67,152,0.12);
-          border: 1px solid #f1d4f0;
+          box-shadow: 0 18px 45px rgba(15,23,42,0.08);
+          border: 1px solid #e5e7eb;
           flex-shrink: 0;
           width: 620px;
           max-width: 82vw;
@@ -278,7 +278,7 @@ export default function ReviewsSection() {
 
         .review-card--active {
           transform: scale(1.04);
-          box-shadow: 0 26px 60px rgba(153,67,152,0.22);
+          box-shadow: 0 26px 60px rgba(15,23,42,0.12);
           opacity: 1;
           filter: none;
           z-index: 2;

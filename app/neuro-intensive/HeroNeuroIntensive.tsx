@@ -181,17 +181,20 @@ export default function HeroNeuroIntensive() {
       `}</style>
 
       <section className="hero-ni">
-        {/* Desktop background */}
-        <Image
-          src="/neuro-intensive/hero-desktop-neurointensive.jpg"
-          alt="Neuro-інтенсив"
-          fill
-          priority
-          sizes="100vw"
-          className="hidden md:block object-cover object-center"
-        />
+        {/* Desktop background — обрізаємо зліва */}
+        <div className="hidden md:block absolute inset-0 overflow-hidden">
+          <Image
+            src="/neuro-intensive/hero-desktop-neurointensive.jpg"
+            alt="Neuro-інтенсив"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+            style={{ objectPosition: 'right center' }}
+          />
+        </div>
 
-        {/* Mobile background */}
+        {/* Mobile background — оригінальний вигляд зверху вниз */}
         <Image
           src="/neuro-intensive/hero-mobile-neurointensive.jpg"
           alt="Neuro-інтенсив mobile"

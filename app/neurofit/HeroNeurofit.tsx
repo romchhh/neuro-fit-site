@@ -187,17 +187,18 @@ export default function HeroNeurofit() {
 
       <section className="hero-nf">
 
-        {/* Desktop background */}
+        {/* Desktop background — обрізаємо 20% зверху і 30% знизу */}
         <Image
           src="/neuro-fit/hero-desktop-neurofit.jpg"
           alt="NeuroFit"
           fill
           priority
           sizes="100vw"
-          className="hidden md:block object-cover object-center"
+          className="hidden md:block object-cover"
+          style={{ objectPosition: 'center 40%' }}
         />
 
-        {/* Mobile background */}
+        {/* Mobile background — оригінальний вигляд зверху вниз */}
         <Image
           src="/neuro-fit/hero-mobile-neurofit.png"
           alt="NeuroFit mobile"

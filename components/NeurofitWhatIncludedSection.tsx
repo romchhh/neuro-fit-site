@@ -24,9 +24,12 @@ export default function NeurofitWhatIncludedSection() {
           gap: 40px;
           border-radius: 32px;
           overflow: hidden;
-          background: #fff6ff;
-          box-shadow: 0 32px 90px rgba(153, 67, 152, 0.22);
-          border: 1px solid #f3c4e3;
+          /* нейтральний фон без рожевого */
+          background: #ffffff;
+          /* мʼякша нейтральна тінь */
+          box-shadow: 0 24px 70px rgba(0, 0, 0, 0.08);
+          /* сіра рамка замість рожевої */
+          border: 1px solid #e2e2e2;
           min-height: 620px;
         }
 
@@ -51,7 +54,8 @@ export default function NeurofitWhatIncludedSection() {
           font-size: clamp(40px, 4.2vw, 68px);
           line-height: 1;
           letter-spacing: 0;
-          color: #e8c6f1;
+          /* темніший нейтральний колір без рожевого відтінку */
+          color: #3b2845;
           margin-bottom: 24px;
         }
 

@@ -23,7 +23,7 @@ function SuccessContent() {
           <span>✓ Оплата пройшла успішно</span>
         </div>
 
-        <h1 className="pay-success-title">Дякуємо за довіру до NeuroFit</h1>
+        <h1 className="pay-success-title">Дякуємо за довіру</h1>
         <p className="pay-success-subtitle">
           Доступ до програми вже активовано.
         </p>

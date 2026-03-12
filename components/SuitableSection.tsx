@@ -14,14 +14,14 @@ export default function SuitableSection() {
       <div className="max-w-6xl mx-auto relative">
 
         {/* label */}
-        <div className="flex justify-end mb-4 md:mb-6">
-          <span className="author-label text-right block">
+        <div className="flex justify-start mb-4 md:mb-6">
+          <span className="author-label text-left block">
             Кому підійде
           </span>
         </div>
 
         {/* title */}
-        <h2 className="text-[1.9rem] md:text-[3rem] font-light text-right mb-8 md:mb-14 text-gray-900 leading-none">
+        <h2 className="text-[16px] md:text-[24px] font-light text-left mb-8 md:mb-14 text-gray-900 leading-[1.25]">
           Для жінок, які хочуть результат без насилля над собою і виснажливих тренувань
           <br />
         </h2>

@@ -214,7 +214,7 @@ export default function ProgramsSection() {
 
         /* ── Single card ── */
         .prog-card {
-          background: #FFF6FF;
+          background: #ffffff;
           border-radius: 28px;
           overflow: hidden;
           border: 1px solid #f3c4e3;

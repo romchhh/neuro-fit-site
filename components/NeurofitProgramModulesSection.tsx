@@ -154,16 +154,16 @@ export default function NeurofitProgramModulesSection() {
         .nf-mod-scroll::-webkit-scrollbar { display: none; }
 
         .nf-mod-card {
-          background: #fff6ff;
+          background: #ffffff;
           border-radius: 28px;
-          border: 1px solid #f3c4e3;
+          border: 1px solid #e5e7eb;
           flex-shrink: 0;
           width: min(640px, 88vw);
           scroll-snap-align: start;
           display: flex;
           flex-direction: column;
           padding: 22px 22px 20px;
-          box-shadow: 0 18px 45px rgba(153,67,152,0.12);
+          box-shadow: 0 18px 45px rgba(15,23,42,0.08);
         }
 
         .nf-mod-card-top {

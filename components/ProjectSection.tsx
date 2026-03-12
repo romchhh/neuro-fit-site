@@ -40,13 +40,9 @@ export default function ProjectSection() {
 
   return (
     <section
-      className="relative py-20 px-4 bg-gradient-to-br from-pink-100 via-purple-50 to-white overflow-hidden reveal-up"
+      className="relative py-20 px-4 bg-white overflow-hidden reveal-up"
       data-animate
     >
-      {/* Рожеве світло по центру */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <div className="w-[480px] h-[480px] md:w-[620px] md:h-[620px] rounded-full bg-pink-300/30 blur-3xl" />
-      </div>
 
       <div className="relative container mx-auto max-w-7xl">
         {/* Title */}

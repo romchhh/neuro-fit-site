@@ -11,7 +11,7 @@ export default function FooterSection() {
         }
 
         .nf-footer-inner {
-          background: #FFE9FF;
+          background: white;
           border-radius: 40px 40px 0 0;
           padding: 48px 56px 52px;
           display: grid;
@@ -98,7 +98,7 @@ export default function FooterSection() {
           font-weight: 400;
           font-size: 12px;
           color: #6b5b73;
-          background: #FFE9FF;
+          background: white;
         }
 
         .nf-footer-bottom a {
