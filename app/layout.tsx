@@ -54,6 +54,9 @@ export const metadata: Metadata = {
       "uk-UA": "/",
     },
   },
+  icons: {
+    icon: "/favicon.png",
+  },
   robots: {
     index: true,
     follow: true,

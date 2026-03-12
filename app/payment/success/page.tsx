@@ -29,8 +29,7 @@ function SuccessContent() {
         </p>
 
         <p className="pay-success-text">
-          Натисни кнопку нижче, щоб перейти у Telegram-канал і розпочати
-          навчання. Якщо виникнуть питання — напиши нам у підтримку.
+          Натисни кнопку нижче, щоб перейти у Telegram-канал і розпочати курс. Якщо виникнуть питання — напиши нам у підтримку.
         </p>
 
         <div className="pay-success-actions">
@@ -172,10 +171,27 @@ export default function PaymentSuccessPage() {
         }
 
         @media (max-width: 640px) {
-          .pay-success-card { padding: 28px 20px 32px; border-radius: 24px; }
+          .pay-success-card {
+            padding: 28px 20px 32px;
+            border-radius: 24px;
+          }
+          .pay-success-title {
+            font-size: 1.4rem;
+            letter-spacing: 0.04em;
+          }
+          .pay-success-subtitle { font-size: 0.98rem; }
+          .pay-success-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+          }
           .pay-success-actions { flex-direction: column; }
           .pay-success-btn-primary,
-          .pay-success-btn-secondary { width: 100%; }
+          .pay-success-btn-secondary {
+            width: 100%;
+          }
+          .pay-success-btn-primary {
+            white-space: nowrap;
+          }
         }
       `}</style>
 
