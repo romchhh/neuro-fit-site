@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const siteUrl = "https://neuro-fit-site.vercel.app";
+const siteUrl = process.env.SITE_URL || "https://neuro-fit-site.vercel.app";
 const siteName = "NeuroFit — Smart Movement";
 
 export const metadata: Metadata = {
@@ -50,6 +50,20 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: siteUrl,
+    languages: {
+      "uk-UA": "/",
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 

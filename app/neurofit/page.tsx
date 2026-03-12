@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import ScrollRevealProvider from '../scroll-reveal';
 import HeroNeurofit from './HeroNeurofit';
 import ChangesSection from '@/components/ChangesSection';
@@ -6,6 +7,18 @@ import NeurofitWhatIncludedSection from '@/components/NeurofitWhatIncludedSectio
 import NeurofitProgramModulesSection from '@/components/NeurofitProgramModulesSection';
 import FooterSection from '@/components/FooterSection';
 import ForWhoSection from '@/components/ForWhoSection';
+
+export const metadata: Metadata = {
+  title: 'NeuroFit — основна програма',
+  description:
+    'Основна програма NeuroFit: пілатес + нейрофітнес у прогресії від бази до інтеграції в повсякденне життя. Для тих, хто хоче стабільність, силу та здорову спину без перевантаження.',
+  openGraph: {
+    title: 'NeuroFit — основна програма',
+    description:
+      '4-модульна програма NeuroFit для тіла й нервової системи: постава, стабільність, координація, ресурс.',
+    url: '/neurofit',
+  },
+};
 
 export default function NeurofitPage() {
   return (

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 type Review = {
@@ -186,7 +187,7 @@ export default function ReviewsSection() {
 
         .reviews-bg-title-wrap {
           overflow: hidden;
-          margin-bottom: -22px;
+          margin-bottom: -60px;
           position: relative;
           z-index: 0;
           text-align: center; /* центруємо контейнер */
@@ -194,19 +195,19 @@ export default function ReviewsSection() {
 
         .reviews-bg-title {
           font-family: 'Montserrat', sans-serif;
-          font-weight: 600;
+          font-weight: 700;
           font-style: italic;
-          font-size: clamp(46px, 10vw, 158px);
+          font-size: clamp(60px, 13vw, 250px);
           line-height: 1;
           white-space: nowrap;
-          display: inline-block; /* щоб працювало text-align центру контейнера */
+          display: inline-block;
           background: linear-gradient(90deg, rgba(230,218,240,0.46) 0%, rgba(233,187,232,0.46) 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
           user-select: none;
           pointer-events: none;
-          letter-spacing: 0.18em;
+          letter-spacing: 0;
           text-transform: uppercase;
         }
 
@@ -301,11 +302,7 @@ export default function ReviewsSection() {
           width: 52px;
           height: 52px;
           border-radius: 999px;
-          border: 1.6px solid #c88fdf;
-          background: radial-gradient(circle at 30% 20%, #fdf2ff 0%, #f4c5ff 40%, #e0a5f0 100%);
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          overflow: hidden;
         }
 
         .review-content {
@@ -387,8 +384,12 @@ export default function ReviewsSection() {
           .review-avatar { width: 70px; padding-left: 18px; }
           .review-avatar-dot { width: 44px; height: 44px; }
           .reviews-bg-title {
-            font-size: clamp(42px, 23vw, 83px); /* ~30% більше заголовок на мобільному */
-            white-space: normal;
+            font-size: clamp(40px, 17vw, 80px);
+            white-space: nowrap;
+            letter-spacing: 0;
+          }
+          .reviews-bg-title-wrap {
+            margin-bottom: -30px;
           }
         }
       `}</style>
@@ -427,10 +428,13 @@ export default function ReviewsSection() {
                   >
                     <div className="review-avatar">
                       <div className="review-avatar-dot">
-                        <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
-                          <circle cx="12" cy="9" r="3.2" fill="none" stroke="#8a479f" strokeWidth="1.4"/>
-                          <path d="M6.2 18.2c.9-3 2.8-4.6 5.8-4.6s4.9 1.6 5.8 4.6" fill="none" stroke="#8a479f" strokeWidth="1.4" strokeLinecap="round"/>
-                        </svg>
+                        <Image
+                          src="/review-avatar.png"
+                          alt={review.name}
+                          width={52}
+                          height={52}
+                          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                        />
                       </div>
                     </div>
                     <div className="review-content">

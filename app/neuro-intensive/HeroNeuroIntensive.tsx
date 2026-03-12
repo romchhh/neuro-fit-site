@@ -82,11 +82,17 @@ export default function HeroNeuroIntensive() {
           font-size: 1.35rem;
           letter-spacing: 0.2em;
           text-transform: uppercase;
-          white-space: nowrap; /* "Купити програму" завжди в один рядок */
+          white-space: nowrap;
           color: #5f3a6b;
-          background: rgba(255,255,255,0.2); /* як bg-white/20 у хедері */
+          background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.55) 0%,
+            rgba(255, 245, 255, 0.32) 100%
+          );
+          backdrop-filter: blur(28px) saturate(1.8);
+          -webkit-backdrop-filter: blur(28px) saturate(1.8);
           border-radius: 999px;
-          border: 1px solid rgba(255,255,255,0.7);
+          border: 1px solid rgba(255, 255, 255, 0.65);
           padding: 24px 86px;
           cursor: pointer;
           transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
@@ -96,30 +102,63 @@ export default function HeroNeuroIntensive() {
           width: 100%;
           max-width: 520px;
           margin: 0 auto;
-          box-shadow: 0 22px 60px rgba(0,0,0,0.22);
+          box-shadow:
+            0 22px 60px rgba(0, 0, 0, 0.18),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8),
+            inset 0 -1px 0 rgba(255, 255, 255, 0.2);
         }
         .hero-ni-btn:hover {
-          background: rgba(255,255,255,0.45);
+          background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.72) 0%,
+            rgba(255, 245, 255, 0.48) 100%
+          );
           transform: scale(1.06);
-          box-shadow: 0 28px 78px rgba(0,0,0,0.26);
+          box-shadow:
+            0 28px 78px rgba(0, 0, 0, 0.22),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9),
+            inset 0 -1px 0 rgba(255, 255, 255, 0.25);
         }
 
         @media (max-width: 767px) {
           .hero-ni-body {
             align-items: flex-end;
-            padding: 0 0 40px;
+            padding: 0;
+            position: relative;
+          }
+
+          /* Градієнтне затемнення знизу */
+          .hero-ni-body::before {
+            content: '';
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            height: 75%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(10,5,20,0.55) 45%, rgba(10,5,20,0.84) 100%);
+            pointer-events: none;
+            z-index: 0;
           }
 
           .hero-ni-text {
             max-width: 100%;
             width: 100%;
-            background: rgba(0,0,0,0.28);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border-top: 1px solid rgba(255,255,255,0.35);
-            border-radius: 28px 28px 0 0;
-            padding: 28px 24px 36px;
+            background: none;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border-top: none;
+            border-radius: 0;
+            padding: 60px 24px 36px;
             transform: translateX(0);
+            position: relative;
+            z-index: 1;
+          }
+
+          .hero-ni-title {
+            color: #ffffff;
+          }
+          .hero-ni-tagline,
+          .hero-ni-desc,
+          .hero-ni-meta {
+            color: rgba(255,255,255,0.88);
           }
 
           .hero-ni-title {

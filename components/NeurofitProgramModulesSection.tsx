@@ -261,6 +261,9 @@ export default function NeurofitProgramModulesSection() {
           .nf-mod-img-wrap {
             max-width: 100%;
           }
+          .nf-mod-dots {
+            justify-content: center;
+          }
         }
       `}</style>
 

@@ -111,10 +111,10 @@ export default function FaqSection() {
           grid-column: 2 / 4;
           font-family: 'Montserrat', sans-serif;
           font-weight: 300;
-          font-size: 14px;
-          line-height: 1.7;
-          color: #5a5a5a;
-          margin-top: 8px;
+          font-size: 15px;
+          line-height: 1.8;
+          color: #4a4a4a;
+          margin-top: 10px;
           padding-right: 40px;
         }
 
@@ -125,17 +125,19 @@ export default function FaqSection() {
 
         .faq-label {
           font-family: 'Montserrat', sans-serif;
-          font-weight: 400;
-          font-size: 22px;
-          color: #4a4a4a;
-          margin-bottom: 10px;
+          font-weight: 500;
+          font-size: 24px;
+          color: #3a3040;
+          margin-bottom: 14px;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
         }
 
         .faq-bg-title {
           font-family: 'Montserrat', sans-serif;
-          font-weight: 600;
+          font-weight: 700;
           font-style: italic;
-          font-size: clamp(76px, 12vw, 156px);
+          font-size: clamp(90px, 13vw, 180px);
           line-height: 1;
           color: #f1d7f3;
         }
@@ -173,7 +175,13 @@ export default function FaqSection() {
             text-align: center; /* центруємо заголовок і FAQ на мобільному */
           }
           .faq-bg-title {
-            font-size: clamp(60px, 20vw, 96px);
+            font-size: clamp(54px, 18vw, 110px);
+          }
+          .faq-label {
+            font-size: 20px;
+          }
+          .faq-answer {
+            font-size: 15px;
           }
           .faq-note-wrapper {
             margin-top: 28px;

@@ -3,8 +3,8 @@
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
 
-// Посилання на підтримку — заміни на реальне
-const SUPPORT_URL = 'https://t.me/ЗАМІНИ_НА_СВОЄ';
+// Посилання на підтримку
+const SUPPORT_URL = 'https://t.me/+EizJRY-CVTRmYzYy';
 
 function FailContent() {
   const searchParams = useSearchParams();

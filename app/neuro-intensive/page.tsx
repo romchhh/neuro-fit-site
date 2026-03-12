@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import ScrollRevealProvider from '../scroll-reveal';
 import HeroNeuroIntensive from './HeroNeuroIntensive';
 import NeuroIntensiveChangesSection from '@/components/NeuroIntensiveChangesSection';
@@ -5,6 +6,18 @@ import NeuroIntensiveFormatSection from '@/components/NeuroIntensiveFormatSectio
 import NeuroIntensiveWhatIncludedSection from '@/components/NeuroIntensiveWhatIncludedSection';
 import FooterSection from '@/components/FooterSection';
 import ForWhoSection from '@/components/ForWhoSection';
+
+export const metadata: Metadata = {
+  title: 'Neuro-інтенсив — міні-програма',
+  description:
+    'Neuro-інтенсив — міні-програма, щоб швидко відчути звʼязок мозку й тіла, покращити координацію та концентрацію без перевантаження.',
+  openGraph: {
+    title: 'Neuro-інтенсив — міні-програма',
+    description:
+      'Короткий Neuro-інтенсив: пілатес, функціональні звʼязки та нейрофітнес для швидкого старту й відчутного ефекту.',
+    url: '/neuro-intensive',
+  },
+};
 
 export default function NeuroIntensivePage() {
   return (

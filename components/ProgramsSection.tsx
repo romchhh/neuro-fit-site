@@ -422,6 +422,9 @@ export default function ProgramsSection() {
             flex-direction: column;     /* на мобільному: фото зверху, текст знизу */
             border-radius: 22px;
           }
+          .prog-dots {
+            justify-content: center;
+          }
           .prog-card-img-wrap {
             width: 100% !important;
             height: auto !important;

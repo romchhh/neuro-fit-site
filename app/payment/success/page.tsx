@@ -3,14 +3,13 @@
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
 
-// Telegram-посилання для кожного тарифу — заміни на реальні
+// Telegram-групи після успішної оплати
 const TELEGRAM_LINKS: Record<string, string> = {
-  neurofit_main:   'https://t.me/ЗАМІНИ_НА_СВОЄ',
-  neuro_intensive: 'https://t.me/ЗАМІНИ_НА_СВОЄ',
-  // додай інші тарифи за потреби
+  neurofit_main:   'https://t.me/+KAJDH5sl1WkwNGEy',
+  neuro_intensive: 'https://t.me/+Y-hz8LITGdUwMmIy',
 };
 
-const DEFAULT_TELEGRAM = 'https://t.me/neurofit_smartmovement';
+const DEFAULT_TELEGRAM = 'https://t.me/+EizJRY-CVTRmYzYy';
 
 function SuccessContent() {
   const searchParams = useSearchParams();

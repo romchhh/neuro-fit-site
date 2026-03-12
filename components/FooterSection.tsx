@@ -179,7 +179,7 @@ export default function FooterSection() {
 
             {/* Instagram */}
             <a
-              href="https://www.instagram.com/neurofit.smartmovement"
+              href="https://www.instagram.com/juli.butenko.fit?igsh=NjRldDl1a3NweHBs&utm_source=qr"
               target="_blank"
               rel="noreferrer"
               className="nf-footer-contact-row"
@@ -194,9 +194,9 @@ export default function FooterSection() {
               <span className="nf-footer-contact-label">Instagram</span>
             </a>
 
-            {/* Telegram */}
+            {/* Telegram (спільнота) */}
             <a
-              href="https://t.me/neurofit_smartmovement"
+              href="https://t.me/+EizJRY-CVTRmYzYy"
               target="_blank"
               rel="noreferrer"
               className="nf-footer-contact-row"
@@ -221,7 +221,7 @@ export default function FooterSection() {
 
             {/* Email */}
             <a
-              href="mailto:hello@neurofit.com"
+              href="mailto:pilates.yuliia@gmail.com"
               className="nf-footer-contact-row"
             >
               <span className="nf-icon">
@@ -231,6 +231,22 @@ export default function FooterSection() {
                 </svg>
               </span>
               <span className="nf-footer-contact-label">Email</span>
+            </a>
+
+            {/* YouTube */}
+            <a
+              href="https://youtube.com/@julifit?si=o9Ao4qu2EmBC_ELl"
+              target="_blank"
+              rel="noreferrer"
+              className="nf-footer-contact-row"
+            >
+              <span className="nf-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2" y="4" width="20" height="16" rx="4" stroke="#1e1624" strokeWidth="1.8"/>
+                  <path d="M11 9.5 15 12l-4 2.5V9.5Z" fill="#1e1624"/>
+                </svg>
+              </span>
+              <span className="nf-footer-contact-label">YouTube</span>
             </a>
 
           </div>
