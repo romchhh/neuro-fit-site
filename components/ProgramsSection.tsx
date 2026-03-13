@@ -54,7 +54,12 @@ const programs = [
 export default function ProgramsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement | null>(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const activeIndexRef = useRef(0);
+  const isScrollingRef = useRef(false);
+  const touchStartYRef = useRef(0);
+  const touchStartXRef = useRef(0);
 
   const scrollToIndex = (index: number) => {
     const container = scrollRef.current;
@@ -69,6 +74,7 @@ export default function ProgramsSection() {
       left: container.scrollLeft + offset,
       behavior: 'smooth',
     });
+    activeIndexRef.current = index;
     setActiveIndex(index);
   };
 
@@ -103,11 +109,131 @@ export default function ProgramsSection() {
         }
       });
 
+      activeIndexRef.current = closestIndex;
       setActiveIndex(closestIndex);
     };
 
     container.addEventListener('scroll', onScroll, { passive: true });
     return () => container.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Scroll hijacking: intercept vertical wheel/touch when section is in view
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const isMobile = () => window.innerWidth <= 640;
+
+    const isSectionFullyVisible = () => {
+      const rect = section.getBoundingClientRect();
+      const vh = window.innerHeight;
+      return rect.top >= 0 && rect.bottom <= vh;
+    };
+
+    const isSectionInView = () => {
+      const rect = section.getBoundingClientRect();
+      const vh = window.innerHeight;
+      return rect.top <= vh * 0.3 && rect.bottom >= vh * 0.7;
+    };
+
+    const scrollSectionIntoView = () => {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+    const onWheel = (e: WheelEvent) => {
+      if (!isSectionInView()) return;
+
+      const current = activeIndexRef.current;
+      const last = programs.length - 1;
+      const goingDown = e.deltaY > 0;
+      const goingUp = e.deltaY < 0;
+
+      if ((goingUp && current === 0) || (goingDown && current === last)) return;
+
+      e.preventDefault();
+
+      if (isScrollingRef.current) return;
+      isScrollingRef.current = true;
+
+      if (goingDown && current < last) {
+        scrollToIndex(current + 1);
+      } else if (goingUp && current > 0) {
+        scrollToIndex(current - 1);
+      }
+
+      setTimeout(() => {
+        isScrollingRef.current = false;
+      }, 700);
+    };
+
+    const onTouchStart = (e: TouchEvent) => {
+      touchStartYRef.current = e.touches[0].clientY;
+      touchStartXRef.current = e.touches[0].clientX;
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      const deltaY = touchStartYRef.current - e.touches[0].clientY;
+      const deltaX = Math.abs(touchStartXRef.current - e.touches[0].clientX);
+
+      // Only handle predominantly vertical swipes
+      if (Math.abs(deltaY) < deltaX) return;
+
+      const rect = section.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const sectionVisible = rect.top < vh && rect.bottom > 0;
+
+      if (!sectionVisible) return;
+
+      const current = activeIndexRef.current;
+      const last = programs.length - 1;
+      const goingDown = deltaY > 10;
+      const goingUp = deltaY < -10;
+
+      if (!goingDown && !goingUp) return;
+
+      // On mobile: if section isn't fully in view yet, snap it into view first
+      if (isMobile() && !isSectionFullyVisible()) {
+        if (goingDown) {
+          e.preventDefault();
+          if (!isScrollingRef.current) {
+            isScrollingRef.current = true;
+            scrollSectionIntoView();
+            touchStartYRef.current = e.touches[0].clientY;
+            setTimeout(() => { isScrollingRef.current = false; }, 700);
+          }
+        }
+        return;
+      }
+
+      if ((goingUp && current === 0) || (goingDown && current === last)) return;
+
+      e.preventDefault();
+
+      if (isScrollingRef.current) return;
+      isScrollingRef.current = true;
+
+      if (goingDown && current < last) {
+        scrollToIndex(current + 1);
+        touchStartYRef.current = e.touches[0].clientY;
+      } else if (goingUp && current > 0) {
+        scrollToIndex(current - 1);
+        touchStartYRef.current = e.touches[0].clientY;
+      }
+
+      setTimeout(() => {
+        isScrollingRef.current = false;
+      }, 700);
+    };
+
+    section.addEventListener('wheel', onWheel, { passive: false });
+    section.addEventListener('touchstart', onTouchStart, { passive: true });
+    section.addEventListener('touchmove', onTouchMove, { passive: false });
+
+    return () => {
+      section.removeEventListener('wheel', onWheel);
+      section.removeEventListener('touchstart', onTouchStart);
+      section.removeEventListener('touchmove', onTouchMove);
+    };
   }, []);
 
   return (
@@ -220,7 +346,7 @@ export default function ProgramsSection() {
           border: 1px solid #f3c4e3;
           flex-shrink: 0;
           /* трохи менші, але все ще акцентні картки */
-          width: min(740px, 94vw);
+          width: min(880px, 94vw);
           scroll-snap-align: start;
           display: flex;
           flex-direction: row;
@@ -228,7 +354,7 @@ export default function ProgramsSection() {
 
         /* image column */
         .prog-card-img-wrap {
-          width: 260px;
+          width: 300px;
           flex-shrink: 0;
           position: relative;
           background: #ede0ea;
@@ -465,8 +591,8 @@ export default function ProgramsSection() {
         /* ── TABLET ── */
         @media (min-width: 641px) and (max-width: 1024px) {
           .prog-subtitle { font-size: 26px; }
-          .prog-card { width: min(620px, 90vw); }
-          .prog-card-img-wrap { width: 210px; }
+          .prog-card { width: min(720px, 90vw); }
+          .prog-card-img-wrap { width: 240px; }
           .prog-card-title { font-size: 48px; }
           .prog-card-desc { font-size: 17px; }
           .prog-benefit { font-size: 16px; }
@@ -474,7 +600,7 @@ export default function ProgramsSection() {
         }
       `}</style>
 
-      <section id="programs" className="prog-section reveal-up" data-animate>
+      <section id="programs" className="prog-section reveal-up" data-animate ref={sectionRef}>
         <div className="prog-inner">
 
           {/* Header */}
