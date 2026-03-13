@@ -30,13 +30,21 @@ export default function HeroNeurofit() {
         className="md:hidden object-cover object-top"
       />
 
-      {/* Легке затемнення як на головній */}
+      {/* Загальне легке затемнення */}
       <div
         className="absolute inset-0 pointer-events-none z-[1]"
         style={{ background: 'rgba(20,15,25,0.06)' }}
       />
 
-      <div className="relative z-10 flex flex-col min-h-screen">
+      {/* Градієнтне затемнення під текстом внизу */}
+      <div
+        className="absolute inset-0 pointer-events-none z-[2]"
+        style={{
+          background: 'linear-gradient(to top, rgba(10,6,18,0.68) 0%, rgba(10,6,18,0.38) 35%, transparent 65%)',
+        }}
+      />
+
+      <div className="relative z-[10] flex flex-col min-h-screen">
         <Header />
 
         <div className="flex flex-col flex-1 reveal-up reveal-delay-1" data-animate>
@@ -134,7 +142,7 @@ export default function HeroNeurofit() {
                 })
               }
             >
-              Купити програму
+              Доєднатися
             </button>
           </div>
         </div>

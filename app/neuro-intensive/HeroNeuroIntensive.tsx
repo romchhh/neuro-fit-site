@@ -30,10 +30,18 @@ export default function HeroNeuroIntensive() {
         className="md:hidden object-cover object-top"
       />
 
-      {/* Легке затемнення як на головній */}
+      {/* Загальне легке затемнення */}
       <div
         className="absolute inset-0 pointer-events-none z-[1]"
         style={{ background: 'rgba(20,15,25,0.06)' }}
+      />
+
+      {/* Градієнтне затемнення під текстом внизу */}
+      <div
+        className="absolute inset-0 pointer-events-none z-[2]"
+        style={{
+          background: 'linear-gradient(to top, rgba(10,6,18,0.68) 0%, rgba(10,6,18,0.38) 35%, transparent 65%)',
+        }}
       />
 
       <div className="relative z-10 flex flex-col min-h-screen">
@@ -134,7 +142,7 @@ export default function HeroNeuroIntensive() {
                 })
               }
             >
-              Купити програму
+              Доєднатися
             </button>
           </div>
         </div>
