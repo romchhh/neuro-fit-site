@@ -163,7 +163,7 @@ export default function ProgramsSection() {
         }
       }
 
-      // ── Стан: captured — обробляємо скрол карток ──
+      // ── Стан: captured — обробляємо скрол карток ─
 
       // Перевіряємо чи є куди гортати
       const atStart = current === 0 && goingUp;
