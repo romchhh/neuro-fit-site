@@ -61,16 +61,19 @@ export default function ProgramsSection() {
   const touchStartYRef = useRef(0);
   const touchStartXRef = useRef(0);
 
+  // Desktop scroll-hijack state
+  // 'idle'     — секція не активна
+  // 'captured' — секція захопила скрол, гортаємо картки
+  // 'released' — всі картки переглянуто, скрол повернено сторінці
+  const desktopStateRef = useRef<'idle' | 'captured' | 'released'>('idle');
+  // Кількість скролів які потрібні щоб "відпустити" після останньої/першої картки
+  const releaseWheelCountRef = useRef(0);
+  const RELEASE_THRESHOLD = 2; // скільки додаткових wheel-подій треба щоб відпустити
+
   const scrollToIndex = (index: number) => {
     const card = cardRefs.current[index];
     if (!card) return;
-
-    // На мобільному та десктопі: центруємо картку в скрол-контейнері
-    card.scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'center',
-    });
+    card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     activeIndexRef.current = index;
     setActiveIndex(index);
   };
@@ -85,6 +88,7 @@ export default function ProgramsSection() {
     scrollToIndex(nextIndex);
   };
 
+  // Оновлення activeIndex при нативному скролі контейнера
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
@@ -114,110 +118,209 @@ export default function ProgramsSection() {
     return () => container.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Scroll hijacking: intercept vertical wheel/touch when section is in view
+  // ── DESKTOP: wheel-hijack ──
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
 
     const isMobile = () => window.innerWidth <= 640;
 
-    const isSectionFullyVisible = () => {
+    const isSectionInViewport = () => {
       const rect = section.getBoundingClientRect();
       const vh = window.innerHeight;
-      return rect.top >= 0 && rect.bottom <= vh;
-    };
-
-    const isSectionInView = () => {
-      const rect = section.getBoundingClientRect();
-      const vh = window.innerHeight;
-      return rect.top <= vh * 0.3 && rect.bottom >= vh * 0.7;
-    };
-
-    const scrollSectionIntoView = () => {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Секція вважається "в зоні" якщо вона займає більшість екрану
+      return rect.top <= vh * 0.15 && rect.bottom >= vh * 0.85;
     };
 
     const onWheel = (e: WheelEvent) => {
-      if (!isSectionInView()) return;
+      if (isMobile()) return;
+      if (!isSectionInViewport()) {
+        // Якщо секція вийшла з вʼюпорту — скидаємо стан
+        desktopStateRef.current = 'idle';
+        releaseWheelCountRef.current = 0;
+        return;
+      }
 
       const current = activeIndexRef.current;
       const last = programs.length - 1;
       const goingDown = e.deltaY > 0;
       const goingUp = e.deltaY < 0;
 
-      if ((goingUp && current === 0) || (goingDown && current === last)) return;
+      // ── Стан: idle → потрапляємо на секцію, захоплюємо ──
+      if (desktopStateRef.current === 'idle') {
+        desktopStateRef.current = 'captured';
+        releaseWheelCountRef.current = 0;
+      }
 
+      // ── Стан: released — скрол повернено сторінці, не перехоплюємо ──
+      if (desktopStateRef.current === 'released') {
+        // Якщо скролять назад (вгору) і ми на початку — знову захопити
+        if (goingUp && current === 0) {
+          desktopStateRef.current = 'captured';
+          releaseWheelCountRef.current = 0;
+        } else {
+          return; // відпускаємо подію сторінці
+        }
+      }
+
+      // ── Стан: captured — обробляємо скрол карток ──
+
+      // Перевіряємо чи є куди гортати
+      const atStart = current === 0 && goingUp;
+      const atEnd = current === last && goingDown;
+
+      if (atStart || atEnd) {
+        // На межі — рахуємо додаткові скроли для "відпустити"
+        releaseWheelCountRef.current += 1;
+        if (releaseWheelCountRef.current >= RELEASE_THRESHOLD) {
+          desktopStateRef.current = 'released';
+          releaseWheelCountRef.current = 0;
+          return; // відпускаємо подію сторінці
+        }
+        // Ще не досягли порогу — блокуємо
+        e.preventDefault();
+        return;
+      }
+
+      // Є картки для гортання — перехоплюємо
       e.preventDefault();
+      releaseWheelCountRef.current = 0;
 
       if (isScrollingRef.current) return;
       isScrollingRef.current = true;
 
-      if (goingDown && current < last) {
-        scrollToIndex(current + 1);
-      } else if (goingUp && current > 0) {
-        scrollToIndex(current - 1);
-      }
+      if (goingDown) scrollToIndex(current + 1);
+      else if (goingUp) scrollToIndex(current - 1);
 
-      setTimeout(() => {
-        isScrollingRef.current = false;
-      }, 700);
+      setTimeout(() => { isScrollingRef.current = false; }, 700);
     };
 
-    const onTouchStart = (e: TouchEvent) => {
-      touchStartYRef.current = e.touches[0].clientY;
-      touchStartXRef.current = e.touches[0].clientX;
-    };
-
-    const onTouchMove = (e: TouchEvent) => {
-      // На мобільному не перехоплюємо дотики: вертикальний скрол — сторінка, горизонтальний — нативний скрол карток
+    // Скидаємо стан при скролі сторінки (щоб при поверненні секція знову захоплювала)
+    const onWindowScroll = () => {
       if (isMobile()) return;
-
-      const deltaY = touchStartYRef.current - e.touches[0].clientY;
-      const deltaX = Math.abs(touchStartXRef.current - e.touches[0].clientX);
-
-      if (Math.abs(deltaY) < deltaX) return;
-
-      const rect = section.getBoundingClientRect();
-      const vh = window.innerHeight;
-      const sectionVisible = rect.top < vh && rect.bottom > 0;
-
-      if (!sectionVisible) return;
-
-      const current = activeIndexRef.current;
-      const last = programs.length - 1;
-      const goingDown = deltaY > 10;
-      const goingUp = deltaY < -10;
-
-      if (!goingDown && !goingUp) return;
-
-      if ((goingUp && current === 0) || (goingDown && current === last)) return;
-
-      e.preventDefault();
-
-      if (isScrollingRef.current) return;
-      isScrollingRef.current = true;
-
-      if (goingDown && current < last) {
-        scrollToIndex(current + 1);
-        touchStartYRef.current = e.touches[0].clientY;
-      } else if (goingUp && current > 0) {
-        scrollToIndex(current - 1);
-        touchStartYRef.current = e.touches[0].clientY;
+      if (!isSectionInViewport()) {
+        desktopStateRef.current = 'idle';
+        releaseWheelCountRef.current = 0;
       }
-
-      setTimeout(() => {
-        isScrollingRef.current = false;
-      }, 700);
     };
 
     section.addEventListener('wheel', onWheel, { passive: false });
-    section.addEventListener('touchstart', onTouchStart, { passive: true });
-    section.addEventListener('touchmove', onTouchMove, { passive: false });
+    window.addEventListener('scroll', onWindowScroll, { passive: true });
 
     return () => {
       section.removeEventListener('wheel', onWheel);
+      window.removeEventListener('scroll', onWindowScroll);
+    };
+  }, []);
+
+  // ── MOBILE: touch-hijack ──
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const isMobile = () => window.innerWidth <= 640;
+
+    // 'idle' | 'scrolling-cards' | 'released'
+    const mobileStateRef = { current: 'idle' as 'idle' | 'scrolling-cards' | 'released' };
+    let touchStartY = 0;
+    let touchStartX = 0;
+    let isVerticalSwipe: boolean | null = null;
+
+    const isSectionPartiallyInView = () => {
+      const rect = section.getBoundingClientRect();
+      const vh = window.innerHeight;
+      return rect.top < vh && rect.bottom > 0;
+    };
+
+    const onTouchStart = (e: TouchEvent) => {
+      if (!isMobile()) return;
+      touchStartY = e.touches[0].clientY;
+      touchStartX = e.touches[0].clientX;
+      isVerticalSwipe = null;
+
+      if (!isSectionPartiallyInView()) {
+        mobileStateRef.current = 'idle';
+      }
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      if (!isMobile()) return;
+      if (!isSectionPartiallyInView()) return;
+
+      const deltaY = touchStartY - e.touches[0].clientY;
+      const deltaX = e.touches[0].clientX - touchStartX;
+      const absDY = Math.abs(deltaY);
+      const absDX = Math.abs(deltaX);
+
+      // Визначаємо напрямок свайпу один раз
+      if (isVerticalSwipe === null && (absDY > 8 || absDX > 8)) {
+        isVerticalSwipe = absDY >= absDX;
+      }
+
+      if (isVerticalSwipe === false) {
+        // Горизонтальний свайп — нативний скрол карток, не чіпаємо
+        return;
+      }
+
+      if (isVerticalSwipe === null) return;
+
+      // Вертикальний свайп
+      const current = activeIndexRef.current;
+      const last = programs.length - 1;
+      const swipeDown = deltaY > 0; // палець вгору = скрол вниз по контенту
+      const swipeUp = deltaY < 0;
+
+      if (mobileStateRef.current === 'idle') {
+        // Перший вертикальний свайп на секції — захоплюємо
+        mobileStateRef.current = 'scrolling-cards';
+      }
+
+      if (mobileStateRef.current === 'released') {
+        // Після відпускання — якщо повертаємось назад
+        if (swipeUp && current === last) {
+          mobileStateRef.current = 'scrolling-cards';
+        } else {
+          return;
+        }
+      }
+
+      if (mobileStateRef.current === 'scrolling-cards') {
+        const atEnd = current === last && swipeDown;
+        const atStart = current === 0 && swipeUp;
+
+        if (atEnd || atStart) {
+          // Відпускаємо сторінку
+          mobileStateRef.current = 'released';
+          return;
+        }
+
+        // Є картки для переключення
+        e.preventDefault();
+
+        if (isScrollingRef.current) return;
+        isScrollingRef.current = true;
+
+        if (swipeDown) scrollToIndex(current + 1);
+        else if (swipeUp) scrollToIndex(current - 1);
+
+        touchStartY = e.touches[0].clientY;
+
+        setTimeout(() => { isScrollingRef.current = false; }, 700);
+      }
+    };
+
+    const onTouchEnd = () => {
+      isVerticalSwipe = null;
+    };
+
+    section.addEventListener('touchstart', onTouchStart, { passive: true });
+    section.addEventListener('touchmove', onTouchMove, { passive: false });
+    section.addEventListener('touchend', onTouchEnd, { passive: true });
+
+    return () => {
       section.removeEventListener('touchstart', onTouchStart);
       section.removeEventListener('touchmove', onTouchMove);
+      section.removeEventListener('touchend', onTouchEnd);
     };
   }, []);
 
@@ -289,7 +392,6 @@ export default function ProgramsSection() {
           font-family: 'Montserrat', sans-serif;
           font-weight: 600;
           font-style: italic;
-          /* ще +15% розміру, але з обмеженням */
           font-size: clamp(46px, 10vw, 158px);
           line-height: 1;
           white-space: nowrap;
@@ -315,7 +417,6 @@ export default function ProgramsSection() {
           overflow-y: hidden;
           scroll-snap-type: x mandatory;
           padding-bottom: 8px;
-          /* let cards bleed to edges */
           padding-left: 0;
           padding-right: 32px;
           scrollbar-width: none;
@@ -330,7 +431,6 @@ export default function ProgramsSection() {
           overflow: hidden;
           border: 1px solid #f3c4e3;
           flex-shrink: 0;
-          /* трохи менші, але все ще акцентні картки */
           width: min(880px, 94vw);
           scroll-snap-align: start;
           display: flex;
@@ -344,7 +444,6 @@ export default function ProgramsSection() {
           position: relative;
           background: #ede0ea;
           min-height: 300px;
-          /* фіксована пропорція зображення */
           aspect-ratio: 4 / 5;
         }
 
@@ -530,26 +629,26 @@ export default function ProgramsSection() {
             -webkit-overflow-scrolling: touch;
             scroll-snap-type: x mandatory;
           }
+          .prog-dots {
+            justify-content: center;
+          }
           .prog-card {
             width: 94vw;
             flex-shrink: 0;
             scroll-snap-align: center;
             scroll-snap-stop: always;
-            flex-direction: column;     /* на мобільному: фото зверху, текст знизу */
+            flex-direction: column;
             border-radius: 24px;
-          }
-          .prog-dots {
-            justify-content: center;
           }
           .prog-card-img-wrap {
             width: 100% !important;
             height: auto !important;
             min-height: 0;
-            border-radius: 24px 24px 0 0; /* заокруглення зверху фото з обох боків */
+            border-radius: 24px 24px 0 0;
             overflow: hidden;
           }
           .prog-card-img-wrap img {
-            object-position: center bottom; /* на мобільних обрізається зверху, показуємо нижню частину */
+            object-position: center bottom;
           }
           .prog-card-img-overlay {
             display: flex;
@@ -608,11 +707,7 @@ export default function ProgramsSection() {
           <div className="prog-bg-title-wrap reveal-fade reveal-delay-1" data-animate>
             <svg width="100%" height="1em" viewBox="0 0 1 1" preserveAspectRatio="none"
               style={{ position: 'absolute', opacity: 0, pointerEvents: 'none' }} aria-hidden />
-            <span
-              className="prog-bg-title"
-            >
-              Вибір програми
-            </span>
+            <span className="prog-bg-title">Вибір програми</span>
           </div>
 
           {/* Cards */}
@@ -622,11 +717,8 @@ export default function ProgramsSection() {
                 key={program.number}
                 className="prog-card reveal-up reveal-delay-1"
                 data-animate
-                ref={(el) => {
-                  cardRefs.current[index] = el;
-                }}
+                ref={(el) => { cardRefs.current[index] = el; }}
               >
-
                 {/* Photo */}
                 <div className="prog-card-img-wrap">
                   <Image
@@ -676,18 +768,12 @@ export default function ProgramsSection() {
                   </div>
 
                   {program.number === '01' && (
-                    <a
-                      href="/neurofit"
-                      className={`prog-btn ${program.soon ? 'prog-btn-soon' : ''}`}
-                    >
+                    <a href="/neurofit" className={`prog-btn ${program.soon ? 'prog-btn-soon' : ''}`}>
                       {program.buttonLabel}
                     </a>
                   )}
                   {program.number === '02' && (
-                    <a
-                      href="/neuro-intensive"
-                      className={`prog-btn ${program.soon ? 'prog-btn-soon' : ''}`}
-                    >
+                    <a href="/neuro-intensive" className={`prog-btn ${program.soon ? 'prog-btn-soon' : ''}`}>
                       {program.buttonLabel}
                     </a>
                   )}
