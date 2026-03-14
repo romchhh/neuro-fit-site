@@ -49,7 +49,7 @@ export default function HeroNeurofit() {
 
         <div className="flex flex-col flex-1 reveal-up reveal-delay-1" data-animate>
           {/* Центрований текстовий блок — трохи менший та вище, щоб більше відкривати фото */}
-          <div className="flex-1 flex items-end justify-center px-6 pb-10 md:pb-14">
+          <div className="flex-1 flex items-end justify-center px-6 pb-1 md:pb-3">
             <div className="text-center max-w-2xl mx-auto">
               <h1
                 className="text-center"
@@ -73,14 +73,27 @@ export default function HeroNeurofit() {
                   fontFamily: "'Montserrat', sans-serif",
                   fontWeight: 600,
                   fontStyle: 'italic',
-                  fontSize: 'clamp(0.95rem, 2vw, 1.4rem)',
+                  fontSize: 'clamp(0.85rem, 1.7vw, 1.1rem)',
                   lineHeight: 1.1,
                   letterSpacing: 0,
-                  color: 'rgba(255,255,255,0.941)',
                   filter: 'drop-shadow(0px 4px 4.8px rgba(0,0,0,0.251))',
                 }}
               >
-                Основна програма: пілатес + нейрофітнес
+                <span
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '0.5rem 1.25rem',
+                    borderRadius: 999,
+                    background: 'rgba(255, 219, 236, 0.92)',
+                    color: '#4C2440',
+                    whiteSpace: 'nowrap',
+                    boxShadow: '0 4px 18px rgba(0,0,0,0.18)',
+                  }}
+                >
+                  Основна програма · пілатес + нейрофітнес
+                </span>
               </p>
 
               <p
@@ -112,47 +125,98 @@ export default function HeroNeurofit() {
                   border: '1px solid rgba(255,255,255,0.25)',
                   boxShadow: '0 4px 24px rgba(0,0,0,0.12)',
                   maxWidth: 420,
+                  position: 'relative',
+                  zIndex: 1,
                 }}
               >
-                <p
-                  style={{
-                    fontWeight: 600,
-                    fontStyle: 'italic',
-                    fontSize: 'clamp(0.85rem, 1.4vw, 1.05rem)',
-                    lineHeight: 1.3,
-                    color: 'rgba(255,255,255,0.98)',
-                    margin: 0,
-                  }}
-                >
-                  Бонус: вебінар дихання
-                </p>
                 <p
                   className="mt-3"
                   style={{
                     fontWeight: 600,
                     fontStyle: 'italic',
                     fontSize: 'clamp(0.9rem, 1.5vw, 1.15rem)',
-                    lineHeight: 1.2,
+                    lineHeight: 1.25,
                     color: 'rgba(255,255,255,0.98)',
                     margin: 0,
                   }}
                 >
                   Ціна:{' '}
                   <span style={{ textDecoration: 'line-through', opacity: 0.85 }}>2090</span>{' '}
-                  1490 грн · Доступ: 4 місяці
+                  1490 грн
+                  <br />
+                  Доступ: 4 місяці
                 </p>
                 <p
                   className="mt-2"
                   style={{
-                    fontWeight: 600,
-                    fontSize: 'clamp(0.8rem, 1.2vw, 0.95rem)',
-                    letterSpacing: '0.04em',
+                    fontWeight: 500,
+                    fontSize: 'clamp(0.78rem, 1.1vw, 0.9rem)',
+                    letterSpacing: '0.02em',
                     color: 'rgba(255,255,255,0.9)',
                     margin: 0,
                   }}
                 >
-                  Знижка до кінця березня
+                  Старт для системних змін: постава, стабільність і ресурс тіла
                 </p>
+              </div>
+
+              {/* Рожева плашка з дедлайном — знизу справа, легке нашарування на блок */}
+              <div
+                className="flex justify-end px-1"
+                style={{
+                  fontFamily: "'Montserrat', sans-serif",
+                  marginTop: '-1.2rem',
+                  marginRight: '2rem',
+                  position: 'relative',
+                  zIndex: 2,
+                }}
+              >
+                <div
+                  style={{
+                    background: 'linear-gradient(135deg, #FFD6EB 0%, #FFBAD8 100%)',
+                    borderRadius: 999,
+                    padding: '0.55rem 1.05rem',
+                    boxShadow: '0 2px 12px rgba(180,60,110,0.22)',
+                    textAlign: 'left',
+                    maxWidth: 260,
+                  }}
+                >
+                  <p
+                    style={{
+                      margin: 0,
+                      fontSize: '0.68rem',
+                      fontWeight: 800,
+                      letterSpacing: '0.06em',
+                      textTransform: 'uppercase',
+                      color: '#7A1A45',
+                      lineHeight: 1.1,
+                    }}
+                  >
+                    до кінця березня
+                  </p>
+                  <p
+                    style={{
+                      margin: '0.25rem 0 0',
+                      fontSize: '0.6rem',
+                      fontWeight: 600,
+                      color: '#7A1A45',
+                      lineHeight: 1.2,
+                    }}
+                  >
+                    нижча ціна · нижчий поріг входу
+                  </p>
+                  <p
+                    style={{
+                      margin: '0.15rem 0 0',
+                      fontSize: '0.57rem',
+                      fontWeight: 500,
+                      color: '#9B3060',
+                      lineHeight: 1.2,
+                    }}
+                  >
+                    бонус: вебінар дихання
+                  </p>
+                </div>
               </div>
             </div>
           </div>

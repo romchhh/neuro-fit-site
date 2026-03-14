@@ -1,8 +1,20 @@
 'use client';
 
 import { handlePayment } from '@/utils/handlePayment';
+import { usePathname } from 'next/navigation';
 
 export default function ForWhoSection() {
+  const pathname = usePathname();
+  const isIntensivePage = pathname?.startsWith('/neuro-intensive');
+
+  const oldPrice = isIntensivePage ? 790 : 2090;
+  const newPrice = isIntensivePage ? 380 : 1490;
+  const paymentPrice = newPrice;
+  const eventTitle = isIntensivePage
+    ? 'Neuro-інтенсив — приєднання до програми (доступ 4 місяці)'
+    : 'NeuroFit — приєднання до програми (доступ 4 місяці)';
+  const tariffType = isIntensivePage ? 'join_neuro_intensive' : 'join_neurofit';
+
   return (
     <>
       <style>{`
@@ -98,17 +110,17 @@ export default function ForWhoSection() {
           </p>
 
           <p className="forwho-price" style={{ marginBottom: 24 }}>
-            <span style={{ textDecoration: 'line-through', opacity: 0.7, marginRight: 8 }}>2090</span>
-            <strong>1490 грн</strong>
+            <span style={{ textDecoration: 'line-through', opacity: 0.7, marginRight: 8 }}>{oldPrice}</span>
+            <strong>{newPrice} грн</strong>
           </p>
 
           <button
             className="forwho-btn"
             onClick={() =>
               handlePayment({
-                price: 1490,
-                eventTitle: 'NeuroFit — приєднання до програми (доступ 4 місяці)',
-                tariffType: 'join_neurofit',
+                price: paymentPrice,
+                eventTitle,
+                tariffType,
               })
             }
           >

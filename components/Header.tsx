@@ -94,7 +94,7 @@ export default function Header() {
               }`}
               style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}
             >
-              NeuroFit
+              HOME
             </span>
           </a>
 
