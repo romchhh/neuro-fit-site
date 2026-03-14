@@ -797,7 +797,6 @@ export default function ProgramsSection() {
                     <div className="prog-card-plashka">
                       <p className="prog-card-bonus-label">Бонус</p>
                       <p className="prog-card-bonus">{program.bonus}</p>
-                      <p className="prog-card-discount">Знижка до кінця березня</p>
                     </div>
                   )}
 
