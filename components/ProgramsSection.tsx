@@ -15,7 +15,7 @@ const programs = [
       'зростають сила, координація й витривалість для щоденних навантажень.',
       "краща увага, концентрація й пам'ять; нижчий рівень стресу.",
     ],
-    bonus: 'Бонуси: вебінар про дихання та вправи для памʼяті й концентрації.',
+    bonus: 'Вебінар дихання',
     buttonLabel: 'ДОЄДНАТИСЯ',
     image: '/programs/IMG_9137.jpg',
     soon: false,
@@ -31,7 +31,7 @@ const programs = [
       "підключаються функціональні зв'язки, рух стає більш зібраним.",
       'покращуються увага й концентрація, знижується психофізіологічна напруга.',
     ],
-    bonus: 'Бонуси: вебінар про дихання та вправи для памʼяті й концентрації.',
+    bonus: 'Вправи для памʼяті та концентрації',
     buttonLabel: 'СПРОБУВАТИ ІНТЕНСИВ',
     image: '/programs/IMG_9197.jpg',
     soon: false,
@@ -539,14 +539,40 @@ export default function ProgramsSection() {
           color: #6b6b6b;
         }
 
+        .prog-card-plashka {
+          background: rgba(232, 200, 230, 0.35);
+          border: 1px solid rgba(200, 160, 212, 0.4);
+          border-radius: 16px;
+          padding: 12px 14px;
+          margin-top: 8px;
+        }
+        .prog-card-bonus-label {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 700;
+          font-size: 10px;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: #9b6aad;
+          margin: 0 0 4px 0;
+        }
         .prog-card-bonus {
           font-family: 'Montserrat', sans-serif;
           font-weight: 500;
           font-style: italic;
           font-size: 15px;
           line-height: 1.4;
+          color: #6b4a75;
+          margin: 0;
+        }
+        .prog-card-discount {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 600;
+          font-size: 12px;
+          letter-spacing: 0.04em;
           color: #8a6296;
-          margin-top: 6px;
+          margin: 8px 0 0 0;
+          padding-top: 8px;
+          border-top: 1px solid rgba(200, 160, 212, 0.35);
         }
 
         .prog-after-label {
@@ -768,7 +794,11 @@ export default function ProgramsSection() {
                   <p className="prog-card-desc">{program.description}</p>
 
                   {program.bonus && (
-                    <p className="prog-card-bonus">{program.bonus}</p>
+                    <div className="prog-card-plashka">
+                      <p className="prog-card-bonus-label">Бонус</p>
+                      <p className="prog-card-bonus">{program.bonus}</p>
+                      <p className="prog-card-discount">Знижка до кінця березня</p>
+                    </div>
                   )}
 
                   <div>

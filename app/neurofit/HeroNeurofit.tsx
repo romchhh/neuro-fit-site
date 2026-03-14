@@ -101,41 +101,59 @@ export default function HeroNeurofit() {
                 прогресією від бази до інтеграції в повсякденне життя.
               </p>
 
-              <p
-                className="mt-3 text-center mx-auto"
+              {/* Плашка: бонус, знижка, ціна */}
+              <div
+                className="mt-4 text-center mx-auto rounded-2xl px-5 py-4"
                 style={{
                   fontFamily: "'Montserrat', sans-serif",
-                  fontWeight: 600,
-                  fontStyle: 'italic',
-                  fontSize: 'clamp(0.85rem, 1.5vw, 1.1rem)',
-                  lineHeight: 1.2,
-                  letterSpacing: 0,
-                  color: 'rgba(255,255,255,0.941)',
-                  filter: 'drop-shadow(0px 4px 4.8px rgba(0,0,0,0.251))',
+                  background: 'rgba(255,255,255,0.14)',
+                  backdropFilter: 'blur(20px)',
+                  WebkitBackdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(255,255,255,0.25)',
+                  boxShadow: '0 4px 24px rgba(0,0,0,0.12)',
+                  maxWidth: 420,
                 }}
               >
-                Бонуси: вебінар про дихання та вправи для памʼяті й концентрації.
-              </p>
-
-              <p
-                className="mt-4 text-center mx-auto"
-                style={{
-                  fontFamily: "'Montserrat', sans-serif",
-                  fontWeight: 600,
-                  fontStyle: 'italic',
-                  fontSize: 'clamp(0.9rem, 1.5vw, 1.15rem)',
-                  lineHeight: 1.2,
-                  letterSpacing: 0,
-                  color: 'rgba(255,255,255,0.941)',
-                  filter: 'drop-shadow(0px 4px 4.8px rgba(0,0,0,0.251))',
-                }}
-              >
-                Ціна:{' '}
-                <span style={{ textDecoration: 'line-through', opacity: 0.85 }}>2090</span>{' '}
-                1490 грн
-                <br />
-                Доступ: 4 місяці
-              </p>
+                <p
+                  style={{
+                    fontWeight: 600,
+                    fontStyle: 'italic',
+                    fontSize: 'clamp(0.85rem, 1.4vw, 1.05rem)',
+                    lineHeight: 1.3,
+                    color: 'rgba(255,255,255,0.98)',
+                    margin: 0,
+                  }}
+                >
+                  Бонус: вебінар дихання
+                </p>
+                <p
+                  className="mt-3"
+                  style={{
+                    fontWeight: 600,
+                    fontStyle: 'italic',
+                    fontSize: 'clamp(0.9rem, 1.5vw, 1.15rem)',
+                    lineHeight: 1.2,
+                    color: 'rgba(255,255,255,0.98)',
+                    margin: 0,
+                  }}
+                >
+                  Ціна:{' '}
+                  <span style={{ textDecoration: 'line-through', opacity: 0.85 }}>2090</span>{' '}
+                  1490 грн · Доступ: 4 місяці
+                </p>
+                <p
+                  className="mt-2"
+                  style={{
+                    fontWeight: 600,
+                    fontSize: 'clamp(0.8rem, 1.2vw, 0.95rem)',
+                    letterSpacing: '0.04em',
+                    color: 'rgba(255,255,255,0.9)',
+                    margin: 0,
+                  }}
+                >
+                  Знижка до кінця березня
+                </p>
+              </div>
             </div>
           </div>
 

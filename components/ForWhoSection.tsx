@@ -97,10 +97,27 @@ export default function ForWhoSection() {
             голова ясніша.
           </p>
 
-          <p className="forwho-price" style={{ marginBottom: 24 }}>
-            <span style={{ textDecoration: 'line-through', opacity: 0.7, marginRight: 8 }}>2090</span>
-            <strong>1490 грн</strong>
-          </p>
+          <div
+            className="forwho-plashka"
+            style={{
+              background: 'rgba(247, 230, 248, 0.7)',
+              border: '1px solid rgba(200, 160, 212, 0.35)',
+              borderRadius: 16,
+              padding: '16px 20px',
+              marginBottom: 24,
+              maxWidth: 360,
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }}
+          >
+            <p className="forwho-price" style={{ margin: 0 }}>
+              <span style={{ textDecoration: 'line-through', opacity: 0.7, marginRight: 8 }}>2090</span>
+              <strong>1490 грн</strong>
+            </p>
+            <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: '0.9rem', color: '#8a6296', margin: '10px 0 0 0', letterSpacing: '0.04em' }}>
+              Знижка до кінця березня
+            </p>
+          </div>
 
           <button
             className="forwho-btn"
