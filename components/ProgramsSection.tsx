@@ -62,17 +62,14 @@ export default function ProgramsSection() {
   const touchStartXRef = useRef(0);
 
   const scrollToIndex = (index: number) => {
-    const container = scrollRef.current;
     const card = cardRefs.current[index];
-    if (!container || !card) return;
+    if (!card) return;
 
-    const containerRect = container.getBoundingClientRect();
-    const cardRect = card.getBoundingClientRect();
-    const offset = cardRect.left - containerRect.left;
-
-    container.scrollTo({
-      left: container.scrollLeft + offset,
+    // На мобільному та десктопі: центруємо картку в скрол-контейнері
+    card.scrollIntoView({
       behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center',
     });
     activeIndexRef.current = index;
     setActiveIndex(index);
@@ -172,10 +169,12 @@ export default function ProgramsSection() {
     };
 
     const onTouchMove = (e: TouchEvent) => {
+      // На мобільному не перехоплюємо дотики: вертикальний скрол — сторінка, горизонтальний — нативний скрол карток
+      if (isMobile()) return;
+
       const deltaY = touchStartYRef.current - e.touches[0].clientY;
       const deltaX = Math.abs(touchStartXRef.current - e.touches[0].clientX);
 
-      // Only handle predominantly vertical swipes
       if (Math.abs(deltaY) < deltaX) return;
 
       const rect = section.getBoundingClientRect();
@@ -190,20 +189,6 @@ export default function ProgramsSection() {
       const goingUp = deltaY < -10;
 
       if (!goingDown && !goingUp) return;
-
-      // On mobile: if section isn't fully in view yet, snap it into view first
-      if (isMobile() && !isSectionFullyVisible()) {
-        if (goingDown) {
-          e.preventDefault();
-          if (!isScrollingRef.current) {
-            isScrollingRef.current = true;
-            scrollSectionIntoView();
-            touchStartYRef.current = e.touches[0].clientY;
-            setTimeout(() => { isScrollingRef.current = false; }, 700);
-          }
-        }
-        return;
-      }
 
       if ((goingUp && current === 0) || (goingDown && current === last)) return;
 
@@ -541,10 +526,15 @@ export default function ProgramsSection() {
           }
           .prog-scroll-area {
             padding-right: 14px;
-            margin-top: 16px; /* опускаємо картки нижче під текстом */
+            margin-top: 16px;
+            -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x mandatory;
           }
           .prog-card {
             width: 94vw;
+            flex-shrink: 0;
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
             flex-direction: column;     /* на мобільному: фото зверху, текст знизу */
             border-radius: 24px;
           }

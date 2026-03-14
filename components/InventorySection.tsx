@@ -350,16 +350,44 @@ export default function InventorySection() {
           .inventory-shop {
             flex-direction: column;
             align-items: stretch;
-            padding: 18px 18px 20px;
-            border-radius: 22px;
+            padding: 18px 16px 20px;
+            border-radius: 20px;
             gap: 14px;
+            margin-top: 28px;
+          }
+          .inventory-shop-left {
+            gap: 6px;
+          }
+          .inventory-shop-eyebrow {
+            font-size: 10px;
+            letter-spacing: 0.14em;
+          }
+          .inventory-shop-title {
+            font-size: 17px;
+            line-height: 1.25;
+          }
+          .inventory-shop-text {
+            font-size: 14px;
+            line-height: 1.6;
           }
           .inventory-shop-right {
-            align-items: flex-start;
+            align-items: stretch;
+            gap: 12px;
+            flex-direction: column-reverse;
+          }
+          .inventory-shop-discount {
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            white-space: normal;
+            text-align: center;
+            padding: 10px 12px;
           }
           .inventory-shop-button {
-            width: auto;
-            padding-inline: 26px;
+            width: 100%;
+            padding: 16px 24px;
+            font-size: 12px;
+            letter-spacing: 0.16em;
+            text-align: center;
           }
         }
       `}</style>
