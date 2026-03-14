@@ -5,12 +5,14 @@ import { useState, useEffect } from "react";
 
 const inventoryImages = [
   "/inventory/inventory-1.jpg",
-  "/inventory/inventory-2.jpg",
+  "/inventory/IMG_6705.jpg",
   "/inventory/inventory-3.jpg",
-  "/inventory/inventory-4.jpg",
+  "/inventory/IMG_6713.jpg",
   "/inventory/inventory-5.jpg",
+  "/inventory/IMG_6781.jpg",
   "/inventory/inventory-6.jpg",
   "/inventory/inventory-7.jpg",
+  "/inventory/IMG_6859.jpg",
 ];
 
 export default function InventorySection() {
@@ -95,23 +97,21 @@ export default function InventorySection() {
         .inventory-bg-title-wrap {
           margin-top: 12px;
           width: 100%;
-          text-align: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           overflow: hidden;
         }
 
-        .inventory-bg-title {
-          font-family: 'Montserrat', sans-serif;
-          font-weight: 700;
-          font-style: italic;
-          font-size: clamp(60px, 13vw, 250px);
-          line-height: 1;
-          background: linear-gradient(90deg, rgba(230,218,240,0.46) 0%, rgba(233,187,232,0.46) 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+        .inventory-bg-title-wrap .inventory-bg-image {
+          width: 100%;
+          max-width: min(95vw, 720px);
+          height: auto;
+          max-height: clamp(140px, 24vw, 320px);
+          object-fit: contain;
+          object-position: center;
           user-select: none;
           pointer-events: none;
-          letter-spacing: 0.02em;
         }
 
         /* Блок із магазином BOOMERANG */
@@ -334,15 +334,12 @@ export default function InventorySection() {
             font-size: 20px;
             line-height: 1.28;
           }
-          .inventory-bg-title {
-            font-size: clamp(40px, 17vw, 80px);
-            white-space: nowrap;
-            letter-spacing: 0;
+          .inventory-bg-title-wrap .inventory-bg-image {
+            max-width: min(92vw, 480px);
+            max-height: clamp(80px, 18vw, 160px);
           }
           .inventory-bg-title-wrap {
-            text-align: center;
-            width: 100%;
-            overflow: hidden;
+            justify-content: center;
           }
           .inventory-item {
             width: 200px;
@@ -400,7 +397,14 @@ export default function InventorySection() {
               Інвентар, який знадобиться вам для тренувань.
             </p>
             <div className="inventory-bg-title-wrap">
-              <span className="inventory-bg-title">Інвентар</span>
+              <Image
+                src="/pink.png"
+                alt=""
+                width={720}
+                height={320}
+                className="inventory-bg-image"
+                priority
+              />
             </div>
           </div>
 
@@ -418,6 +422,8 @@ export default function InventorySection() {
                   width={800}
                   height={600}
                   className="inventory-image"
+                  loading="lazy"
+                  sizes="(max-width: 640px) 200px, (max-width: 1024px) 220px, 260px"
                 />
               </button>
             ))}
@@ -481,6 +487,7 @@ export default function InventorySection() {
               width={1400}
               height={1050}
               className="inventory-lightbox-image"
+              sizes="(max-width: 900px) 90vw, 70vw"
             />
             <button
               type="button"
