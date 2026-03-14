@@ -102,6 +102,22 @@ export default function HeroNeurofit() {
               </p>
 
               <p
+                className="mt-3 text-center mx-auto"
+                style={{
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontWeight: 600,
+                  fontStyle: 'italic',
+                  fontSize: 'clamp(0.85rem, 1.5vw, 1.1rem)',
+                  lineHeight: 1.2,
+                  letterSpacing: 0,
+                  color: 'rgba(255,255,255,0.941)',
+                  filter: 'drop-shadow(0px 4px 4.8px rgba(0,0,0,0.251))',
+                }}
+              >
+                Бонуси: вебінар про дихання та вправи для памʼяті й концентрації.
+              </p>
+
+              <p
                 className="mt-4 text-center mx-auto"
                 style={{
                   fontFamily: "'Montserrat', sans-serif",
@@ -114,7 +130,9 @@ export default function HeroNeurofit() {
                   filter: 'drop-shadow(0px 4px 4.8px rgba(0,0,0,0.251))',
                 }}
               >
-                Ціна: 1490 грн
+                Ціна:{' '}
+                <span style={{ textDecoration: 'line-through', opacity: 0.85 }}>2090</span>{' '}
+                1490 грн
                 <br />
                 Доступ: 4 місяці
               </p>

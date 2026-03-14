@@ -42,6 +42,13 @@ export default function ForWhoSection() {
           margin: 0 0 32px;
         }
 
+        .forwho-price {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 400;
+          font-size: clamp(1rem, 1.8vw, 1.4rem);
+          color: #2a2a2a;
+        }
+
         .forwho-btn {
           display: inline-flex;
           align-items: center;
@@ -88,6 +95,11 @@ export default function ForWhoSection() {
           <p className="forwho-desc">
             Для тих, хто хоче системний результат, що відчутно покращує якість життя: тіло легше й зібраніше, рух точніший,
             голова ясніша.
+          </p>
+
+          <p className="forwho-price" style={{ marginBottom: 24 }}>
+            <span style={{ textDecoration: 'line-through', opacity: 0.7, marginRight: 8 }}>2090</span>
+            <strong>1490 грн</strong>
           </p>
 
           <button

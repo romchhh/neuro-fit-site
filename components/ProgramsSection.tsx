@@ -15,6 +15,7 @@ const programs = [
       'зростають сила, координація й витривалість для щоденних навантажень.',
       "краща увага, концентрація й пам'ять; нижчий рівень стресу.",
     ],
+    bonus: 'Бонуси: вебінар про дихання та вправи для памʼяті й концентрації.',
     buttonLabel: 'ДОЄДНАТИСЯ',
     image: '/programs/IMG_9137.jpg',
     soon: false,
@@ -30,6 +31,7 @@ const programs = [
       "підключаються функціональні зв'язки, рух стає більш зібраним.",
       'покращуються увага й концентрація, знижується психофізіологічна напруга.',
     ],
+    bonus: 'Бонуси: вебінар про дихання та вправи для памʼяті й концентрації.',
     buttonLabel: 'СПРОБУВАТИ ІНТЕНСИВ',
     image: '/programs/IMG_9197.jpg',
     soon: false,
@@ -537,6 +539,16 @@ export default function ProgramsSection() {
           color: #6b6b6b;
         }
 
+        .prog-card-bonus {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 500;
+          font-style: italic;
+          font-size: 15px;
+          line-height: 1.4;
+          color: #8a6296;
+          margin-top: 6px;
+        }
+
         .prog-after-label {
           font-family: 'Montserrat', sans-serif;
           font-weight: 600;
@@ -754,6 +766,10 @@ export default function ProgramsSection() {
                   <h3 className="prog-card-title">{program.title}</h3>
 
                   <p className="prog-card-desc">{program.description}</p>
+
+                  {program.bonus && (
+                    <p className="prog-card-bonus">{program.bonus}</p>
+                  )}
 
                   <div>
                     <p className="prog-after-label">Після проходження:</p>
