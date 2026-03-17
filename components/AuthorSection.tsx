@@ -2,13 +2,11 @@ import Image from "next/image";
 
 export default function AuthorSection() {
   const items = [
-    "Дипломований хореограф та сертифікований тренер",
+    "Сертифікована тренерка та дипломована хореографиня",
     "Міжнародна кваліфікація Polestar Pilates",
-    "8 років досвіду у хореографічній та тренерській діяльності",
-    "Засновниця курсу Smart Movement та NeuroFit",
+    "10 років досвіду у хореографічній та тренерській діяльності",
     "Експерт у поєднанні пілатесу, функціональних тренувань і нейропрактик",
-    "Працюю з тілом через усвідомлений рух, дихання та нейрозв'язки",
-    "Орієнтована на м'який, але глибокий підхід до трансформації тіла й свідомості",
+    "Робота із тілом через усвідомлений рух, дихання та нейрозв'язки",
   ];
 
   return (
@@ -91,7 +89,7 @@ export default function AuthorSection() {
               {/* Mobile: fixed height; desktop: fills the card */}
               <div className="relative w-full h-[360px] md:h-full md:min-h-[620px]">
                 <Image
-                  src="/image 2.jpg"
+                  src="/IMG_4958.jpg"
                   alt="Авторка проєкту Юлія Бутенко"
                   fill
                   className="object-cover object-top"

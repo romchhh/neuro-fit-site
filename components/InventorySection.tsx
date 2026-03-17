@@ -441,7 +441,7 @@ export default function InventorySection() {
             </div>
             <div className="inventory-shop-right">
               <div className="inventory-shop-discount">
-                ЗНИЖКА 10% ДЛЯ УЧАСНИКІВ ПРОЄКТІВ ЮЛІЇ
+                ЗНИЖКА 15% ДЛЯ УЧАСНИКІВ ПРОЄКТІВ ЮЛІЇ
               </div>
               <a
                 href="https://www.instagram.com/boomerang.fitstore?igsh=MXM5eThtcGJmOXlyeg=="

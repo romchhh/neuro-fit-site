@@ -133,7 +133,7 @@ export default function NeurofitWhatIncludedSection() {
                 <li>3 руханки</li>
                 <li>2 медитації</li>
                 <li>практичні лекції та вебінари</li>
-                <li>загальний чат + ефіри</li>
+                <li>загальний чат</li>
                 <li>додаткові матеріали</li>
                 <li>доступ 4 місяці</li>
               </ul>

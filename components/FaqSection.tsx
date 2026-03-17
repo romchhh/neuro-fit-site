@@ -224,8 +224,9 @@ export default function FaqSection() {
           {/* Note */}
           <div className="faq-note-wrapper reveal-up reveal-delay-2" data-animate>
             <p className="faq-note">
-              Якщо протягом першого тижня з моменту оплати ви захочете повернути кошти, напишіть нам — ми
-              гарантовано виконаємо повернення.
+              Якщо протягом першого тижня з моменту оплати ви захочете повернути кошти, напишіть нам.
+              <br />
+              <strong>Ми гарантовано виконаємо повернення.</strong>
             </p>
           </div>
         </div>

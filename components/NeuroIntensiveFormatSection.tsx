@@ -103,7 +103,7 @@ export default function NeuroIntensiveFormatSection() {
           <div className="ni-format-pill-wrap reveal-up reveal-delay-1" data-animate>
             <div className="ni-format-pill">
               <p className="ni-format-text">
-                Онлайн: практика + міні-лекції + набір нейровправ. Проходиш у зручний час.
+                Швидкий доступ у телеграм: практики + міні-лекції + набір нейровправ + загальний чат.
               </p>
             </div>
           </div>

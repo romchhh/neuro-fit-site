@@ -4,6 +4,7 @@ import HeroNeurofit from './HeroNeurofit';
 import ChangesSection from '@/components/ChangesSection';
 import FormatSectionNeurofit from '@/components/FormatSectionNeurofit';
 import NeurofitWhatIncludedSection from '@/components/NeurofitWhatIncludedSection';
+import FaqSectionNeurofit from '@/components/FaqSectionNeurofit';
 import NeurofitProgramModulesSection from '@/components/NeurofitProgramModulesSection';
 import FooterSection from '@/components/FooterSection';
 import ForWhoSection from '@/components/ForWhoSection';
@@ -30,6 +31,7 @@ export default function NeurofitPage() {
         <NeurofitProgramModulesSection />
         <NeurofitWhatIncludedSection />
         <ForWhoSection />
+        <FaqSectionNeurofit />
         <FooterSection />
       </div>
     </ScrollRevealProvider>

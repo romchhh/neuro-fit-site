@@ -45,20 +45,24 @@ export default function ChangesSection() {
         </h2>
 
         <div className="flex flex-wrap justify-center gap-6">
-          {items.map((item) => (
-            <div
-              key={item.number}
-              className="w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] rounded-3xl p-7 md:p-8 border border-white/70 bg-white/70 backdrop-blur-xl shadow-[0_18px_45px_rgba(0,0,0,0.06)] hover:shadow-[0_24px_60px_rgba(0,0,0,0.1)] hover:bg-white transition-all duration-300 hover:-translate-y-1 reveal-up reveal-delay-1"
-              data-animate
-            >
-              <div className="text-4xl md:text-5xl font-light italic mb-4 text-[#b66ad4]">
-                [{item.number}]
+          {items.map((item) => {
+            const [before, after] = item.text.split(':');
+            return (
+              <div
+                key={item.number}
+                className="w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] rounded-3xl p-7 md:p-8 border border-white/70 bg-white/70 backdrop-blur-xl shadow-[0_18px_45px_rgba(0,0,0,0.06)] hover:shadow-[0_24px_60px_rgba(0,0,0,0.1)] hover:bg-white transition-all duration-300 hover:-translate-y-1 reveal-up reveal-delay-1"
+                data-animate
+              >
+                <div className="text-4xl md:text-5xl font-light italic mb-4 text-[#b66ad4]">
+                  [{item.number}]
+                </div>
+                <p className="mt-1 text-sm md:text-base leading-snug font-light text-gray-900">
+                  <span className="font-semibold">{before}:</span>
+                  {after}
+                </p>
               </div>
-              <p className="mt-1 text-sm md:text-base leading-snug font-light text-gray-900">
-                {item.text}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

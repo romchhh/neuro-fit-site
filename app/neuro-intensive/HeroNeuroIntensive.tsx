@@ -12,7 +12,7 @@ export default function HeroNeuroIntensive() {
     >
       {/* Фон Neuro-інтенсиву */}
       <Image
-        src="/neuro-intensive/hero-desktop-neurointensive.jpg"
+        src="/neuro-intensive/IMG_4981.jpg"
         alt="Neuro-інтенсив"
         fill
         priority
@@ -22,7 +22,7 @@ export default function HeroNeuroIntensive() {
       />
 
       <Image
-        src="/neuro-intensive/hero-mobile-neurointensive.jpg"
+        src="/neuro-intensive/IMG_4965.jpg"
         alt="Neuro-інтенсив mobile"
         fill
         priority
@@ -114,28 +114,53 @@ export default function HeroNeuroIntensive() {
                 координації, концентрації та легкості в русі.
               </p>
 
-              {/* Плашка: бонус, знижка, ціна */}
+              {/* Плашка: ціна, доступ, бонус + рожева вкладка зверху */}
               <div
-                className="mt-4 text-center mx-auto rounded-2xl px-5 py-4"
+                className="mt-4 text-left mx-auto rounded-2xl px-5 py-4"
                 style={{
                   fontFamily: "'Montserrat', sans-serif",
-                  background: 'rgba(255,255,255,0.14)',
-                  backdropFilter: 'blur(20px)',
-                  WebkitBackdropFilter: 'blur(20px)',
+                  background: 'rgba(0,0,0,0.18)',
+                  backdropFilter: 'blur(26px)',
+                  WebkitBackdropFilter: 'blur(26px)',
                   border: '1px solid rgba(255,255,255,0.25)',
-                  boxShadow: '0 4px 24px rgba(0,0,0,0.12)',
+                  boxShadow: '0 18px 45px rgba(0,0,0,0.38)',
                   maxWidth: 420,
                   position: 'relative',
-                  zIndex: 1,
+                  zIndex: 2,
                 }}
               >
+                {/* Рожева вкладка "до кінця березня" */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: -15,
+                    right: 0,
+                    padding: '6px 20px 7px',
+                    background: 'rgba(255, 219, 236, 0.92)',
+                    borderRadius: '12px 12px 0 12px',
+                    boxShadow: '0 10px 26px rgba(0,0,0,0.35)',
+                  }}
+                >
+                  <p
+                    style={{
+                      margin: 0,
+                      fontSize: '0.8rem',
+                      fontWeight: 800,
+                      letterSpacing: '0.12em',
+                      textTransform: 'uppercase',
+                      color: '#5A2345',
+                    }}
+                  >
+                    ДО КІНЦЯ БЕРЕЗНЯ
+                  </p>
+                </div>
+
                 <p
-                  className="mt-3"
                   style={{
                     fontWeight: 600,
                     fontStyle: 'italic',
-                    fontSize: 'clamp(0.9rem, 1.5vw, 1.15rem)',
-                    lineHeight: 1.25,
+                    fontSize: 'clamp(0.9rem, 1.6vw, 1.15rem)',
+                    lineHeight: 1.35,
                     color: 'rgba(255,255,255,0.98)',
                     margin: 0,
                   }}
@@ -143,80 +168,36 @@ export default function HeroNeuroIntensive() {
                   Ціна:{' '}
                   <span style={{ textDecoration: 'line-through', opacity: 0.85 }}>790</span>{' '}
                   380 грн
-                  <br />
+                </p>
+                <p
+                  style={{
+                    fontWeight: 600,
+                    fontStyle: 'italic',
+                    fontSize: 'clamp(0.9rem, 1.6vw, 1.1rem)',
+                    lineHeight: 1.4,
+                    color: 'rgba(255,255,255,0.98)',
+                    margin: 2,
+                  }}
+                >
                   Доступ: 4 місяці
                 </p>
                 <p
-                  className="mt-2"
                   style={{
-                    fontWeight: 500,
-                    fontSize: 'clamp(0.78rem, 1.1vw, 0.9rem)',
-                    letterSpacing: '0.02em',
-                    color: 'rgba(255,255,255,0.9)',
-                    margin: 0,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 6,
+                    marginTop: 8,
+                    fontWeight: 600,
+                    fontSize: 'clamp(0.82rem, 1.4vw, 0.98rem)',
+                    lineHeight: 1.3,
+                    color: 'rgba(255,255,255,0.98)',
                   }}
                 >
-                  Оптимальний формат, щоб спробувати метод і відчути зміни в тілі
+                  <span role="img" aria-label="подарунок">
+                    🎁
+                  </span>
+                  <span>Бонус: вправи для памʼяті та концентрації</span>
                 </p>
-              </div>
-
-              {/* Рожева плашка з дедлайном — знизу справа, легке нашарування на блок */}
-              <div
-                className="flex justify-end px-1"
-                style={{
-                  fontFamily: "'Montserrat', sans-serif",
-                  marginTop: '-1rem',
-                  marginRight: '2rem',
-                  position: 'relative',
-                  zIndex: 2,
-                }}
-              >
-                <div
-                  style={{
-                    background: 'linear-gradient(135deg, #FFD6EB 0%, #FFBAD8 100%)',
-                    borderRadius: 999,
-                    padding: '0.55rem 1.05rem',
-                    boxShadow: '0 2px 12px rgba(180,60,110,0.22)',
-                    textAlign: 'left',
-                    maxWidth: 260,
-                  }}
-                >
-                  <p
-                    style={{
-                      margin: 0,
-                      fontSize: '0.68rem',
-                      fontWeight: 800,
-                      letterSpacing: '0.06em',
-                      textTransform: 'uppercase',
-                      color: '#7A1A45',
-                      lineHeight: 1.1,
-                    }}
-                  >
-                    до кінця березня
-                  </p>
-                  <p
-                    style={{
-                      margin: '0.25rem 0 0',
-                      fontSize: '0.6rem',
-                      fontWeight: 600,
-                      color: '#7A1A45',
-                      lineHeight: 1.2,
-                    }}
-                  >
-                    нижча ціна · нижчий поріг входу
-                  </p>
-                  <p
-                    style={{
-                      margin: '0.15rem 0 0',
-                      fontSize: '0.57rem',
-                      fontWeight: 500,
-                      color: '#9B3060',
-                      lineHeight: 1.2,
-                    }}
-                  >
-                    бонус: вправи для памʼяті та концентрації
-                  </p>
-                </div>
               </div>
             </div>
           </div>

@@ -4,15 +4,16 @@ import HeroNeuroIntensive from './HeroNeuroIntensive';
 import NeuroIntensiveChangesSection from '@/components/NeuroIntensiveChangesSection';
 import NeuroIntensiveFormatSection from '@/components/NeuroIntensiveFormatSection';
 import NeuroIntensiveWhatIncludedSection from '@/components/NeuroIntensiveWhatIncludedSection';
+import FaqSectionNeuroIntensive from '@/components/FaqSectionNeuroIntensive';
 import FooterSection from '@/components/FooterSection';
 import ForWhoSection from '@/components/ForWhoSection';
 
 export const metadata: Metadata = {
-  title: 'Neuro-інтенсив — міні-програма',
+  title: 'Neuro-інтенсив — програма',
   description:
-    'Neuro-інтенсив — міні-програма, щоб швидко відчути звʼязок мозку й тіла, покращити координацію та концентрацію без перевантаження.',
+    'Neuro-інтенсив — програма, щоб швидко відчути звʼязок мозку й тіла, покращити координацію та концентрацію без перевантаження.',
   openGraph: {
-    title: 'Neuro-інтенсив — міні-програма',
+    title: 'Neuro-інтенсив — програма',
     description:
       'Короткий Neuro-інтенсив: пілатес, функціональні звʼязки та нейрофітнес для швидкого старту й відчутного ефекту.',
     url: '/neuro-intensive',
@@ -28,6 +29,7 @@ export default function NeuroIntensivePage() {
         <NeuroIntensiveFormatSection />
         <NeuroIntensiveWhatIncludedSection />
         <ForWhoSection />
+        <FaqSectionNeuroIntensive />
         <FooterSection />
       </div>
     </ScrollRevealProvider>

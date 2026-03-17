@@ -127,7 +127,7 @@ export default function NeuroIntensiveWhatIncludedSection() {
           <div className="ni-what-grid reveal-up reveal-delay-1" data-animate>
             <article className="ni-what-card">
               <div className="ni-what-card-index">[01]</div>
-              <h3 className="ni-what-card-title">Блок 1. Практика</h3>
+              <h3 className="ni-what-card-title">Блок 1. Тренування</h3>
               <ol className="ni-what-list">
                 <li><span className="ni-what-label">«Відчуваю тіло»</span> (Pilates classic)</li>
                 <li><span className="ni-what-label">Дихальна руханка</span> (відновлення та заспокоєння)</li>
@@ -148,15 +148,7 @@ export default function NeuroIntensiveWhatIncludedSection() {
 
             <article className="ni-what-card">
               <div className="ni-what-card-index">[03]</div>
-              <h3 className="ni-what-card-title">Блок 3. Вправи</h3>
-              <ol className="ni-what-list">
-                <li><span className="ni-what-label">Памʼять і концентрація</span></li>
-                <li><span className="ni-what-label">Стрес і напруга</span></li>
-                <li><span className="ni-what-label">Баланс і просторове мислення</span></li>
-              </ol>
-              <p className="ni-what-bonus">
-                Бонус: гайд «Харчування в період тренувань»
-              </p>
+              <h3 className="ni-what-card-title">Блок 3. Памʼять і концентрація (бонусом)</h3>
             </article>
           </div>
         </div>
