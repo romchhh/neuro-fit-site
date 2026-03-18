@@ -148,7 +148,7 @@ export default function HeroNeuroIntensive() {
                   <p
                     style={{
                       margin: 0,
-                      fontSize: '0.8rem',
+                      fontSize: '0.88rem',
                       fontWeight: 800,
                       letterSpacing: '0.12em',
                       textTransform: 'uppercase',
@@ -163,7 +163,7 @@ export default function HeroNeuroIntensive() {
                   style={{
                     fontWeight: 600,
                     fontStyle: 'italic',
-                    fontSize: 'clamp(0.9rem, 1.6vw, 1.15rem)',
+                    fontSize: 'clamp(1.05rem, 1.8vw, 1.25rem)',
                     lineHeight: 1.35,
                     color: 'rgba(255,255,255,0.98)',
                     margin: 0,
@@ -177,7 +177,7 @@ export default function HeroNeuroIntensive() {
                   style={{
                     fontWeight: 600,
                     fontStyle: 'italic',
-                    fontSize: 'clamp(0.9rem, 1.6vw, 1.1rem)',
+                    fontSize: 'clamp(1.0rem, 1.8vw, 1.2rem)',
                     lineHeight: 1.4,
                     color: 'rgba(255,255,255,0.98)',
                     margin: 2,
@@ -192,7 +192,7 @@ export default function HeroNeuroIntensive() {
                     gap: 6,
                     marginTop: 8,
                     fontWeight: 600,
-                    fontSize: 'clamp(0.82rem, 1.4vw, 0.98rem)',
+                    fontSize: 'clamp(0.95rem, 1.6vw, 1.08rem)',
                     lineHeight: 1.3,
                     color: 'rgba(255,255,255,0.98)',
                   }}
