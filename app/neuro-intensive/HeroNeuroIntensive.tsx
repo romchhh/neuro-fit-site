@@ -183,7 +183,7 @@ export default function HeroNeuroIntensive() {
                     margin: 2,
                   }}
                 >
-                  Доступ: 4 місяці
+                  Доступ: 2 місяці
                 </p>
                 <p
                   style={{
