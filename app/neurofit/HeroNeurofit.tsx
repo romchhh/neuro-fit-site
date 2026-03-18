@@ -218,14 +218,9 @@ export default function HeroNeurofit() {
                 WebkitBackdropFilter: 'blur(24px)',
                 boxShadow: '0 4px 32px rgba(0,0,0,0.12)',
               }}
-              onClick={() =>
-                handlePayment({
-                  price: 1490,
-                  eventTitle:
-                    'NeuroFit (Основна програма) — доступ 4 місяці',
-                  tariffType: 'neurofit_main',
-                })
-              }
+              onClick={() => {
+                window.location.href = 'https://neurofit.kwiga.com/o/vm4QaXJ1cOFg';
+              }}
             >
               Доєднатися
             </button>

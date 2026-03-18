@@ -218,14 +218,9 @@ export default function HeroNeuroIntensive() {
                 WebkitBackdropFilter: 'blur(24px)',
                 boxShadow: '0 4px 32px rgba(0,0,0,0.12)',
               }}
-              onClick={() =>
-                handlePayment({
-                  price: 380,
-                  eventTitle:
-                    'Neuro-інтенсив (міні-програма) — доступ 4 місяці',
-                  tariffType: 'neuro_intensive',
-                })
-              }
+              onClick={() => {
+                window.location.href = 'https://secure.wayforpay.com/payment/se1a2f595462e';
+              }}
             >
               Доєднатися
             </button>
