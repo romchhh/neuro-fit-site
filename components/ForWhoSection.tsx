@@ -1,6 +1,5 @@
 'use client';
 
-import { handlePayment } from '@/utils/handlePayment';
 import { usePathname } from 'next/navigation';
 
 export default function ForWhoSection() {
@@ -9,11 +8,9 @@ export default function ForWhoSection() {
 
   const oldPrice = isIntensivePage ? 790 : 2090;
   const newPrice = isIntensivePage ? 380 : 1490;
-  const paymentPrice = newPrice;
-  const eventTitle = isIntensivePage
-    ? 'Neuro-інтенсив — приєднання до програми (доступ 4 місяці)'
-    : 'NeuroFit — приєднання до програми (доступ 4 місяці)';
-  const tariffType = isIntensivePage ? 'join_neuro_intensive' : 'join_neurofit';
+  const paymentUrl = isIntensivePage
+    ? 'https://secure.wayforpay.com/payment/se1a2f595462e'
+    : 'https://neurofit.kwiga.com/o/vm4QaXJ1cOFg';
 
   return (
     <>
@@ -116,13 +113,9 @@ export default function ForWhoSection() {
 
           <button
             className="forwho-btn"
-            onClick={() =>
-              handlePayment({
-                price: paymentPrice,
-                eventTitle,
-                tariffType,
-              })
-            }
+            onClick={() => {
+              window.location.href = paymentUrl;
+            }}
           >
             ДОЄДНАТИСЯ
           </button>
