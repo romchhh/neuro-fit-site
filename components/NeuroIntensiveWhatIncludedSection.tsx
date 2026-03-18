@@ -93,6 +93,31 @@ export default function NeuroIntensiveWhatIncludedSection() {
           color: #7b4b86;
         }
 
+        .ni-what-bonus-block {
+          margin-top: 18px;
+          padding-top: 14px;
+          border-top: 1px dashed rgba(203, 153, 200, 0.6);
+        }
+
+        .ni-what-bonus-label {
+          display: inline-block;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 600;
+          font-size: 11px;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: #994399;
+          margin-bottom: 6px;
+        }
+
+        .ni-what-bonus-text {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 400;
+          font-size: 14px;
+          color: #6b3a75;
+          line-height: 1.5;
+        }
+
         @media (max-width: 900px) {
           .ni-what-grid {
             grid-template-columns: 1fr;
@@ -148,7 +173,15 @@ export default function NeuroIntensiveWhatIncludedSection() {
 
             <article className="ni-what-card">
               <div className="ni-what-card-index">[03]</div>
-              <h3 className="ni-what-card-title">Блок 3. Памʼять і концентрація (бонусом)</h3>
+              <h3 className="ni-what-card-title">Блок 3. Вправи</h3>
+              <ol className="ni-what-list">
+                <li><span className="ni-what-label">Стрес і напруга</span></li>
+                <li><span className="ni-what-label">Баланс і просторове мислення</span></li>
+              </ol>
+              <div className="ni-what-bonus-block">
+                <span className="ni-what-bonus-label">Подарунок</span>
+                <p className="ni-what-bonus-text">Вправи для памʼяті і концентрації</p>
+              </div>
             </article>
           </div>
         </div>

@@ -48,8 +48,8 @@ export default function HeroNeuroIntensive() {
         <Header />
 
         <div className="flex flex-col flex-1 reveal-up reveal-delay-1" data-animate>
-          {/* Центрований текстовий блок — трохи менший та вище, щоб більше відкривати фото */}
-          <div className="flex-1 flex items-end justify-center px-6 pb-1 md:pb-3">
+          {/* Заголовки вище: мобільні — по центру, десктоп — теж вище */}
+          <div className="flex-1 flex items-center justify-center px-6 pt-20 md:pt-24">
             <div className="text-center max-w-2xl mx-auto">
               <h1
                 className="text-center"
@@ -66,7 +66,6 @@ export default function HeroNeuroIntensive() {
               >
                 Neuro-інтенсив
               </h1>
-
               <p
                 className="mt-4 text-center mx-auto"
                 style={{
@@ -95,7 +94,12 @@ export default function HeroNeuroIntensive() {
                   Міні-програма · швидкий вхід у метод
                 </span>
               </p>
+            </div>
+          </div>
 
+          {/* Опис + плашка — завжди внизу */}
+          <div className="flex flex-1 flex-col items-center justify-end px-6 pb-1 md:pb-3">
+            <div className="text-center max-w-2xl mx-auto w-full">
               <p
                 className="mt-3 text-center mx-auto"
                 style={{
