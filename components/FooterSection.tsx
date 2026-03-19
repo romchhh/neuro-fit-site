@@ -169,8 +169,8 @@ export default function FooterSection() {
           {/* Middle: ІНФОРМАЦІЯ */}
           <div>
             <h3 className="nf-footer-col-heading">ІНФОРМАЦІЯ</h3>
-            <a className="nf-footer-col-link">Політика конфіденційності</a>
-            <a className="nf-footer-col-link">Договір оферти</a>
+            <a href="/privacy-policy" className="nf-footer-col-link">Політика конфіденційності</a>
+            <a href="/public-offer" className="nf-footer-col-link">Договір оферти</a>
           </div>
 
           {/* Right: КОНТАКТИ */}
