@@ -27,7 +27,8 @@ export default function HeroNeurofit() {
         fill
         priority
         sizes="100vw"
-        className="md:hidden object-cover object-top"
+        className="md:hidden object-cover"
+        style={{ objectPosition: 'center -10%' }}
       />
 
       {/* Загальне легке затемнення */}
