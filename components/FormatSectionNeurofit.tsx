@@ -161,7 +161,7 @@ export default function FormatSectionNeurofit() {
                 />
               </div>
               <p className="format-text">
-                Додаткові матеріали + вебінари в чаті
+                Додаткові матеріали + вебінари
               </p>
             </div>
           </div>

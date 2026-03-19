@@ -270,7 +270,7 @@ export default function NeurofitProgramModulesSection() {
       <section className="nf-mod-section reveal-up" data-animate>
         <div className="nf-mod-inner">
           <div className="nf-mod-header reveal-fade" data-animate>
-            <h2 className="nf-mod-title-main">Програма (4 модулі)</h2>
+            <h2 className="nf-mod-title-main">Модулі</h2>
             <div className="nf-mod-arrows">
               <button
                 type="button"

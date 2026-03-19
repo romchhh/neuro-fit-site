@@ -201,7 +201,7 @@ export default function HeroNeurofit() {
                   <span role="img" aria-label="подарунок">
                     🎁
                   </span>
-                  <span>Бонус: вебінар дихання</span>
+                  <span>Бонус: вебінар з діафрагмального дихання або просто з дихання</span>
                 </p>
               </div>
             </div>
