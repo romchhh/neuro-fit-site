@@ -6,8 +6,9 @@ import FormatSectionNeurofit from '@/components/FormatSectionNeurofit';
 import NeurofitWhatIncludedSection from '@/components/NeurofitWhatIncludedSection';
 import FaqSectionNeurofit from '@/components/FaqSectionNeurofit';
 import NeurofitProgramModulesSection from '@/components/NeurofitProgramModulesSection';
-import FooterSection from '@/components/FooterSection';
 import ForWhoSection from '@/components/ForWhoSection';
+import BottomContactBlock from '@/components/BottomContactBlock';
+import FooterSection from '@/components/FooterSection';
 
 export const metadata: Metadata = {
   title: 'NeuroFit — основна програма',
@@ -32,6 +33,7 @@ export default function NeurofitPage() {
         <NeurofitWhatIncludedSection />
         <ForWhoSection />
         <FaqSectionNeurofit />
+        <BottomContactBlock />
         <FooterSection />
       </div>
     </ScrollRevealProvider>

@@ -8,6 +8,7 @@ import ProgramsSection from '@/components/ProgramsSection';
 import ReviewsSection from '@/components/ReviewsSection';
 import FaqSection from '@/components/FaqSection';
 import InventorySection from '@/components/InventorySection';
+import BottomContactBlock from '@/components/BottomContactBlock';
 import FooterSection from '@/components/FooterSection';
 
 export default function Home() {
@@ -61,6 +62,7 @@ export default function Home() {
 
         <InventorySection />
 
+        <BottomContactBlock />
         <FooterSection />
       </div>
     </ScrollRevealProvider>

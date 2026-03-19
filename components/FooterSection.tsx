@@ -196,7 +196,7 @@ export default function FooterSection() {
 
             {/* Telegram (спільнота) */}
             <a
-              href="https://t.me/+EizJRY-CVTRmYzYy"
+              href="https://t.me/julifitspace"
               target="_blank"
               rel="noreferrer"
               className="nf-footer-contact-row"
@@ -251,6 +251,7 @@ export default function FooterSection() {
 
           </div>
         </div>
+
         <div className="nf-footer-bottom">
           © {year} NeuroFit. Всі права захищені.{' '}
           <a href="https://telebots.site/uk" target="_blank" rel="noreferrer">

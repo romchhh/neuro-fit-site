@@ -5,8 +5,9 @@ import NeuroIntensiveChangesSection from '@/components/NeuroIntensiveChangesSect
 import NeuroIntensiveFormatSection from '@/components/NeuroIntensiveFormatSection';
 import NeuroIntensiveWhatIncludedSection from '@/components/NeuroIntensiveWhatIncludedSection';
 import FaqSectionNeuroIntensive from '@/components/FaqSectionNeuroIntensive';
-import FooterSection from '@/components/FooterSection';
 import ForWhoSection from '@/components/ForWhoSection';
+import BottomContactBlock from '@/components/BottomContactBlock';
+import FooterSection from '@/components/FooterSection';
 
 export const metadata: Metadata = {
   title: 'Neuro-інтенсив — програма',
@@ -30,6 +31,7 @@ export default function NeuroIntensivePage() {
         <NeuroIntensiveWhatIncludedSection />
         <ForWhoSection />
         <FaqSectionNeuroIntensive />
+        <BottomContactBlock />
         <FooterSection />
       </div>
     </ScrollRevealProvider>
