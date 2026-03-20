@@ -34,15 +34,14 @@ export default function Home() {
                 fontFamily: "'Montserrat', sans-serif",
                 fontStyle: 'italic',
                 fontWeight: 400,
-                fontSize: 'clamp(0.98rem, 1.6vw, 1.12rem)',
+                fontSize: 'clamp(1.96rem, 3.2vw, 2.24rem)',
                 lineHeight: 1.7,
                 color: '#4A3044',
                 textAlign: 'center',
-                marginBottom: 20,
+                marginBottom: 40,
               }}
             >
-              Тут можна побачити, як виглядають заняття наживо, почути пояснення
-              Юлії та відчути атмосферу методу — ще до того, як оберете програму.
+              Про проєкт від засновниці
             </p>
 
             <VideoTeaser />

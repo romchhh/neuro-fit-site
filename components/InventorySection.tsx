@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const inventoryImages = [
   "/inventory/inventory-1.jpg",
@@ -18,6 +18,8 @@ const inventoryImages = [
 export default function InventorySection() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const cardRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   useEffect(() => {
     if (!lightboxOpen) return;
@@ -53,6 +55,63 @@ export default function InventorySection() {
     );
   };
 
+  const scrollToIndex = (index: number) => {
+    const container = scrollRef.current;
+    const card = cardRefs.current[index];
+    if (!container || !card) return;
+
+    const cardRect = card.getBoundingClientRect();
+
+    // Центруємо картку відносно viewport (як у секції відгуків)
+    const viewportCenter = window.innerWidth / 2;
+    const cardCenter = cardRect.left + cardRect.width / 2;
+    const delta = cardCenter - viewportCenter;
+
+    container.scrollTo({
+      left: container.scrollLeft + delta,
+      behavior: "smooth",
+    });
+    setActiveIndex(index);
+  };
+
+  const handlePrevCarousel = () => {
+    scrollToIndex(activeIndex === 0 ? inventoryImages.length - 1 : activeIndex - 1);
+  };
+
+  const handleNextCarousel = () => {
+    scrollToIndex(activeIndex === inventoryImages.length - 1 ? 0 : activeIndex + 1);
+  };
+
+  // Оновлюємо activeIndex при ручному скролі інвентаря
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const onScroll = () => {
+      if (lightboxOpen) return;
+
+      const viewportCenter = window.innerWidth / 2;
+      let closestIndex = 0;
+      let closestDelta = Infinity;
+
+      cardRefs.current.forEach((card, index) => {
+        if (!card) return;
+        const cardRect = card.getBoundingClientRect();
+        const cardCenter = cardRect.left + cardRect.width / 2;
+        const delta = Math.abs(cardCenter - viewportCenter);
+        if (delta < closestDelta) {
+          closestDelta = delta;
+          closestIndex = index;
+        }
+      });
+
+      setActiveIndex(closestIndex);
+    };
+
+    container.addEventListener("scroll", onScroll, { passive: true });
+    return () => container.removeEventListener("scroll", onScroll);
+  }, [lightboxOpen]);
+
   return (
     <>
       <style>{`
@@ -73,6 +132,14 @@ export default function InventorySection() {
           margin-bottom: 20px;
           align-items: flex-start;
           text-align: left;
+        }
+
+        .inventory-header-top {
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          gap: 16px;
         }
 
         .inventory-label {
@@ -221,6 +288,7 @@ export default function InventorySection() {
           padding-bottom: 8px;
           scrollbar-width: none;
           scroll-behavior: smooth;
+          scroll-snap-type: x mandatory;
         }
         .inventory-list::-webkit-scrollbar {
           display: none;
@@ -233,6 +301,8 @@ export default function InventorySection() {
           border: 1px solid #f0d9f3;
           flex-shrink: 0;
           width: 260px;
+          scroll-snap-align: center;
+          padding: 0;
         }
 
         .inventory-image {
@@ -314,6 +384,53 @@ export default function InventorySection() {
           right: 10px;
         }
 
+        .inventory-arrows {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          flex-shrink: 0;
+          margin-top: 4px;
+        }
+
+        .inventory-arrow {
+          font-size: 24px;
+          color: #c9a0d4;
+          cursor: pointer;
+          user-select: none;
+          transition: color 0.2s;
+          line-height: 1;
+          background: transparent;
+          border: none;
+          padding: 0;
+        }
+        .inventory-arrow:hover { color: #9b6aad; }
+
+        .inventory-dots {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          margin-top: 18px;
+        }
+
+        .inventory-dot {
+          width: 10px; height: 10px;
+          border-radius: 999px;
+          border: 1.5px solid #e8a0c8;
+          background: transparent;
+          cursor: pointer;
+          padding: 0;
+        }
+
+        .inventory-dot-active {
+          width: 28px; height: 10px;
+          border-radius: 999px;
+          background: #e8a0c8;
+          border: none;
+          cursor: pointer;
+          padding: 0;
+        }
+
         @media (max-width: 1024px) {
           .inventory-item {
             width: 220px;
@@ -386,16 +503,43 @@ export default function InventorySection() {
             letter-spacing: 0.16em;
             text-align: center;
           }
+
+          .inventory-header-top {
+            gap: 12px;
+            align-items: flex-end;
+          }
+          .inventory-arrows { gap: 12px; }
+          .inventory-dots { margin-top: 14px; }
         }
       `}</style>
 
       <section className="inventory-section reveal-up" data-animate>
         <div className="inventory-inner">
           <div className="inventory-header reveal-fade" data-animate>
+            <div className="inventory-header-top">
+              <p className="inventory-subtitle">
+                Інвентар, який знадобиться вам для тренувань.
+              </p>
 
-            <p className="inventory-subtitle">
-              Інвентар, який знадобиться вам для тренувань.
-            </p>
+              <div className="inventory-arrows" aria-label="Навігація інвентарем">
+                <button
+                  type="button"
+                  className="inventory-arrow"
+                  onClick={handlePrevCarousel}
+                  aria-label="Попередній"
+                >
+                  ←
+                </button>
+                <button
+                  type="button"
+                  className="inventory-arrow"
+                  onClick={handleNextCarousel}
+                  aria-label="Наступний"
+                >
+                  →
+                </button>
+              </div>
+            </div>
             <div className="inventory-bg-title-wrap">
               <Image
                 src="/pink.png"
@@ -408,13 +552,20 @@ export default function InventorySection() {
             </div>
           </div>
 
-          <div className="inventory-list reveal-up reveal-delay-1" data-animate>
+          <div
+            className="inventory-list reveal-up reveal-delay-1"
+            data-animate
+            ref={scrollRef}
+          >
             {inventoryImages.map((src, index) => (
               <button
                 type="button"
                 className="inventory-item"
                 key={src}
                 onClick={() => openLightbox(index)}
+                ref={(el) => {
+                  cardRefs.current[index] = el;
+                }}
               >
                 <Image
                   src={src}
@@ -426,6 +577,18 @@ export default function InventorySection() {
                   sizes="(max-width: 640px) 200px, (max-width: 1024px) 220px, 260px"
                 />
               </button>
+            ))}
+          </div>
+
+          <div className="inventory-dots">
+            {inventoryImages.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                className={index === activeIndex ? "inventory-dot-active" : "inventory-dot"}
+                onClick={() => scrollToIndex(index)}
+                aria-label={`Інвентар ${index + 1}`}
+              />
             ))}
           </div>
 
