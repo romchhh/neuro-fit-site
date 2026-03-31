@@ -155,7 +155,7 @@ export default function HeroNeuroIntensive() {
                       color: '#5A2345',
                     }}
                   >
-                    ДО КІНЦЯ БЕРЕЗНЯ
+                    ДО КІНЦЯ КВІТНЯ
                   </p>
                 </div>
 
