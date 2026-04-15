@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Header from '@/components/Header';
-import { handlePayment } from '@/utils/handlePayment';
+import PaywallLeadButton from '@/components/PaywallLeadButton';
 
 export default function HeroNeurofit() {
   return (
@@ -209,7 +209,7 @@ export default function HeroNeurofit() {
 
           {/* Кнопка внизу — оформлення як на головній, але з оплатою */}
           <div className="pb-12 md:pb-16 flex justify-center px-6">
-            <button
+            <PaywallLeadButton
               className="inline-block text-center border border-white/70 text-white font-bold rounded-full uppercase tracking-[0.2em] whitespace-nowrap transition-all duration-200 hover:bg-white/25 hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(0,0,0,0.28)] active:scale-[0.97]"
               style={{
                 fontSize: 'clamp(1.09rem, 1.8vw, 1.2rem)',
@@ -219,12 +219,13 @@ export default function HeroNeurofit() {
                 WebkitBackdropFilter: 'blur(24px)',
                 boxShadow: '0 4px 32px rgba(0,0,0,0.12)',
               }}
-              onClick={() => {
+              productLabel="NeuroFit — герой, оплата Kwiga"
+              afterLeadSent={() => {
                 window.location.href = 'https://neurofit.kwiga.com/o/vm4QaXJ1cOFg';
               }}
             >
               Доєднатися
-            </button>
+            </PaywallLeadButton>
           </div>
         </div>
       </div>

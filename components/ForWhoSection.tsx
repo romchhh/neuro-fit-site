@@ -1,6 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import PaywallLeadButton from '@/components/PaywallLeadButton';
 
 export default function ForWhoSection() {
   const pathname = usePathname();
@@ -11,6 +12,9 @@ export default function ForWhoSection() {
   const paymentUrl = isIntensivePage
     ? 'https://secure.wayforpay.com/payment/se1a2f595462e'
     : 'https://neurofit.kwiga.com/o/vm4QaXJ1cOFg';
+  const productLabel = isIntensivePage
+    ? 'Neuro Intensive — блок «Для кого?»'
+    : 'NeuroFit — блок «Для кого?»';
 
   return (
     <>
@@ -111,14 +115,15 @@ export default function ForWhoSection() {
             <strong>{newPrice} грн</strong>
           </p>
 
-          <button
+          <PaywallLeadButton
             className="forwho-btn"
-            onClick={() => {
+            productLabel={productLabel}
+            afterLeadSent={() => {
               window.location.href = paymentUrl;
             }}
           >
             ДОЄДНАТИСЯ
-          </button>
+          </PaywallLeadButton>
         </div>
       </section>
     </>
