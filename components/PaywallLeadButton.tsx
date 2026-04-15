@@ -1,7 +1,18 @@
 'use client';
 
-import { useCallback, useId, useState, type ButtonHTMLAttributes, type ReactNode } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type ButtonHTMLAttributes,
+  type ReactNode,
+} from 'react';
 import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
+import { pushDataLayer } from '@/utils/dataLayer';
+
+const FORM_ID = 'pre_payment_lead';
 
 type PaywallLeadButtonProps = {
   productLabel: string;
@@ -22,8 +33,24 @@ export default function PaywallLeadButton({
   const [telegram, setTelegram] = useState('');
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const formStartSent = useRef(false);
 
   useBodyScrollLock(open);
+
+  useEffect(() => {
+    if (!open) formStartSent.current = false;
+  }, [open]);
+
+  const onFormFieldFocus = useCallback(() => {
+    if (formStartSent.current) return;
+    formStartSent.current = true;
+    pushDataLayer({
+      event: 'form_start',
+      form_id: FORM_ID,
+      form_name: 'Перед оплатою',
+      product_label: productLabel,
+    });
+  }, [productLabel]);
 
   const close = useCallback(() => {
     if (sending) return;
@@ -51,6 +78,12 @@ export default function PaywallLeadButton({
         setError(data.error || 'Помилка відправки');
         return;
       }
+      pushDataLayer({
+        event: 'form_submit',
+        form_id: FORM_ID,
+        form_name: 'Перед оплатою',
+        product_label: productLabel,
+      });
       setOpen(false);
       setName('');
       setTelegram('');
@@ -97,6 +130,7 @@ export default function PaywallLeadButton({
                 autoComplete="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                onFocus={onFormFieldFocus}
                 className="mt-1.5 w-full rounded-2xl border border-[#E8C4E6] bg-[#FFFBFE] px-4 py-3 text-[#2a2a2a] outline-none ring-[#D7ABD6] focus:ring-2"
                 placeholder="Олена"
                 disabled={sending}
@@ -112,6 +146,7 @@ export default function PaywallLeadButton({
                 autoComplete="on"
                 value={telegram}
                 onChange={(e) => setTelegram(e.target.value)}
+                onFocus={onFormFieldFocus}
                 className="mt-1.5 w-full rounded-2xl border border-[#E8C4E6] bg-[#FFFBFE] px-4 py-3 text-[#2a2a2a] outline-none ring-[#D7ABD6] focus:ring-2"
                 placeholder="@username, +380… або 067…"
                 disabled={sending}
