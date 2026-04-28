@@ -75,7 +75,7 @@ export default function ProgramsSection() {
   const scrollToIndex = (index: number) => {
     const card = cardRefs.current[index];
     if (!card) return;
-    card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     activeIndexRef.current = index;
     setActiveIndex(index);
   };
@@ -420,7 +420,8 @@ export default function ProgramsSection() {
           scroll-snap-type: x mandatory;
           padding-bottom: 8px;
           padding-left: 0;
-          padding-right: 32px;
+          padding-right: 72px;
+          scroll-padding-right: 72px;
           scrollbar-width: none;
           scroll-behavior: smooth;
         }
@@ -500,6 +501,7 @@ export default function ProgramsSection() {
         /* content column */
         .prog-card-content {
           flex: 1;
+          min-width: 0;
           display: flex;
           flex-direction: column;
           gap: 16px;
@@ -537,6 +539,7 @@ export default function ProgramsSection() {
           font-size: 18px;
           line-height: 1.6;
           color: #6b6b6b;
+          overflow-wrap: anywhere;
         }
 
         .prog-card-plashka {
@@ -591,6 +594,7 @@ export default function ProgramsSection() {
           font-size: 17px;
           line-height: 1.6;
           color: #3a3a3a;
+          overflow-wrap: anywhere;
         }
 
         .prog-btn {
@@ -612,6 +616,28 @@ export default function ProgramsSection() {
         .prog-btn:hover { background: #df8fbd; transform: scale(1.02); }
         .prog-btn-soon { background: rgba(232,160,200,0.45); }
         .prog-btn-soon:hover { background: rgba(232,160,200,0.7); }
+        .prog-next-soon {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 700;
+          font-size: 17px;
+          letter-spacing: 0.21em;
+          text-transform: uppercase;
+          background: rgba(232,160,200,0.45);
+          color: #fff;
+          border-radius: 999px;
+          padding: 22px 52px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-sizing: border-box;
+          width: auto;
+          align-self: flex-end;
+          text-align: center;
+          margin-top: auto;
+          line-height: 1;
+          cursor: default;
+          user-select: none;
+        }
 
         /* soon banner */
         .soon-banner {
@@ -712,6 +738,12 @@ export default function ProgramsSection() {
             text-align: center;
             font-size: 16px;
             padding: 22px 48px;
+          }
+          .prog-next-soon {
+            align-self: stretch;
+            text-align: center;
+            padding: 22px 48px;
+            letter-spacing: 0.16em;
           }
         }
 
@@ -821,6 +853,9 @@ export default function ProgramsSection() {
                     <a href="/neuro-intensive" className={`prog-btn ${program.soon ? 'prog-btn-soon' : ''}`}>
                       {program.buttonLabel}
                     </a>
+                  )}
+                  {program.number === '03' && (
+                    <div className="prog-next-soon">Скоро</div>
                   )}
                 </div>
               </div>
