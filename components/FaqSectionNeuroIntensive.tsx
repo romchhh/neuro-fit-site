@@ -220,7 +220,7 @@ export default function FaqSectionNeuroIntensive() {
           </div>
 
           <div className="faq-title-wrap-program reveal-fade" data-animate>
-            <p className="faq-label-program">Часті питання про Neuro-інтенсив</p>
+            <p className="faq-label-program">Часті питання про Pilates Neuro-інтенсив</p>
             <p className="faq-bg-title-program">FAQ</p>
           </div>
         </div>

@@ -12,7 +12,7 @@ export const handlePayment = async (options: PaymentOptions = {}) => {
 
     const title =
       options.eventTitle ||
-      'Оплата послуги NeuroFit (тестова оплата 1 грн)';
+      'Оплата послуги NeuroFit — Neuro-Pilates (тестова оплата 1 грн)';
 
     const response = await fetch('/api/payment/create', {
       method: 'POST',

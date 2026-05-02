@@ -13,8 +13,8 @@ export default function ForWhoSection() {
     ? 'https://secure.wayforpay.com/payment/se1a2f595462e'
     : 'https://neurofit.kwiga.com/o/vm4QaXJ1cOFg';
   const productLabel = isIntensivePage
-    ? 'Neuro Intensive — блок «Для кого?»'
-    : 'NeuroFit — блок «Для кого?»';
+    ? 'Pilates Neuro-інтенсив — блок «Для кого?»'
+    : 'NeuroFit — Neuro-Pilates — блок «Для кого?»';
 
   return (
     <>

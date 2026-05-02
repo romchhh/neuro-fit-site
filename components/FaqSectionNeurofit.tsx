@@ -235,7 +235,7 @@ export default function FaqSectionNeurofit() {
           </div>
 
           <div className="faq-title-wrap-program reveal-fade" data-animate>
-            <p className="faq-label-program">Часті питання про NeuroFit</p>
+            <p className="faq-label-program">Часті питання про NeuroFit — Neuro-Pilates</p>
             <p className="faq-bg-title-program">FAQ</p>
           </div>
         </div>

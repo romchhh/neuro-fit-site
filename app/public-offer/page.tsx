@@ -231,7 +231,7 @@ export default function PublicOfferPage() {
         <section className="mb-6 mt-2 flex justify-center" data-animate>
           <Image
             src="/logo-neurofit.png"
-            alt="NeuroFit logo"
+            alt="NeuroFit — Neuro-Pilates"
             width={192}
             height={192}
             className="rounded-full object-contain"

@@ -10,10 +10,10 @@ export default function HeroNeuroIntensive() {
       className="relative min-h-screen overflow-hidden reveal-fade"
       data-animate
     >
-      {/* Фон Neuro-інтенсиву */}
+      {/* Фон міні-програми Pilates Neuro-інтенсив */}
       <Image
         src="/neuro-intensive/IMG_4981.jpg"
-        alt="Neuro-інтенсив"
+        alt="Pilates Neuro-інтенсив"
         fill
         priority
         sizes="100vw"
@@ -23,7 +23,7 @@ export default function HeroNeuroIntensive() {
 
       <Image
         src="/neuro-intensive/IMG_4965.jpg"
-        alt="Neuro-інтенсив mobile"
+        alt="Pilates Neuro-інтенсив, мобільна версія"
         fill
         priority
         sizes="100vw"
@@ -64,7 +64,7 @@ export default function HeroNeuroIntensive() {
                   filter: 'drop-shadow(0px 4px 4.8px rgba(0,0,0,0.251))',
                 }}
               >
-                Neuro-інтенсив
+                Pilates Neuro-інтенсив
               </h1>
               <p
                 className="mt-4 text-center mx-auto"
@@ -218,7 +218,7 @@ export default function HeroNeuroIntensive() {
                 WebkitBackdropFilter: 'blur(24px)',
                 boxShadow: '0 4px 32px rgba(0,0,0,0.12)',
               }}
-              productLabel="Neuro Intensive — герой, WayForPay"
+              productLabel="Pilates Neuro-інтенсив — герой, WayForPay"
               afterLeadSent={() => {
                 window.location.href = 'https://secure.wayforpay.com/payment/se1a2f595462e';
               }}

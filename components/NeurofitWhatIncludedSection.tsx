@@ -121,7 +121,7 @@ export default function NeurofitWhatIncludedSection() {
             <div className="nf-what-image">
               <Image
                 src="/neuro-fit/IMG_5031.jpg"
-                alt="NeuroFit — що входить до програми"
+                alt="NeuroFit — Neuro-Pilates — що входить до програми"
                 fill
                 className="object-cover object-center"
               />

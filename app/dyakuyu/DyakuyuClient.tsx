@@ -44,7 +44,7 @@ export default function DyakuyuClient() {
   return (
     <main className="flex min-h-[100dvh] flex-col items-center justify-center bg-gradient-to-b from-[#ffe9ff] via-[#f5e8ff] to-[#f3f1f7] px-4 py-16">
       <section className="w-full max-w-lg rounded-[32px] border border-white/80 bg-white/95 px-8 py-10 text-center shadow-[0_28px_80px_rgba(116,63,135,0.18)]">
-        <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-[#805D7F]">NeuroFit</p>
+        <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-[#805D7F]">NeuroFit — Neuro-Pilates</p>
         <h1 className="mb-4 font-semibold text-[#5a3d59] text-2xl md:text-3xl">Дякуємо!</h1>
         <p className="mb-8 text-[15px] leading-relaxed text-neutral-600">
           Ваше замовлення зафіксовано. Якщо потрібна допомога з доступом — напишіть нам у підтримку.

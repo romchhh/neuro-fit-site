@@ -10,13 +10,13 @@ import BottomContactBlock from '@/components/BottomContactBlock';
 import FooterSection from '@/components/FooterSection';
 
 export const metadata: Metadata = {
-  title: 'Neuro-інтенсив — програма',
+  title: 'Pilates Neuro-інтенсив — міні-програма',
   description:
-    'Neuro-інтенсив — програма, щоб швидко відчути звʼязок мозку й тіла, покращити координацію та концентрацію без перевантаження.',
+    'Pilates Neuro-інтенсив: коротка програма, щоб швидко відчути звʼязок мозку й тіла, покращити координацію та концентрацію без перевантаження.',
   openGraph: {
-    title: 'Neuro-інтенсив — програма',
+    title: 'Pilates Neuro-інтенсив — міні-програма',
     description:
-      'Короткий Neuro-інтенсив: пілатес, функціональні звʼязки та нейрофітнес для швидкого старту й відчутного ефекту.',
+      'Короткий Pilates Neuro-інтенсив: пілатес, функціональні звʼязки та нейрофітнес для швидкого старту й відчутного ефекту.',
     url: '/neuro-intensive',
   },
 };

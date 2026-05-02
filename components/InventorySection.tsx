@@ -597,7 +597,7 @@ export default function InventorySection() {
               <span className="inventory-shop-eyebrow">партнерський інвентар</span>
               <h3 className="inventory-shop-title">BOOMERANG — все, що потрібно для тренувань вдома</h3>
               <p className="inventory-shop-text">
-                Підібраний інвентар, який ідеально доповнює програми NeuroFit:
+                Підібраний інвентар, який ідеально доповнює програми NeuroFit — Neuro-Pilates:
                 мʼячі, еластичні стрічки, ролери та все, що допоможе мʼяко працювати з тілом
                 та відновленням.
               </p>

@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
 
   const name = String(body.name ?? '').trim();
   const telegram = String(body.telegram ?? '').trim();
-  const productLabel = String(body.productLabel ?? 'NeuroFit').trim().slice(0, 500);
+  const productLabel = String(body.productLabel ?? 'NeuroFit — Neuro-Pilates').trim().slice(0, 500);
 
   if (name.length < 2 || telegram.length < 2) {
     return NextResponse.json(

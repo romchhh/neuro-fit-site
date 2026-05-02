@@ -7,50 +7,55 @@ const GA_MEASUREMENT_ID = "G-QMPMX0BGVM";
 const GTM_ID = "GTM-NKRVKDT3";
 
 const siteUrl = process.env.SITE_URL || "https://neuro-fit-site.vercel.app";
-const siteName = "NeuroFit — Smart Movement";
+const siteName = "NeuroFit — Neuro-Pilates";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "NeuroFit — унікальна система довголіття через рух і мозок",
-    template: "%s | NeuroFit",
+    default:
+      "NeuroFit — Neuro-Pilates: онлайн-пілатес, нервова система і стійкий результат",
+    template: "%s | NeuroFit — Neuro-Pilates",
   },
   description:
-    "NeuroFit — авторська система тренувань на основі пілатесу та нейрофітнесу. Розумні тренування для здорової спини, нервової системи та довголіття.",
+    "NeuroFit — Neuro-Pilates: авторські онлайн-програми на основі пілатесу та нейрофітнесу. Постава, стабільність, координація й ресурс без перевантаження.",
   keywords: [
     "NeuroFit",
-    "нейрофітнес",
+    "Neuro-Pilates",
+    "нейропілатес",
     "пілатес онлайн",
+    "нейрофітнес",
+    "пілатес і мозок",
     "здоров'я спини",
     "усвідомлений рух",
     "онлайн тренування",
     "Юлія Бутенко",
-    "Smart Movement",
   ],
-  authors: [{ name: "NeuroFit — Smart Movement" }],
-  creator: "NeuroFit — Smart Movement",
-  publisher: "NeuroFit — Smart Movement",
+  authors: [{ name: "NeuroFit — Neuro-Pilates" }],
+  creator: "NeuroFit — Neuro-Pilates",
+  publisher: "NeuroFit — Neuro-Pilates",
   openGraph: {
     type: "website",
     url: siteUrl,
     siteName,
-    title: "NeuroFit — унікальна система довголіття через рух і мозок",
+    title:
+      "NeuroFit — Neuro-Pilates: онлайн-пілатес, нервова система і стійкий результат",
     description:
-      "Авторська програма на стику пілатесу та нейрофітнесу для тих, хто хоче тренуватися розумно й без болю.",
+      "Пілатес і нейрофітнес у прогресії: для тих, хто хоче тренуватися розумно, знімати напругу та відчувати тіло.",
     images: [
       {
         url: "/hero-desktop.jpg",
         width: 1200,
         height: 630,
-        alt: "NeuroFit — система довголіття через рух і мозок",
+        alt: "NeuroFit — Neuro-Pilates: онлайн-пілатес і нейрофітнес",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "NeuroFit — унікальна система довголіття через рух і мозок",
+    title:
+      "NeuroFit — Neuro-Pilates: онлайн-пілатес, нервова система і стійкий результат",
     description:
-      "Розумні тренування для здорової спини, нервової системи та довголіття.",
+      "Пілатес і нейрофітнес онлайн: спина, стабільність, координація та менше стресу.",
     images: ["/hero-desktop.jpg"],
   },
   alternates: {

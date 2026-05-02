@@ -11,13 +11,13 @@ import BottomContactBlock from '@/components/BottomContactBlock';
 import FooterSection from '@/components/FooterSection';
 
 export const metadata: Metadata = {
-  title: 'NeuroFit — основна програма',
+  title: 'NeuroFit — Neuro-Pilates: основна програма',
   description:
-    'Основна програма NeuroFit: пілатес + нейрофітнес у прогресії від бази до інтеграції в повсякденне життя. Для тих, хто хоче стабільність, силу та здорову спину без перевантаження.',
+    'Основна програма NeuroFit — Neuro-Pilates: пілатес і нейрофітнес у прогресії від бази до інтеграції в повсякденне життя. Стабільність, сила та здорова спина без перевантаження.',
   openGraph: {
-    title: 'NeuroFit — основна програма',
+    title: 'NeuroFit — Neuro-Pilates: основна програма',
     description:
-      '4-модульна програма NeuroFit для тіла й нервової системи: постава, стабільність, координація, ресурс.',
+      '4-модульна програма NeuroFit — Neuro-Pilates для тіла й нервової системи: постава, стабільність, координація, ресурс.',
     url: '/neurofit',
   },
 };

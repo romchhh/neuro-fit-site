@@ -10,10 +10,10 @@ export default function HeroNeurofit() {
       className="relative min-h-screen overflow-hidden reveal-fade"
       data-animate
     >
-      {/* Фон програми NeuroFit */}
+      {/* Фон основної програми */}
       <Image
         src="/neuro-fit/IMG_4969.jpg"
-        alt="NeuroFit"
+        alt="NeuroFit — Neuro-Pilates"
         fill
         priority
         sizes="100vw"
@@ -23,7 +23,7 @@ export default function HeroNeurofit() {
 
       <Image
         src="/neuro-fit/IMG_5079.jpg"
-        alt="NeuroFit mobile"
+        alt="NeuroFit — Neuro-Pilates, мобільна версія"
         fill
         priority
         sizes="100vw"
@@ -65,7 +65,7 @@ export default function HeroNeurofit() {
                   filter: 'drop-shadow(0px 4px 4.8px rgba(0,0,0,0.251))',
                 }}
               >
-                NeuroFit
+                NeuroFit — Neuro-Pilates
               </h1>
               <p
                 className="mt-4 text-center mx-auto"
@@ -92,7 +92,7 @@ export default function HeroNeurofit() {
                     boxShadow: '0 4px 18px rgba(0,0,0,0.18)',
                   }}
                 >
-                  Основна програма · пілатес + нейрофітнес
+                  Основна програма · Neuro-Pilates і нейрофітнес
                 </span>
               </p>
             </div>
@@ -219,7 +219,7 @@ export default function HeroNeurofit() {
                 WebkitBackdropFilter: 'blur(24px)',
                 boxShadow: '0 4px 32px rgba(0,0,0,0.12)',
               }}
-              productLabel="NeuroFit — герой, оплата Kwiga"
+              productLabel="NeuroFit — Neuro-Pilates — герой, оплата Kwiga"
               afterLeadSent={() => {
                 window.location.href = 'https://neurofit.kwiga.com/o/vm4QaXJ1cOFg';
               }}

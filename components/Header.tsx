@@ -29,7 +29,7 @@ export default function Header() {
               <div className="flex items-center justify-center rounded-full bg-white p-1.5 shadow-lg shadow-black/30">
                 <Image
                   src="/logo-neurofit.png"
-                  alt="NeuroFit logo"
+                  alt="NeuroFit — Neuro-Pilates"
                   width={96}
                   height={96}
                   className="rounded-full object-contain"
@@ -81,7 +81,7 @@ export default function Header() {
             <div className="flex items-center justify-center rounded-full bg-white p-1.5 shadow-md shadow-black/30">
               <Image
                 src="/logo-neurofit.png"
-                alt="NeuroFit logo"
+                alt="NeuroFit — Neuro-Pilates"
                 width={84}
                 height={84}
                 className="rounded-full object-contain"

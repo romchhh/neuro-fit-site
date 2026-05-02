@@ -22,7 +22,7 @@ export default function VideoTeaser() {
         <>
           <Image
             src="/neuro-fit/hero-mobile-neurofit.png"
-            alt="NeuroFit video teaser"
+            alt="NeuroFit — Neuro-Pilates, відео"
             fill
             sizes="100vw"
             style={{ objectFit: 'cover' }}
@@ -73,7 +73,7 @@ export default function VideoTeaser() {
       {isPlaying && (
         <iframe
           src="https://www.youtube.com/embed/0gx4cuCOReE?autoplay=1"
-          title="NeuroFit video"
+          title="NeuroFit — Neuro-Pilates, відео"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
           style={{

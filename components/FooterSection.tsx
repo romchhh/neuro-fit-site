@@ -253,7 +253,7 @@ export default function FooterSection() {
         </div>
 
         <div className="nf-footer-bottom">
-          © {year} NeuroFit. Всі права захищені.{' '}
+          © {year} NeuroFit — Neuro-Pilates. Всі права захищені.{' '}
           <a href="https://telebots.site/uk" target="_blank" rel="noreferrer">
             Telebots&nbsp;|&nbsp;Розробка сайтів
           </a>

@@ -14,7 +14,7 @@ const reviews: Review[] = [
   {
     id: 1,
     name: "Ірина, 32",
-    tag: "Після NeuroFit",
+    tag: "Після NeuroFit — Neuro-Pilates",
     text: "Вперше відчуваю, що тренування підтримують мене, а не виснажують. Спина перестала ниити, зʼявилась легкість у русі протягом дня.",
   },
   {
@@ -27,7 +27,7 @@ const reviews: Review[] = [
     id: 3,
     name: "Олена, 40",
     tag: "Повернення до тіла",
-    text: "Після перерви у спорті боялася повертатися. Формат NeuroFit виявився дуже мʼяким, але тіло швидко стало сильнішим і стійкішим.",
+    text: "Після перерви у спорті боялася повертатися. Формат NeuroFit — Neuro-Pilates виявився дуже мʼяким, але тіло швидко стало сильнішим і стійкішим.",
   },
   {
     id: 4,
@@ -399,7 +399,7 @@ export default function ReviewsSection() {
 
           {/* Header */}
           <div className="reviews-header reveal-fade" data-animate>
-            <p className="reviews-subtitle">Відгуки тих, хто вже обрав NeuroFit</p>
+            <p className="reviews-subtitle">Відгуки тих, хто вже обрав NeuroFit — Neuro-Pilates</p>
             <div className="reviews-arrows">
               <button type="button" className="reviews-arrow" onClick={handlePrev} aria-label="Попередній">←</button>
               <button type="button" className="reviews-arrow" onClick={handleNext} aria-label="Наступний">→</button>

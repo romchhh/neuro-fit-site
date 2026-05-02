@@ -4,7 +4,7 @@ import DyakuyuClient from './DyakuyuClient';
 
 export const metadata: Metadata = {
   title: 'Дякуємо',
-  description: 'Сторінка подяки після оплати NeuroFit.',
+  description: 'Сторінка подяки після оплати NeuroFit — Neuro-Pilates.',
   robots: { index: false, follow: true },
 };
 

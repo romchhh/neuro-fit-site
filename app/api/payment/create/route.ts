@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
 
     const productName = [
       body.eventTitle ||
-        'Оплата послуги NeuroFit (тестова оплата 1 грн)',
+        'Оплата послуги NeuroFit — Neuro-Pilates (тестова оплата 1 грн)',
     ];
     const productPrice = [amount];
     const productCount = [1];
