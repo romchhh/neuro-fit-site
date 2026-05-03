@@ -65,7 +65,7 @@ export default function HeroNeurofit() {
                   filter: 'drop-shadow(0px 4px 4.8px rgba(0,0,0,0.251))',
                 }}
               >
-                NeuroFit — Neuro-Pilates
+                Neuro-Pilates
               </h1>
               <p
                 className="mt-4 text-center mx-auto"
