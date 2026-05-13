@@ -170,8 +170,8 @@ export default function HeroNeuroIntensive() {
                   }}
                 >
                   Ціна:{' '}
-                  <span style={{ textDecoration: 'line-through', opacity: 0.85 }}>790</span>{' '}
-                  380 грн
+                  <span style={{ textDecoration: 'line-through', opacity: 0.85 }}>880</span>{' '}
+                  420 грн
                 </p>
                 <p
                   style={{

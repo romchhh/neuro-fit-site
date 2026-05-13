@@ -7,8 +7,8 @@ export default function ForWhoSection() {
   const pathname = usePathname();
   const isIntensivePage = pathname?.startsWith('/neuro-intensive');
 
-  const oldPrice = isIntensivePage ? 790 : 2090;
-  const newPrice = isIntensivePage ? 380 : 1490;
+  const oldPrice = isIntensivePage ? 880 : 2090;
+  const newPrice = isIntensivePage ? 420 : 1490;
   const paymentUrl = isIntensivePage
     ? 'https://secure.wayforpay.com/payment/se1a2f595462e'
     : 'https://neurofit.kwiga.com/o/vm4QaXJ1cOFg';
