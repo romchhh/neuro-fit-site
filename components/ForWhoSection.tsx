@@ -14,7 +14,7 @@ export default function ForWhoSection() {
     : 'https://neurofit.kwiga.com/o/vm4QaXJ1cOFg';
   const productLabel = isIntensivePage
     ? 'Pilates Neuro-інтенсив — блок «Для кого?»'
-    : 'NeuroFit — Neuro-Pilates — блок «Для кого?»';
+    : 'Neuro-Pilates — блок «Для кого?»';
 
   return (
     <>

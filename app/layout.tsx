@@ -30,15 +30,15 @@ export const metadata: Metadata = {
     "онлайн тренування",
     "Юлія Бутенко",
   ],
-  authors: [{ name: "NeuroFit — Neuro-Pilates" }],
-  creator: "NeuroFit — Neuro-Pilates",
-  publisher: "NeuroFit — Neuro-Pilates",
+  authors: [{ name: "Neuro-Pilates" }],
+  creator: "Neuro-Pilates",
+  publisher: "Neuro-Pilates",
   openGraph: {
     type: "website",
     url: siteUrl,
     siteName,
     title:
-      "NeuroFit — Neuro-Pilates: онлайн-пілатес, нервова система і стійкий результат",
+      "Neuro-Pilates: онлайн-пілатес, нервова система і стійкий результат",
     description:
       "Пілатес і нейрофітнес у прогресії: для тих, хто хоче тренуватися розумно, знімати напругу та відчувати тіло.",
     images: [
@@ -46,14 +46,14 @@ export const metadata: Metadata = {
         url: "/hero-desktop.jpg",
         width: 1200,
         height: 630,
-        alt: "NeuroFit — Neuro-Pilates: онлайн-пілатес і нейрофітнес",
+        alt: "Neuro-Pilates: онлайн-пілатес і нейрофітнес",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "NeuroFit — Neuro-Pilates: онлайн-пілатес, нервова система і стійкий результат",
+      "Neuro-Pilates: онлайн-пілатес, нервова система і стійкий результат",
     description:
       "Пілатес і нейрофітнес онлайн: спина, стабільність, координація та менше стресу.",
     images: ["/hero-desktop.jpg"],

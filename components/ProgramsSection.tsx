@@ -7,7 +7,7 @@ const programs = [
   {
     number: '01',
     tag: 'ОСНОВНА ПРОГРАМА',
-    title: 'NeuroFit — Neuro-Pilates',
+    title: 'Neuro-Pilates',
     description:
       'Пілатес і нейрофітнес у прогресії: від відчуття тіла до стабільності й впевненого руху.',
     benefits: [

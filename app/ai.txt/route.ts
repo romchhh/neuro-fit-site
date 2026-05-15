@@ -4,7 +4,7 @@ export const runtime = "edge";
 
 export function GET(_req: NextRequest) {
   const body = [
-    "# AI Crawling & Usage Guidelines for NeuroFit — Neuro-Pilates",
+    "# AI Crawling & Usage Guidelines for Neuro-Pilates",
     "",
     "Site: https://neuro-fit-site.vercel.app",
     "",
