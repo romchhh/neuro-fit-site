@@ -7,17 +7,17 @@ const GA_MEASUREMENT_ID = "G-QMPMX0BGVM";
 const GTM_ID = "GTM-NKRVKDT3";
 
 const siteUrl = process.env.SITE_URL || "https://neuro-fit-site.vercel.app";
-const siteName = "NeuroFit — Neuro-Pilates";
+const siteName = "Neuro-Pilates";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default:
-      "NeuroFit — Neuro-Pilates: онлайн-пілатес, нервова система і стійкий результат",
-    template: "%s | NeuroFit — Neuro-Pilates",
+      "Neuro-Pilates: онлайн-пілатес, нервова система і стійкий результат",
+    template: "%s | euro-Pilates",
   },
   description:
-    "NeuroFit — Neuro-Pilates: авторські онлайн-програми на основі пілатесу та нейрофітнесу. Постава, стабільність, координація й ресурс без перевантаження.",
+    "Neuro-Pilates: авторські онлайн-програми на основі пілатесу та нейрофітнесу. Постава, стабільність, координація й ресурс без перевантаження.",
   keywords: [
     "NeuroFit",
     "Neuro-Pilates",

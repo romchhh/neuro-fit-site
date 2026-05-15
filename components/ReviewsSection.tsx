@@ -399,7 +399,7 @@ export default function ReviewsSection() {
 
           {/* Header */}
           <div className="reviews-header reveal-fade" data-animate>
-            <p className="reviews-subtitle">Відгуки тих, хто вже обрав NeuroFit — Neuro-Pilates</p>
+            <p className="reviews-subtitle">Відгуки тих, хто вже обрав Neuro-Pilates</p>
             <div className="reviews-arrows">
               <button type="button" className="reviews-arrow" onClick={handlePrev} aria-label="Попередній">←</button>
               <button type="button" className="reviews-arrow" onClick={handleNext} aria-label="Наступний">→</button>
