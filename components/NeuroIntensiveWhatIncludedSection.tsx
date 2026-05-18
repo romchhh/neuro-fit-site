@@ -177,6 +177,7 @@ export default function NeuroIntensiveWhatIncludedSection() {
               <ol className="ni-what-list">
                 <li><span className="ni-what-label">Стрес і напруга</span></li>
                 <li><span className="ni-what-label">Баланс і просторове мислення</span></li>
+                <li>Фітнес-аптечка із доступом назавжди</li>
               </ol>
               <div className="ni-what-bonus-block">
                 <span className="ni-what-bonus-label">Подарунок</span>

@@ -136,6 +136,7 @@ export default function NeurofitWhatIncludedSection() {
                 <li>загальний чат</li>
                 <li>додаткові матеріали</li>
                 <li>доступ 4 місяці</li>
+                <li>Фітнес-аптечка із доступом назавжди</li>
               </ul>
             </div>
           </div>
