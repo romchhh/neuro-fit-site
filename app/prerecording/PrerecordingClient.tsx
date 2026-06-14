@@ -8,7 +8,7 @@ import { pushDataLayer } from '@/utils/dataLayer';
 const FORM_ID = 'prerecording_lead';
 const PRODUCT_LABEL = 'Предзапис — лендинг /prerecording';
 const TELEGRAM_URL =
-  process.env.NEXT_PUBLIC_PRERECORDING_TELEGRAM_URL ?? 'https://t.me/julifitspace';
+  process.env.NEXT_PUBLIC_PRERECORDING_TELEGRAM_URL ?? 'https://t.me/PilatesCoursesBot';
 const REDIRECT_DELAY_MS = 3000;
 
 export default function PrerecordingClient() {
