@@ -219,7 +219,7 @@ export default function HeroNeurofit() {
                 WebkitBackdropFilter: 'blur(24px)',
                 boxShadow: '0 4px 32px rgba(0,0,0,0.12)',
               }}
-              productLabel="Neuro-Pilates — герой, оплата Kwiga"
+              productLabel="Neuro-Pilates — основна програма (перед оплатою)"
               afterLeadSent={() => {
                 window.location.href = 'https://neurofit.kwiga.com/o/vm4QaXJ1cOFg';
               }}

@@ -71,7 +71,7 @@ export default function PaywallLeadButton({
       const res = await fetch('/api/telegram/pre-payment', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: n, telegram: t, productLabel }),
+        body: JSON.stringify({ name: n, telegram: t, productLabel, leadType: 'pre_payment' }),
       });
       const data = (await res.json()) as { ok?: boolean; error?: string };
       if (!res.ok || !data.ok) {

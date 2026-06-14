@@ -15,11 +15,34 @@ function formatTelegramForMessage(raw: string): string {
   return `@${username}`;
 }
 
+type LeadType = 'pre_payment' | 'prerecording';
+
 type Body = {
   name?: string;
   telegram?: string;
   productLabel?: string;
+  leadType?: LeadType;
 };
+
+function buildLeadMessage(leadType: LeadType, productLabel: string, name: string, telegram: string): string {
+  const contact = formatTelegramForMessage(telegram);
+
+  if (leadType === 'prerecording') {
+    return [
+      '📹 Предзапис',
+      'Сторінка: /prerecording',
+      `Ім'я: ${name}`,
+      `Telegram: ${contact}`,
+    ].join('\n');
+  }
+
+  return [
+    '🛒 Перед оплатою',
+    `Програма: ${productLabel}`,
+    `Ім'я: ${name}`,
+    `Telegram: ${contact}`,
+  ].join('\n');
+}
 
 export async function POST(req: NextRequest) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
@@ -42,6 +65,7 @@ export async function POST(req: NextRequest) {
 
   const name = String(body.name ?? '').trim();
   const telegram = String(body.telegram ?? '').trim();
+  const leadType: LeadType = body.leadType === 'prerecording' ? 'prerecording' : 'pre_payment';
   const productLabel = String(body.productLabel ?? 'Neuro-Pilates').trim().slice(0, 500);
 
   if (name.length < 2 || telegram.length < 2) {
@@ -55,12 +79,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: 'Занадто довгі поля' }, { status: 400 });
   }
 
-  const text = [
-    '🛒 Перед оплатою',
-    `Продукт: ${productLabel}`,
-    `Ім'я: ${name}`,
-    `Telegram: ${formatTelegramForMessage(telegram)}`,
-  ].join('\n');
+  const text = buildLeadMessage(leadType, productLabel, name, telegram);
 
   const url = `https://api.telegram.org/bot${token}/sendMessage`;
   const tgRes = await fetch(url, {
