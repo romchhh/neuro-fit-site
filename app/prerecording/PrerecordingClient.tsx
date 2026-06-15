@@ -93,7 +93,120 @@ export default function PrerecordingClient() {
   }, [submitted]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-100 via-purple-50 to-gray-100">
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300;1,600;1,700&display=swap');
+
+        .pr-page,
+        .pr-page input,
+        .pr-page button {
+          font-family: 'Montserrat', sans-serif;
+        }
+
+        .pr-badge {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 700;
+          font-size: clamp(1rem, 2.2vw, 1.2rem);
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+        }
+
+        .pr-subtitle {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 700;
+          font-style: italic;
+          font-size: clamp(1.15rem, 2.6vw, 1.65rem);
+          line-height: 1.2;
+        }
+
+        .pr-title {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 700;
+          font-size: clamp(4.5rem, 14vw, 10rem);
+          line-height: 0.95;
+          letter-spacing: -0.02em;
+        }
+
+        .pr-desc {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 500;
+          font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+          line-height: 1.55;
+        }
+
+        .pr-form-card {
+          padding: clamp(1.75rem, 4vw, 2.75rem);
+        }
+
+        .pr-form-title {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 700;
+          font-size: clamp(1.35rem, 2.8vw, 1.75rem);
+          color: #4a2f49;
+          letter-spacing: 0.01em;
+        }
+
+        .pr-form-desc {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 500;
+          font-size: clamp(1rem, 2vw, 1.125rem);
+          line-height: 1.6;
+          color: #3f3f3f;
+        }
+
+        .pr-form-label {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 700;
+          font-size: clamp(1rem, 1.8vw, 1.125rem);
+          color: #4a2f49;
+        }
+
+        .pr-form-input {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 500;
+          font-size: clamp(1.05rem, 2vw, 1.2rem);
+        }
+
+        .pr-form-btn {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 700;
+          font-size: clamp(1rem, 1.8vw, 1.125rem);
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+        }
+
+        .pr-thanks-kicker {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 700;
+          font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: #805D7F;
+        }
+
+        .pr-thanks-title {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 700;
+          font-size: clamp(1.75rem, 5vw, 2.5rem);
+          color: #4a2f49;
+        }
+
+        .pr-thanks-text {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 500;
+          font-size: clamp(1.05rem, 2vw, 1.2rem);
+          line-height: 1.65;
+          color: #3f3f3f;
+        }
+
+        .pr-footer-link {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 500;
+          font-size: clamp(1rem, 1.8vw, 1.125rem);
+        }
+      `}</style>
+
+    <div className="pr-page min-h-screen bg-gradient-to-br from-pink-100 via-purple-50 to-gray-100">
       <section className="relative min-h-screen overflow-hidden reveal-fade" data-animate>
         <Image
           src="/neuro-fit/IMG_5031.jpg"
@@ -127,12 +240,11 @@ export default function PrerecordingClient() {
         />
 
         <div className="relative z-10 flex min-h-screen flex-col">
-          <div className="flex flex-1 flex-col items-center justify-center px-6 pb-12 pt-12 md:pb-16 md:pt-16">
-            <div className="reveal-up w-full max-w-2xl text-center" data-animate>
+          <div className="flex flex-1 flex-col items-center justify-center px-5 pb-14 pt-14 md:px-8 md:pb-20 md:pt-20">
+            <div className="reveal-up w-full max-w-3xl text-center" data-animate>
               <p
-                className="mb-4 inline-flex items-center justify-center rounded-full px-5 py-2 text-sm font-semibold uppercase tracking-[0.14em]"
+                className="pr-badge mb-5 inline-flex items-center justify-center rounded-full px-6 py-3 md:px-7 md:py-3.5"
                 style={{
-                  fontFamily: "'Montserrat', sans-serif",
                   background: 'rgba(255, 219, 236, 0.92)',
                   color: '#4C2440',
                   boxShadow: '0 4px 18px rgba(0,0,0,0.18)',
@@ -141,67 +253,78 @@ export default function PrerecordingClient() {
                 Безкоштовний доступ
               </p>
 
-              <h1
+              <p
+                className="pr-subtitle"
                 style={{
-                  fontFamily: "'Montserrat', sans-serif",
-                  fontWeight: 600,
-                  fontSize: 'clamp(2.4rem, 6vw, 4.2rem)',
-                  lineHeight: 1.05,
-                  color: 'rgba(255,255,255,0.96)',
-                  filter: 'drop-shadow(0px 4px 4.8px rgba(0,0,0,0.25))',
-                  marginBottom: 16,
+                  color: 'rgba(255,255,255,0.94)',
+                  filter: 'drop-shadow(0px 4px 4.8px rgba(0,0,0,0.251))',
+                  marginBottom: 12,
                 }}
               >
-                Предзапис Neuro-Pilates
+                Спробуй систему
+              </p>
+
+              <h1
+                className="pr-title text-center"
+                style={{
+                  color: 'rgba(255,255,255,0.98)',
+                  filter: 'drop-shadow(0px 6px 8px rgba(0,0,0,0.35))',
+                  marginBottom: 24,
+                }}
+              >
+                NeuroFit
               </h1>
 
               <p
+                className="pr-desc mx-auto max-w-2xl"
                 style={{
-                  fontFamily: "'Montserrat', sans-serif",
-                  fontWeight: 400,
-                  fontStyle: 'italic',
-                  fontSize: 'clamp(1rem, 2vw, 1.2rem)',
-                  lineHeight: 1.5,
-                  color: 'rgba(255,255,255,0.92)',
-                  filter: 'drop-shadow(0px 2px 4px rgba(0,0,0,0.2))',
-                  marginBottom: 32,
+                  color: 'rgba(255,255,255,0.96)',
+                  filter: 'drop-shadow(0px 3px 6px rgba(0,0,0,0.28))',
+                  marginBottom: 40,
                 }}
               >
-                Залиште контакт — і ми одразу надішлемо вас у Telegram, щоб ви могли забрати матеріали
-                та протестувати їх у зручному темпі.
+                Заповнюйте форму і ми одразу перенаправимо вас у Telegram, щоб ви могли забрати всі
+                матеріали та протестувати їх.
               </p>
             </div>
 
-            <div className="reveal-up reveal-delay-1 w-full max-w-md" data-animate>
+            <div className="reveal-up reveal-delay-1 w-full max-w-xl" data-animate>
               {submitted ? (
-                <div className="rounded-3xl border border-white/70 bg-white/95 px-6 py-8 text-center shadow-[0_24px_64px_rgba(0,0,0,0.22)] md:px-8 md:py-10">
-                  <p className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#805D7F]">
-                    Neuro-Pilates
-                  </p>
-                  <h2 className="mb-3 text-2xl font-semibold text-[#5a3d59] md:text-3xl">Дякуємо!</h2>
-                  <p className="mb-6 text-[15px] leading-relaxed text-neutral-600">
+                <div className="pr-form-card rounded-[2rem] border border-white/70 bg-white/95 text-center shadow-[0_28px_72px_rgba(0,0,0,0.24)] md:rounded-[2.25rem]">
+                  <p className="pr-thanks-kicker mb-3">NeuroFit</p>
+                  <h2 className="pr-thanks-title mb-4">Дякуємо!</h2>
+                  <p className="pr-thanks-text mb-7">
                     Забирай і тестуй — зараз перенаправимо вас у Telegram.
                   </p>
-                  <p className="mb-6 text-sm text-neutral-500">
+                  <p className="pr-thanks-text mb-7 opacity-80">
                     Автоматичний перехід через {secondsLeft} сек…
                   </p>
                   <a
                     href={TELEGRAM_URL}
-                    className="inline-flex min-w-[220px] items-center justify-center rounded-full bg-gradient-to-r from-[#FCE0FF] to-[#FFBEFE] px-8 py-3.5 text-sm font-semibold uppercase tracking-wide text-[#805D7F] shadow-md transition hover:opacity-95"
+                    className="pr-form-btn inline-flex min-w-[260px] items-center justify-center rounded-full bg-gradient-to-r from-[#FCE0FF] to-[#FFBEFE] px-10 py-4 text-[#805D7F] shadow-lg transition hover:opacity-95"
                   >
                     Перейти в Telegram
                   </a>
                 </div>
               ) : (
-                <div className="rounded-3xl border border-[#E8C4E6] bg-white/95 p-6 shadow-[0_24px_64px_rgba(128,93,127,0.28)] backdrop-blur-sm md:p-8">
-                  <h2 className="mb-1 text-center text-lg font-semibold text-[#5a3d59] md:text-xl">
+                <div className="pr-form-card rounded-[2rem] border border-[#E8C4E6] bg-white/95 shadow-[0_28px_72px_rgba(128,93,127,0.32)] backdrop-blur-sm md:rounded-[2.25rem]">
+                  <div className="mb-7 flex justify-center">
+                    <Image
+                      src="/logo-neurofit.png"
+                      alt="NeuroFit"
+                      width={112}
+                      height={112}
+                      className="rounded-full object-contain"
+                    />
+                  </div>
+                  <h2 className="pr-form-title mb-2 text-center">
                     Отримати доступ
                   </h2>
-                  <p className="mb-5 text-center text-sm text-neutral-600">
+                  <p className="pr-form-desc mb-7 text-center">
                     Вкажіть ім’я та контакт: нік у Telegram або номер телефону — після цього відкриється бот.
                   </p>
 
-                  <label className="mb-3 block text-sm font-medium text-[#5a3d59]">
+                  <label className="pr-form-label mb-4 block">
                     Ім’я
                     <input
                       type="text"
@@ -210,13 +333,13 @@ export default function PrerecordingClient() {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       onFocus={onFormFieldFocus}
-                      className="mt-1.5 w-full rounded-2xl border border-[#E8C4E6] bg-[#FFFBFE] px-4 py-3 text-[#2a2a2a] outline-none ring-[#D7ABD6] focus:ring-2"
+                      className="pr-form-input mt-2 w-full rounded-2xl border border-[#E8C4E6] bg-[#FFFBFE] px-5 py-4 text-[#2a2a2a] outline-none ring-[#D7ABD6] focus:ring-2"
                       placeholder="Олена"
                       disabled={sending}
                     />
                   </label>
 
-                  <label className="mb-5 block text-sm font-medium text-[#5a3d59]">
+                  <label className="pr-form-label mb-7 block">
                     Telegram або телефон
                     <input
                       type="text"
@@ -226,14 +349,14 @@ export default function PrerecordingClient() {
                       value={telegram}
                       onChange={(e) => setTelegram(e.target.value)}
                       onFocus={onFormFieldFocus}
-                      className="mt-1.5 w-full rounded-2xl border border-[#E8C4E6] bg-[#FFFBFE] px-4 py-3 text-[#2a2a2a] outline-none ring-[#D7ABD6] focus:ring-2"
+                      className="pr-form-input mt-2 w-full rounded-2xl border border-[#E8C4E6] bg-[#FFFBFE] px-5 py-4 text-[#2a2a2a] outline-none ring-[#D7ABD6] focus:ring-2"
                       placeholder="@username, +380… або 067…"
                       disabled={sending}
                     />
                   </label>
 
                   {error ? (
-                    <p className="mb-3 text-center text-sm text-red-600" role="alert">
+                    <p className="pr-form-desc mb-4 text-center font-semibold text-red-600" role="alert">
                       {error}
                     </p>
                   ) : null}
@@ -243,7 +366,7 @@ export default function PrerecordingClient() {
                       type="button"
                       onClick={submit}
                       disabled={sending}
-                      className="inline-flex min-w-[220px] items-center justify-center rounded-full bg-gradient-to-r from-[#FCE0FF] to-[#FFBEFE] px-8 py-3.5 text-sm font-semibold uppercase tracking-wide text-[#805D7F] shadow-md transition hover:opacity-95 disabled:opacity-60"
+                      className="pr-form-btn inline-flex min-w-[260px] items-center justify-center rounded-full bg-gradient-to-r from-[#FCE0FF] to-[#FFBEFE] px-10 py-4 text-[#805D7F] shadow-lg transition hover:opacity-95 disabled:opacity-60"
                     >
                       {sending ? 'Надсилання…' : 'Забрати доступ'}
                     </button>
@@ -252,7 +375,7 @@ export default function PrerecordingClient() {
               )}
             </div>
 
-            <p className="reveal-up reveal-delay-2 mt-8 text-center text-sm text-white/80">
+            <p className="pr-footer-link reveal-up reveal-delay-2 mt-10 text-center text-white/90">
               <Link href="/" className="underline underline-offset-2 hover:text-white">
                 На головну
               </Link>
@@ -261,5 +384,6 @@ export default function PrerecordingClient() {
         </div>
       </section>
     </div>
+    </>
   );
 }
