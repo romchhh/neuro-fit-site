@@ -189,13 +189,14 @@ export default function PrerecordingClient() {
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 0.5rem;
+          padding: 0.28rem;
         }
 
         .pr-form-frame-logo img {
           width: 100%;
           height: 100%;
           object-fit: contain;
+          transform: scale(1.18);
         }
 
         .pr-form-title {
@@ -283,7 +284,7 @@ export default function PrerecordingClient() {
             top: -2.6rem;
             width: 5rem;
             height: 5rem;
-            padding: 0.55rem;
+            padding: 0.32rem;
           }
         }
       `}</style>
@@ -291,22 +292,13 @@ export default function PrerecordingClient() {
     <div className="pr-page bg-gradient-to-br from-pink-100 via-purple-50 to-gray-100">
       <section className="pr-screen relative overflow-hidden reveal-fade" data-animate>
         <Image
-          src="/neuro-fit/IMG_5031.jpg"
-          alt="Neuro-Pilates — предзапис"
+          src="/prerecording/IMG_4847.jpg"
+          alt="NeuroFit — предзапис"
           fill
           priority
           sizes="100vw"
-          className="hidden md:block object-cover"
-          style={{ objectPosition: 'center 40%' }}
-        />
-        <Image
-          src="/neuro-fit/IMG_5079.jpg"
-          alt="Neuro-Pilates — предзапис, мобільна версія"
-          fill
-          priority
-          sizes="100vw"
-          className="md:hidden object-cover"
-          style={{ objectPosition: 'center -10%' }}
+          className="object-cover"
+          style={{ objectPosition: 'center 42%' }}
         />
 
         <div
