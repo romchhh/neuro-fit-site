@@ -156,7 +156,7 @@ export default function HeroNeurofit() {
                       color: '#5A2345',
                     }}
                   >
-                    ДО КІНЦЯ ЧЕРВНЯ
+                    ДО КІНЦЯ ЛИПНЯ
                   </p>
                 </div>
 
@@ -171,8 +171,8 @@ export default function HeroNeurofit() {
                   }}
                 >
                   Ціна:{' '}
-                  <span style={{ textDecoration: 'line-through', opacity: 0.85 }}>2090</span>{' '}
-                  1490 грн
+                  <span style={{ textDecoration: 'line-through', opacity: 0.85 }}>3090</span>{' '}
+                  2490 грн
                 </p>
                 <p
                   style={{

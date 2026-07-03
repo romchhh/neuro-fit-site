@@ -164,6 +164,7 @@ export default function FooterSection() {
             <a href="/" className="nf-footer-nav-item">HOME</a>
             <a href="/neurofit" className="nf-footer-nav-item">NEUROFIT</a>
             <a href="/neuro-intensive" className="nf-footer-nav-item">NEURO-ІНТЕНСИВ</a>
+            <a href="/vertical" className="nf-footer-nav-item">ВЕРТИКАЛЬ</a>
           </nav>
 
           {/* Middle: ІНФОРМАЦІЯ */}

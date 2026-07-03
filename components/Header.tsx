@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-const navItems = ['HOME', 'NEUROFIT', 'NEURO-ІНТЕНСИВ'];
+const navItems = ['HOME', 'NEUROFIT', 'NEURO-ІНТЕНСИВ', 'ВЕРТИКАЛЬ'];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -41,7 +41,7 @@ export default function Header() {
           <li>
             <a
               href="/"
-              className={`px-8 lg:px-10 py-3 rounded-full text-sm lg:text-lg font-bold uppercase tracking-[0.22em] whitespace-nowrap hover:bg-white/25 hover:shadow-xl transition-all duration-200 ${
+              className={`px-6 lg:px-8 py-3 rounded-full text-sm lg:text-base font-bold uppercase tracking-[0.18em] whitespace-nowrap hover:bg-white/25 hover:shadow-xl transition-all duration-200 ${
                 scrolled ? 'text-[#5f3a6b]' : 'text-white'
               }`}
               style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}
@@ -52,7 +52,7 @@ export default function Header() {
           <li>
             <a
               href="/neurofit"
-              className={`px-8 lg:px-10 py-3 rounded-full text-sm lg:text-lg font-bold uppercase tracking-[0.22em] whitespace-nowrap hover:bg-white/25 hover:shadow-xl transition-all duration-200 ${
+              className={`px-6 lg:px-8 py-3 rounded-full text-sm lg:text-base font-bold uppercase tracking-[0.18em] whitespace-nowrap hover:bg-white/25 hover:shadow-xl transition-all duration-200 ${
                 scrolled ? 'text-[#5f3a6b]' : 'text-white'
               }`}
               style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}
@@ -63,12 +63,23 @@ export default function Header() {
           <li>
             <a
               href="/neuro-intensive"
-              className={`px-8 lg:px-10 py-3 rounded-full text-sm lg:text-lg font-bold uppercase tracking-[0.22em] whitespace-nowrap hover:bg-white/25 hover:shadow-xl transition-all duration-200 ${
+              className={`px-6 lg:px-8 py-3 rounded-full text-sm lg:text-base font-bold uppercase tracking-[0.18em] whitespace-nowrap hover:bg-white/25 hover:shadow-xl transition-all duration-200 ${
                 scrolled ? 'text-[#5f3a6b]' : 'text-white'
               }`}
               style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}
             >
               NEURO-ІНТЕНСИВ
+            </a>
+          </li>
+          <li>
+            <a
+              href="/vertical"
+              className={`px-6 lg:px-8 py-3 rounded-full text-sm lg:text-base font-bold uppercase tracking-[0.18em] whitespace-nowrap hover:bg-white/25 hover:shadow-xl transition-all duration-200 ${
+                scrolled ? 'text-[#5f3a6b]' : 'text-white'
+              }`}
+              style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}
+            >
+              ВЕРТИКАЛЬ
             </a>
           </li>
         </ul>
@@ -156,9 +167,16 @@ export default function Header() {
             <a
               href="/neuro-intensive"
               onClick={() => setMenuOpen(false)}
+              className="block px-6 py-4 text-sm font-bold uppercase tracking-wider text-[#764F75] hover:bg-purple-50 transition border-b border-purple-100/60"
+            >
+              NEURO-ІНТЕНСИВ
+            </a>
+            <a
+              href="/vertical"
+              onClick={() => setMenuOpen(false)}
               className="block px-6 py-4 text-sm font-bold uppercase tracking-wider text-[#764F75] hover:bg-purple-50 transition"
             >
-              NEUРО-ІНТЕНСИВ
+              ВЕРТИКАЛЬ
             </a>
           </div>
         )}
