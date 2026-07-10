@@ -1,3 +1,7 @@
+'use client';
+
+import { useState } from 'react';
+
 const weeks = [
   {
     number: '01',
@@ -50,11 +54,24 @@ const weeks = [
 ];
 
 export default function VerticalProgramModulesSection() {
+  const [openId, setOpenId] = useState<string | null>(null);
+
+  const toggle = (id: string) => {
+    setOpenId((prev) => (prev === id ? null : id));
+  };
+
   return (
     <>
       <style>{`
-        .vt-mod-section { background: white; padding: 48px 0 64px; }
-        .vt-mod-inner { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+        .vt-mod-section {
+          background: #fff;
+          padding: 48px 0 64px;
+        }
+        .vt-mod-inner {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 32px;
+        }
         .vt-mod-title {
           font-family: 'Montserrat', sans-serif;
           font-weight: 600;
@@ -64,48 +81,62 @@ export default function VerticalProgramModulesSection() {
           color: #f1d7f3;
           margin-bottom: 28px;
         }
-        .vt-mod-grid {
+        .vt-mod-list {
+          border-radius: 18px;
+        }
+        .vt-mod-item {
           display: grid;
-          grid-template-columns: repeat(4, minmax(0, 1fr));
-          gap: 18px;
+          grid-template-columns: auto 1fr auto;
+          align-items: center;
+          gap: 14px 16px;
+          padding: 16px 0;
+          border-bottom: 1px solid #f0e2f3;
+          cursor: pointer;
+          -webkit-tap-highlight-color: transparent;
         }
-        .vt-mod-card {
-          background: #fff6ff;
-          border-radius: 28px;
-          padding: 24px 22px;
-          border: 1px solid #f3c4e3;
-          box-shadow: 0 14px 36px rgba(153, 67, 152, 0.1);
-        }
-        .vt-mod-num {
-          font-family: 'Montserrat', sans-serif;
-          font-weight: 700;
-          font-size: 2.2rem;
-          color: rgba(231, 204, 244, 0.85);
-          line-height: 1;
-          margin-bottom: 8px;
+        .vt-mod-item:first-child {
+          border-top: 1px solid #f0e2f3;
         }
         .vt-mod-week {
           font-family: 'Montserrat', sans-serif;
-          font-weight: 600;
-          font-size: 0.78rem;
-          letter-spacing: 0.08em;
+          font-weight: 500;
+          font-size: 13px;
+          letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: #994399;
-          margin-bottom: 6px;
+          color: #b49acb;
+          min-width: 110px;
         }
-        .vt-mod-card h3 {
+        .vt-mod-name {
           font-family: 'Montserrat', sans-serif;
-          font-weight: 600;
-          font-size: 1.05rem;
-          color: #4b2759;
-          margin-bottom: 8px;
+          font-weight: 500;
+          font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+          color: #222;
+          text-align: left;
         }
-        .vt-mod-card p {
+        .vt-mod-plus {
           font-family: 'Montserrat', sans-serif;
           font-weight: 400;
-          font-size: 0.9rem;
-          line-height: 1.55;
-          color: #3b2845;
+          font-size: 24px;
+          color: #e2b5ea;
+          width: 36px;
+          text-align: right;
+          user-select: none;
+          line-height: 1;
+          transition: transform 0.2s ease;
+        }
+        .vt-mod-item.is-open .vt-mod-plus {
+          transform: rotate(45deg);
+        }
+        .vt-mod-answer {
+          grid-column: 2 / 4;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 300;
+          font-size: 15px;
+          line-height: 1.7;
+          color: #4a4a4a;
+          margin: 0;
+          padding-right: 40px;
+          text-align: left;
         }
         .vt-mod-quote {
           margin: 36px auto 0;
@@ -140,16 +171,38 @@ export default function VerticalProgramModulesSection() {
           padding-left: 28px;
           border-left: 3px solid #D7ABD6;
         }
-        @media (max-width: 900px) {
-          .vt-mod-grid { grid-template-columns: 1fr 1fr; }
-          .vt-mod-inner { padding: 0 20px; }
+        .vt-mod-quote strong {
+          font-weight: 700;
+          font-style: italic;
+          color: #4a2f49;
         }
-        @media (max-width: 540px) {
-          .vt-mod-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-          .vt-mod-card { border-radius: 20px; padding: 16px 14px; }
-          .vt-mod-num { font-size: 1.6rem; }
-          .vt-mod-card h3 { font-size: 0.95rem; }
-          .vt-mod-card p { font-size: 0.8rem; line-height: 1.45; }
+        @media (max-width: 640px) {
+          .vt-mod-inner { padding: 0 20px; }
+          .vt-mod-item {
+            grid-template-columns: 1fr auto;
+            gap: 8px 12px;
+            padding: 14px 0;
+          }
+          .vt-mod-week {
+            grid-column: 1 / 2;
+            min-width: 0;
+            font-size: 11px;
+            letter-spacing: 0.14em;
+          }
+          .vt-mod-plus {
+            grid-column: 2;
+            grid-row: 1 / 3;
+            align-self: center;
+          }
+          .vt-mod-name {
+            grid-column: 1 / 2;
+            font-size: 1.05rem;
+          }
+          .vt-mod-answer {
+            grid-column: 1 / -1;
+            padding-right: 0;
+            font-size: 14px;
+          }
           .vt-mod-quote { padding: 20px 8px 12px 12px; }
           .vt-mod-quote p { padding-left: 18px; }
         }
@@ -158,21 +211,41 @@ export default function VerticalProgramModulesSection() {
       <section id="modules" className="vt-mod-section reveal-up scroll-mt-24" data-animate>
         <div className="vt-mod-inner">
           <h2 className="vt-mod-title">Програма</h2>
-          <div className="vt-mod-grid reveal-up reveal-delay-1" data-animate>
-            {weeks.map((m) => (
-              <article key={m.number} className="vt-mod-card">
-                <div className="vt-mod-num">[{m.number}]</div>
-                <p className="vt-mod-week">{m.week}</p>
-                <h3>{m.title}</h3>
-                <p>{m.text}</p>
-              </article>
-            ))}
+
+          <div className="vt-mod-list reveal-up reveal-delay-1" data-animate>
+            {weeks.map((m) => {
+              const isOpen = openId === m.number;
+              return (
+                <div
+                  key={m.number}
+                  className={`vt-mod-item${isOpen ? ' is-open' : ''}`}
+                  onClick={() => toggle(m.number)}
+                  role="button"
+                  tabIndex={0}
+                  aria-expanded={isOpen}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      toggle(m.number);
+                    }
+                  }}
+                >
+                  <span className="vt-mod-week">{m.week}</span>
+                  <span className="vt-mod-name">{m.title}</span>
+                  <span className="vt-mod-plus" aria-hidden="true">
+                    +
+                  </span>
+                  {isOpen && <p className="vt-mod-answer">{m.text}</p>}
+                </div>
+              );
+            })}
           </div>
 
           <blockquote className="vt-mod-quote reveal-up reveal-delay-2" data-animate>
             <p>
-              Символічно, останній тиждень називається «Вертикаль», бо за ці 8 тижнів ви не просто
-              зміцнюєте мʼязи, а відновлюєте своє природне, збалансоване положення тіла!
+              Символічно, останній тиждень називається «<strong>Вертикаль</strong>», бо за ці 8
+              тижнів ви не просто зміцнюєте мʼязи, а{' '}
+              <strong>відновлюєте своє природне, збалансоване положення тіла!</strong>
             </p>
           </blockquote>
         </div>

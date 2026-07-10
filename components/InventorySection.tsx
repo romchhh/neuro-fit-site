@@ -15,7 +15,11 @@ const inventoryImages = [
   "/inventory/item-09.jpg",
 ];
 
-export default function InventorySection() {
+type InventorySectionProps = {
+  showShop?: boolean;
+};
+
+export default function InventorySection({ showShop = true }: InventorySectionProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -592,6 +596,7 @@ export default function InventorySection() {
             ))}
           </div>
 
+          {showShop && (
           <div className="inventory-shop reveal-fade" data-animate>
             <div className="inventory-shop-left">
               <span className="inventory-shop-eyebrow">партнерський інвентар</span>
@@ -616,6 +621,7 @@ export default function InventorySection() {
               </a>
             </div>
           </div>
+          )}
         </div>
       </section>
 

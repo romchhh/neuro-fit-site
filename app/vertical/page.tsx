@@ -9,6 +9,8 @@ import VerticalWhatIncludedSection from '@/components/VerticalWhatIncludedSectio
 import VerticalForWhoSection from '@/components/VerticalForWhoSection';
 import VerticalPricingSection from '@/components/VerticalPricingSection';
 import VerticalInventorySection from '@/components/VerticalInventorySection';
+import InventorySection from '@/components/InventorySection';
+import VerticalTrialTrainingSection from '@/components/VerticalTrialTrainingSection';
 import FaqSectionVertical from '@/components/FaqSectionVertical';
 import VerticalNeuroPilatesPromo from '@/components/VerticalNeuroPilatesPromo';
 import BottomContactBlock from '@/components/BottomContactBlock';
@@ -39,6 +41,8 @@ export default function VerticalPage() {
         <VerticalForWhoSection />
         <VerticalPricingSection />
         <VerticalInventorySection />
+        <InventorySection showShop={false} />
+        <VerticalTrialTrainingSection />
         <FaqSectionVertical />
         <VerticalNeuroPilatesPromo />
         <BottomContactBlock />

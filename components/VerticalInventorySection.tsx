@@ -39,6 +39,9 @@ export default function VerticalInventorySection() {
           color: #444;
           margin-bottom: 24px;
         }
+        .vt-inv-lead strong {
+          font-weight: 700;
+        }
         .vt-inv-video {
           position: relative;
           width: 100%;
@@ -134,6 +137,7 @@ export default function VerticalInventorySection() {
           border-radius: 16px;
           background: rgba(252, 224, 255, 0.45);
           border: 1px solid #e8c4e6;
+          margin-bottom: 28px;
         }
       `}</style>
 
@@ -141,8 +145,10 @@ export default function VerticalInventorySection() {
         <div className="vt-inv-inner">
           <h2 className="vt-inv-title">Що знадобиться для занять?</h2>
           <p className="vt-inv-lead">
-            Усі тренування проходять вдома й не потребують складного інвентарю. Частину обладнання
-            можна замінити домашніми аналогами — Юлія пояснює це в окремому відео.
+            Усі тренування проходять вдома й не потребують складного інвентарю.
+            <br />
+            Частину обладнання можна замінити домашніми аналогами —{' '}
+            <strong>Юлія пояснює це в окремому відео.</strong>
           </p>
 
           <div className="vt-inv-video reveal-up reveal-delay-1" data-animate>
@@ -185,7 +191,8 @@ export default function VerticalInventorySection() {
             ))}
           </ul>
           <p className="vt-inv-note">
-            Для учасників програми діє знижка −15% на інвентар у Boomerang.Fit.Store.
+            Учасники програми отримають спеціальний промокод зі знижкою на інвентар від Boomerang Fit
+            Store
           </p>
         </div>
       </section>
