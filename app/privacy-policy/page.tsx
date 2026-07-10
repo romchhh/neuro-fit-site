@@ -218,7 +218,7 @@ export default function PrivacyPolicyPage() {
         {/* Логотип внизу сторінки */}
         <section className="mb-6 mt-2 flex justify-center" data-animate>
           <Image
-            src="/logo-neurofit.png"
+            src="/brand/logo.png"
             alt="Neuro-Pilates"
             width={192}
             height={192}

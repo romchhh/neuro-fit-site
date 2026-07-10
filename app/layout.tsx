@@ -43,7 +43,7 @@ export const metadata: Metadata = {
       "Пілатес і нейрофітнес у прогресії: для тих, хто хоче тренуватися розумно, знімати напругу та відчувати тіло.",
     images: [
       {
-        url: "/hero-desktop.jpg",
+        url: "/home/hero.jpg",
         width: 1200,
         height: 630,
         alt: "Neuro-Pilates: онлайн-пілатес і нейрофітнес",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
       "Neuro-Pilates: онлайн-пілатес, нервова система і стійкий результат",
     description:
       "Пілатес і нейрофітнес онлайн: спина, стабільність, координація та менше стресу.",
-    images: ["/hero-desktop.jpg"],
+    images: ["/home/hero.jpg"],
   },
   alternates: {
     canonical: siteUrl,
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/logo-neurofit.png",
+    icon: "/brand/logo.png",
   },
   robots: {
     index: true,

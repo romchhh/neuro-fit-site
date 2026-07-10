@@ -33,7 +33,7 @@ export default function SuitableSection() {
           <div className="w-full md:w-7/12">
             <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
               <Image
-                src="/komu-pidiide.jpg"
+                src="/home/suitable.jpg"
                 alt="Жінка займається на килимку"
                 fill
                 className="object-cover"

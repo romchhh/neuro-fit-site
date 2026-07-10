@@ -12,7 +12,7 @@ export default function HeroNeuroIntensive() {
     >
       {/* Фон міні-програми Pilates Neuro-інтенсив */}
       <Image
-        src="/neuro-intensive/IMG_4981.jpg"
+        src="/neuro-intensive/hero-desktop.jpg"
         alt="Pilates Neuro-інтенсив"
         fill
         priority
@@ -22,7 +22,7 @@ export default function HeroNeuroIntensive() {
       />
 
       <Image
-        src="/neuro-intensive/IMG_4965.jpg"
+        src="/neuro-intensive/hero-mobile.jpg"
         alt="Pilates Neuro-інтенсив, мобільна версія"
         fill
         priority

@@ -1,11 +1,58 @@
 'use client';
 
+import Image from 'next/image';
 import PaywallLeadButton from '@/components/PaywallLeadButton';
 
 const PAYMENT_SELF =
-  process.env.NEXT_PUBLIC_VERTICAL_SELF_PAYMENT_URL ?? 'https://neurofit.kwiga.com/o/vm4QaXJ1cOFg';
+  process.env.NEXT_PUBLIC_VERTICAL_SELF_PAYMENT_URL ??
+  'https://vertical.kwiga.com/o/toXLp48qPKvT';
 const PAYMENT_SUPPORT =
-  process.env.NEXT_PUBLIC_VERTICAL_SUPPORT_PAYMENT_URL ?? PAYMENT_SELF;
+  process.env.NEXT_PUBLIC_VERTICAL_SUPPORT_PAYMENT_URL ??
+  'https://vertical.kwiga.com/o/ovjUbHwUhdpK';
+
+const tariffs = [
+  {
+    title: 'Самостійний формат',
+    image: '/vertical/tariffs/self.jpg',
+    imageAlt: 'Вертикаль — самостійний формат',
+    lead: 'Для тих, хто хоче проходити програму у своєму темпі та самостійно працювати з матеріалами.',
+    includesLabel: 'Входить:',
+    includes: [
+      'доступ до занять',
+      'матеріали програми',
+      'бонуси',
+      'чекап',
+      'фітнес-аптечка',
+      'блок харчування',
+      'рекомендації після завершення програми',
+    ],
+    oldPrice: '4320',
+    price: '3720 грн',
+    productLabel: 'Вертикаль — самостійний формат (перед оплатою)',
+    paymentUrl: PAYMENT_SELF,
+    cta: 'Доєднатись',
+  },
+  {
+    title: 'Із супроводом Юлії',
+    image: '/vertical/tariffs/support.jpg',
+    imageAlt: 'Вертикаль — із супроводом Юлії',
+    lead: 'Для тих, хто хоче більше впевненості, персональної уваги, контролю техніки і рекомендацій під свої особливості.',
+    includesLabel: 'Входить усе з самостійного формату, а також:',
+    includes: [
+      'аналіз чекапу',
+      'відповіді на питання',
+      'індивідуальний супровід від Юлії',
+      'можливість надсилати відео виконання вправ',
+      'персональний розбір техніки',
+      'підказки і рекомендації протягом програми',
+    ],
+    oldPrice: '5750',
+    price: '5250 грн',
+    productLabel: 'Вертикаль — із супроводом Юлії (перед оплатою)',
+    paymentUrl: PAYMENT_SUPPORT,
+    cta: 'Доєднатись із супроводом',
+  },
+];
 
 export default function VerticalPricingSection() {
   return (
@@ -34,11 +81,29 @@ export default function VerticalPricingSection() {
         .vt-price-card {
           background: #fff;
           border-radius: 28px;
-          padding: 28px 24px 32px;
+          padding: 0;
           border: 1px solid #e8c4e6;
           box-shadow: 0 18px 45px rgba(153, 67, 152, 0.1);
           display: flex;
           flex-direction: column;
+          overflow: hidden;
+        }
+        .vt-price-card-image {
+          position: relative;
+          width: 100%;
+          aspect-ratio: 16 / 10;
+          overflow: hidden;
+          background: #f3e8f3;
+        }
+        .vt-price-card-image img {
+          object-fit: cover;
+          object-position: center 30%;
+        }
+        .vt-price-card-body {
+          padding: 24px 24px 32px;
+          display: flex;
+          flex-direction: column;
+          flex: 1;
         }
         .vt-price-card h3 {
           font-family: 'Montserrat', sans-serif;
@@ -103,70 +168,45 @@ export default function VerticalPricingSection() {
         <div className="vt-price-inner">
           <h2 className="vt-price-title">Тарифи</h2>
           <div className="vt-price-grid reveal-up reveal-delay-1" data-animate>
-            <article className="vt-price-card">
-              <h3>Самостійний формат</h3>
-              <p className="vt-price-lead">
-                Для тих, хто хоче проходити програму у своєму темпі та самостійно працювати з
-                матеріалами.
-              </p>
-              <p className="vt-price-lead" style={{ fontWeight: 600, marginBottom: 8 }}>
-                Входить:
-              </p>
-              <ul>
-                <li>доступ до занять</li>
-                <li>матеріали програми</li>
-                <li>бонуси</li>
-                <li>чекап</li>
-                <li>фітнес-аптечка</li>
-                <li>блок харчування</li>
-                <li>рекомендації після завершення програми</li>
-              </ul>
-              <p className="vt-price-value">
-                <span style={{ textDecoration: 'line-through', opacity: 0.65, marginRight: 8 }}>4320</span>
-                3720 грн
-              </p>
-              <PaywallLeadButton
-                className="vt-price-btn"
-                productLabel="Вертикаль — самостійний формат (перед оплатою)"
-                afterLeadSent={() => {
-                  window.location.href = PAYMENT_SELF;
-                }}
-              >
-                Доєднатись
-              </PaywallLeadButton>
-            </article>
-
-            <article className="vt-price-card">
-              <h3>Із супроводом Юлії</h3>
-              <p className="vt-price-lead">
-                Для тих, хто хоче більше впевненості, персональної уваги, контролю техніки і
-                рекомендацій під свої особливості.
-              </p>
-              <p className="vt-price-lead" style={{ fontWeight: 600, marginBottom: 8 }}>
-                Входить усе з самостійного формату, а також:
-              </p>
-              <ul>
-                <li>аналіз чекапу</li>
-                <li>відповіді на питання</li>
-                <li>індивідуальний супровід від Юлії</li>
-                <li>можливість надсилати відео виконання вправ</li>
-                <li>персональний розбір техніки</li>
-                <li>підказки і рекомендації протягом програми</li>
-              </ul>
-              <p className="vt-price-value">
-                <span style={{ textDecoration: 'line-through', opacity: 0.65, marginRight: 8 }}>5750</span>
-                5250 грн
-              </p>
-              <PaywallLeadButton
-                className="vt-price-btn"
-                productLabel="Вертикаль — із супроводом Юлії (перед оплатою)"
-                afterLeadSent={() => {
-                  window.location.href = PAYMENT_SUPPORT;
-                }}
-              >
-                Доєднатись із супроводом
-              </PaywallLeadButton>
-            </article>
+            {tariffs.map((tariff) => (
+              <article key={tariff.title} className="vt-price-card">
+                <div className="vt-price-card-image">
+                  <Image
+                    src={tariff.image}
+                    alt={tariff.imageAlt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 460px"
+                  />
+                </div>
+                <div className="vt-price-card-body">
+                  <h3>{tariff.title}</h3>
+                  <p className="vt-price-lead">{tariff.lead}</p>
+                  <p className="vt-price-lead" style={{ fontWeight: 600, marginBottom: 8 }}>
+                    {tariff.includesLabel}
+                  </p>
+                  <ul>
+                    {tariff.includes.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                  <p className="vt-price-value">
+                    <span style={{ textDecoration: 'line-through', opacity: 0.65, marginRight: 8 }}>
+                      {tariff.oldPrice}
+                    </span>
+                    {tariff.price}
+                  </p>
+                  <PaywallLeadButton
+                    className="vt-price-btn"
+                    productLabel={tariff.productLabel}
+                    afterLeadSent={() => {
+                      window.location.href = tariff.paymentUrl;
+                    }}
+                  >
+                    {tariff.cta}
+                  </PaywallLeadButton>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>

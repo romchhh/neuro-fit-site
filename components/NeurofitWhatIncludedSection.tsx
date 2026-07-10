@@ -120,7 +120,7 @@ export default function NeurofitWhatIncludedSection() {
           <div className="nf-what-card reveal-scale" data-animate>
             <div className="nf-what-image">
               <Image
-                src="/neuro-fit/IMG_5031.jpg"
+                src="/neurofit/what-included.jpg"
                 alt="Neuro-Pilates — що входить до програми"
                 fill
                 className="object-cover object-center"

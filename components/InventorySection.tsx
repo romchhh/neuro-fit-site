@@ -4,15 +4,15 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const inventoryImages = [
-  "/inventory/inventory-1.jpg",
-  "/inventory/IMG_6705.jpg",
-  "/inventory/inventory-3.jpg",
-  "/inventory/IMG_6713.jpg",
-  "/inventory/inventory-5.jpg",
-  "/inventory/IMG_6781.jpg",
-  "/inventory/inventory-6.jpg",
-  "/inventory/inventory-7.jpg",
-  "/inventory/IMG_6859.jpg",
+  "/inventory/item-01.jpg",
+  "/inventory/item-02.jpg",
+  "/inventory/item-03.jpg",
+  "/inventory/item-04.jpg",
+  "/inventory/item-05.jpg",
+  "/inventory/item-06.jpg",
+  "/inventory/item-07.jpg",
+  "/inventory/item-08.jpg",
+  "/inventory/item-09.jpg",
 ];
 
 export default function InventorySection() {
@@ -542,7 +542,7 @@ export default function InventorySection() {
             </div>
             <div className="inventory-bg-title-wrap">
               <Image
-                src="/pink.png"
+                src="/brand/pink.png"
                 alt=""
                 width={720}
                 height={320}

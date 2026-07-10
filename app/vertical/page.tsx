@@ -3,12 +3,14 @@ import ScrollRevealProvider from '../scroll-reveal';
 import HeroVertical from './HeroVertical';
 import VerticalChangesSection from '@/components/VerticalChangesSection';
 import VerticalFormatSection from '@/components/VerticalFormatSection';
+import VerticalCheckupDiagram from '@/components/VerticalCheckupDiagram';
 import VerticalProgramModulesSection from '@/components/VerticalProgramModulesSection';
 import VerticalWhatIncludedSection from '@/components/VerticalWhatIncludedSection';
 import VerticalForWhoSection from '@/components/VerticalForWhoSection';
 import VerticalPricingSection from '@/components/VerticalPricingSection';
 import VerticalInventorySection from '@/components/VerticalInventorySection';
 import FaqSectionVertical from '@/components/FaqSectionVertical';
+import VerticalNeuroPilatesPromo from '@/components/VerticalNeuroPilatesPromo';
 import BottomContactBlock from '@/components/BottomContactBlock';
 import FooterSection from '@/components/FooterSection';
 
@@ -31,12 +33,14 @@ export default function VerticalPage() {
         <HeroVertical />
         <VerticalChangesSection />
         <VerticalFormatSection />
+        <VerticalCheckupDiagram />
         <VerticalProgramModulesSection />
         <VerticalWhatIncludedSection />
         <VerticalForWhoSection />
         <VerticalPricingSection />
         <VerticalInventorySection />
         <FaqSectionVertical />
+        <VerticalNeuroPilatesPromo />
         <BottomContactBlock />
         <FooterSection />
       </div>

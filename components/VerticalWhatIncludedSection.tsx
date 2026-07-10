@@ -64,7 +64,7 @@ export default function VerticalWhatIncludedSection() {
           <div className="vt-what-card reveal-scale" data-animate>
             <div className="vt-what-image">
               <Image
-                src="/vertical/DSC01261.jpg"
+                src="/vertical/what-included.jpg"
                 alt="Вертикаль — що входить до програми"
                 fill
                 className="object-cover object-center"

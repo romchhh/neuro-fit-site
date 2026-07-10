@@ -7,7 +7,7 @@ export default function HeroVertical() {
   return (
     <section className="relative min-h-screen overflow-hidden reveal-fade" data-animate>
       <Image
-        src="/vertical/DSC01233.jpg"
+        src="/vertical/hero.jpg"
         alt="Вертикаль — програма для постави та здорової спини"
         fill
         priority
@@ -65,9 +65,9 @@ export default function HeroVertical() {
           </div>
 
           <div className="flex flex-1 flex-col items-center justify-end px-6 pb-1 md:pb-3">
-            <div className="text-center max-w-xl mx-auto w-full">
+            <div className="text-center max-w-xl mx-auto w-full flex flex-col items-center">
               <p
-                className="mt-3 text-center mx-auto"
+                className="text-center mx-auto"
                 style={{
                   fontFamily: "'Montserrat', sans-serif",
                   fontWeight: 600,
@@ -76,112 +76,41 @@ export default function HeroVertical() {
                   lineHeight: 1.35,
                   color: 'rgba(255,255,255,0.941)',
                   filter: 'drop-shadow(0px 4px 4.8px rgba(0,0,0,0.251))',
+                  marginBottom: 'clamp(1.25rem, 3vh, 2rem)',
                 }}
               >
-                8-тижнева онлайн-програма, яка допомагає м&apos;яко зміцнити глибокі м&apos;язи,
-                покращити поставу, зменшити скутість у спині та краще відчувати тіло в
-                повсякденному житті.
+                8 тижнів неповторних тренувань для зміцнення глибоких м&apos;язів, які
+                підтримують поставу, позбавляючись від болю в спині та скутості
               </p>
 
               <div
-                className="mt-8 text-left mx-auto rounded-2xl px-5 py-4"
+                className="inline-flex items-center gap-2 rounded-2xl px-4 py-3"
                 style={{
                   fontFamily: "'Montserrat', sans-serif",
                   background: 'rgba(0,0,0,0.18)',
                   backdropFilter: 'blur(26px)',
                   WebkitBackdropFilter: 'blur(26px)',
                   border: '1px solid rgba(255,255,255,0.25)',
-                  boxShadow: '0 18px 45px rgba(0,0,0,0.38)',
-                  maxWidth: 440,
-                  position: 'relative',
-                  zIndex: 2,
+                  boxShadow: '0 12px 32px rgba(0,0,0,0.28)',
+                  fontWeight: 600,
+                  fontSize: 'clamp(0.88rem, 1.4vw, 1rem)',
+                  lineHeight: 1.35,
+                  color: 'rgba(255,255,255,0.98)',
+                  marginBottom: 'clamp(1.5rem, 3.5vh, 2.25rem)',
                 }}
               >
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: -15,
-                    right: 0,
-                    padding: '6px 20px 7px',
-                    background: 'rgba(255, 219, 236, 0.92)',
-                    borderRadius: '12px 12px 0 12px',
-                    boxShadow: '0 10px 26px rgba(0,0,0,0.35)',
-                  }}
-                >
-                  <p
-                    style={{
-                      margin: 0,
-                      fontSize: '0.88rem',
-                      fontWeight: 800,
-                      letterSpacing: '0.12em',
-                      textTransform: 'uppercase',
-                      color: '#5A2345',
-                    }}
-                  >
-                    ДО КІНЦЯ ЛИПНЯ
-                  </p>
-                </div>
-
-                <p
-                  style={{
-                    fontWeight: 600,
-                    fontStyle: 'italic',
-                    fontSize: 'clamp(0.95rem, 1.6vw, 1.1rem)',
-                    lineHeight: 1.4,
-                    color: 'rgba(255,255,255,0.98)',
-                    margin: 0,
-                  }}
-                >
-                  Самостійний формат:{' '}
-                  <span style={{ textDecoration: 'line-through', opacity: 0.85 }}>4320</span> 3720 грн
-                </p>
-                <p
-                  style={{
-                    fontWeight: 600,
-                    fontStyle: 'italic',
-                    fontSize: 'clamp(0.95rem, 1.6vw, 1.1rem)',
-                    lineHeight: 1.4,
-                    color: 'rgba(255,255,255,0.98)',
-                    margin: '4px 0 0',
-                  }}
-                >
-                  Із супроводом Юлії:{' '}
-                  <span style={{ textDecoration: 'line-through', opacity: 0.85 }}>5750</span> 5250 грн
-                </p>
-                <p
-                  style={{
-                    fontWeight: 600,
-                    fontStyle: 'italic',
-                    fontSize: 'clamp(0.9rem, 1.5vw, 1.05rem)',
-                    lineHeight: 1.4,
-                    color: 'rgba(255,255,255,0.98)',
-                    margin: '6px 0 0',
-                  }}
-                >
-                  Доступ: 9 тижнів із можливістю подовжити
-                </p>
-                <p
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 6,
-                    marginTop: 8,
-                    fontWeight: 600,
-                    fontSize: 'clamp(0.88rem, 1.4vw, 1rem)',
-                    lineHeight: 1.3,
-                    color: 'rgba(255,255,255,0.98)',
-                  }}
-                >
-                  <span role="img" aria-label="подарунок">
-                    🎁
-                  </span>
-                  <span>Бонус: Фітнес-аптечка з доступом назавжди</span>
-                </p>
+                <span role="img" aria-label="подарунок">
+                  🎁
+                </span>
+                <span>Бонус: Фітнес-аптечка з доступом назавжди</span>
               </div>
             </div>
           </div>
 
-          <div className="pb-12 md:pb-16 flex flex-col sm:flex-row justify-center items-center gap-3 px-6 w-full max-w-[320px] sm:max-w-none mx-auto sm:mx-0">
+          <div
+            className="pb-12 md:pb-16 flex flex-col sm:flex-row justify-center items-center px-6 w-full max-w-[320px] sm:max-w-none mx-auto sm:mx-0"
+            style={{ gap: 'clamp(0.85rem, 2vh, 1.15rem)' }}
+          >
             <a
               href="#tariffs"
               className="inline-flex w-full sm:w-auto items-center justify-center text-center border border-white/70 text-white font-bold rounded-full uppercase tracking-[0.2em] whitespace-nowrap transition-all duration-200 hover:bg-white/25 hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(0,0,0,0.28)] active:scale-[0.97]"

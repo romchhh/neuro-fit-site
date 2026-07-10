@@ -8,25 +8,25 @@ const modules = [
     number: "01",
     title: "Повернення до тіла",
     text: "Базовий рух, дихання, нейромʼязові звʼязки",
-    image: "/neuro-fit/module-01.jpg",
+    image: "/neurofit/module-01.jpg",
   },
   {
     number: "02",
     title: "Усвідомлення та звʼязок",
     text: "Пропріорецепція, 3D-рух, стабільність і гнучкість",
-    image: "/neuro-fit/module-02.jpg",
+    image: "/neurofit/module-02.jpg",
   },
   {
     number: "03",
     title: "Інтеграція та сила",
     text: "Вестибулярка, функціональність, енергія",
-    image: "/neuro-fit/module-03.jpg",
+    image: "/neurofit/module-03.jpg",
   },
   {
     number: "04",
     title: "Розширення можливостей",
     text: "Баланс і звички, які тримають результат щодня",
-    image: "/neuro-fit/module-04.jpg",
+    image: "/neurofit/module-04.jpg",
   },
 ];
 

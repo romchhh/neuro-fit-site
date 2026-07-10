@@ -17,7 +17,7 @@ const programs = [
     ],
     bonus: 'Вебінар з діафрагмального дихання',
     buttonLabel: 'ПЕРЕЙТИ',
-    image: '/programs/IMG_9137.jpg',
+    image: '/programs/neurofit.jpg',
     soon: false,
   },
   {
@@ -33,7 +33,7 @@ const programs = [
     ],
     bonus: 'Вправи для памʼяті та концентрації',
     buttonLabel: 'ПЕРЕЙТИ',
-    image: '/programs/IMG_9197.jpg',
+    image: '/programs/intensive.jpg',
     soon: false,
   },
   {
@@ -49,7 +49,7 @@ const programs = [
     ],
     bonus: 'Фітнес-аптечка з доступом назавжди',
     buttonLabel: 'ПЕРЕЙТИ',
-    image: '/vertical/DSC01233.jpg',
+    image: '/vertical/card.jpg',
     soon: false,
   },
 ];

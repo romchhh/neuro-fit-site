@@ -124,7 +124,7 @@ export default function FormatSectionNeurofit() {
             <div className="format-card">
               <div className="format-icon">
                 <img
-                  src="/neuro-fit/format-online-platform.svg"
+                  src="/neurofit/format-online-platform.svg"
                   alt="Онлайн-платформа"
                   width={90}
                   height={90}
@@ -139,7 +139,7 @@ export default function FormatSectionNeurofit() {
             <div className="format-card">
               <div className="format-icon">
                 <img
-                  src="/neuro-fit/format-chat.svg"
+                  src="/neurofit/format-chat.svg"
                   alt="Загальний чат"
                   width={90}
                   height={90}
@@ -154,7 +154,7 @@ export default function FormatSectionNeurofit() {
             <div className="format-card">
               <div className="format-icon">
                 <img
-                  src="/neuro-fit/format-materials.svg"
+                  src="/neurofit/format-materials.svg"
                   alt="Додаткові матеріали та ефіри"
                   width={90}
                   height={90}

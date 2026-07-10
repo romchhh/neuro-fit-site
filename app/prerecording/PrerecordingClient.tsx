@@ -292,7 +292,7 @@ export default function PrerecordingClient() {
     <div className="pr-page bg-gradient-to-br from-pink-100 via-purple-50 to-gray-100">
       <section className="pr-screen relative overflow-hidden reveal-fade" data-animate>
         <Image
-          src="/prerecording/IMG_4847.jpg"
+          src="/prerecording/hero.jpg"
           alt="NeuroFit — предзапис"
           fill
           priority
@@ -383,7 +383,7 @@ export default function PrerecordingClient() {
                 <div className="pr-form-frame">
                   <div className="pr-form-frame-logo">
                     <Image
-                      src="/logo-neurofit.png"
+                      src="/brand/logo.png"
                       alt="NeuroFit"
                       width={72}
                       height={72}

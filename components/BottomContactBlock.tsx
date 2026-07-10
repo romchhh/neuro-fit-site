@@ -26,7 +26,7 @@ export default function BottomContactBlock() {
 
         <div className="mt-3 mb-2 flex justify-center">
           <Image
-            src="/logo-neurofit.png"
+            src="/brand/logo.png"
             alt="Neuro-Pilates"
             width={192}
             height={192}

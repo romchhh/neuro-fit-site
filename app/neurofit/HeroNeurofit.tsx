@@ -12,7 +12,7 @@ export default function HeroNeurofit() {
     >
       {/* Фон основної програми */}
       <Image
-        src="/neuro-fit/IMG_4969.jpg"
+        src="/neurofit/hero-desktop.jpg"
         alt="Neuro-Pilates"
         fill
         priority
@@ -22,7 +22,7 @@ export default function HeroNeurofit() {
       />
 
       <Image
-        src="/neuro-fit/IMG_5079.jpg"
+        src="/neurofit/hero-mobile.jpg"
         alt="Neuro-Pilates, мобільна версія"
         fill
         priority

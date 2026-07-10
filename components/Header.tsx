@@ -28,7 +28,7 @@ export default function Header() {
             <a href="/" className="flex items-center gap-2">
               <div className="flex items-center justify-center rounded-full bg-white p-1.5 shadow-lg shadow-black/30">
                 <Image
-                  src="/logo-neurofit.png"
+                  src="/brand/logo.png"
                   alt="Neuro-Pilates"
                   width={96}
                   height={96}
@@ -91,7 +91,7 @@ export default function Header() {
           <a href="/" className="flex items-center gap-3">
             <div className="flex items-center justify-center rounded-full bg-white p-1.5 shadow-md shadow-black/30">
               <Image
-                src="/logo-neurofit.png"
+                src="/brand/logo.png"
                 alt="Neuro-Pilates"
                 width={84}
                 height={84}

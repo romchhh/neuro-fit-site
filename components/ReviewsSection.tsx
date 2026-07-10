@@ -429,7 +429,7 @@ export default function ReviewsSection() {
                     <div className="review-avatar">
                       <div className="review-avatar-dot">
                         <Image
-                          src="/review-avatar.png"
+                          src="/brand/review-avatar.png"
                           alt={review.name}
                           width={52}
                           height={52}

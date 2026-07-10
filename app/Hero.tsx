@@ -10,7 +10,7 @@ export default function Hero() {
       data-animate
     >
       <Image
-        src="/hero-desktop.jpg"
+        src="/home/hero.jpg"
         alt="NeuroFit background"
         fill
         priority
@@ -20,7 +20,7 @@ export default function Hero() {
       />
 
       <Image
-        src="/hero-desktop.jpg"
+        src="/home/hero.jpg"
         alt="NeuroFit background mobile"
         fill
         priority

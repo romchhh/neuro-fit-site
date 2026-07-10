@@ -89,7 +89,7 @@ export default function AuthorSection() {
               {/* Mobile: fixed height; desktop: fills the card */}
               <div className="relative w-full h-[360px] md:h-full md:min-h-[620px]">
                 <Image
-                  src="/IMG_4958.jpg"
+                  src="/home/author.jpg"
                   alt="Авторка проєкту Юлія Бутенко"
                   fill
                   className="object-cover object-top"
