@@ -17,9 +17,20 @@ const inventoryImages = [
 
 type InventorySectionProps = {
   showShop?: boolean;
+  /** Якщо true — у тексті магазину не згадуємо NeuroFit */
+  hideBrandName?: boolean;
 };
 
-export default function InventorySection({ showShop = true }: InventorySectionProps) {
+const SHOP_TEXT_DEFAULT =
+  'Підібраний інвентар, який ідеально доповнює програми NeuroFit: мʼячі, еластичні стрічки, ролери та все, що допоможе мʼяко працювати з тілом та відновленням.';
+
+const SHOP_TEXT_NO_BRAND =
+  'Підібраний інвентар, який ідеально доповнює програму: мʼячі, еластичні стрічки, ролери та все, що допоможе мʼяко працювати з тілом та відновленням.';
+
+export default function InventorySection({
+  showShop = true,
+  hideBrandName = false,
+}: InventorySectionProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -602,9 +613,7 @@ export default function InventorySection({ showShop = true }: InventorySectionPr
               <span className="inventory-shop-eyebrow">партнерський інвентар</span>
               <h3 className="inventory-shop-title">BOOMERANG — все, що потрібно для тренувань вдома</h3>
               <p className="inventory-shop-text">
-                Підібраний інвентар, який ідеально доповнює програми NeuroFit:
-                мʼячі, еластичні стрічки, ролери та все, що допоможе мʼяко працювати з тілом
-                та відновленням.
+                {hideBrandName ? SHOP_TEXT_NO_BRAND : SHOP_TEXT_DEFAULT}
               </p>
             </div>
             <div className="inventory-shop-right">

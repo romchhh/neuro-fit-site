@@ -41,7 +41,7 @@ export default function VerticalPage() {
         <VerticalForWhoSection />
         <VerticalPricingSection />
         <VerticalInventorySection />
-        <InventorySection showShop={false} />
+        <InventorySection hideBrandName />
         <VerticalTrialTrainingSection />
         <FaqSectionVertical />
         <VerticalNeuroPilatesPromo />
