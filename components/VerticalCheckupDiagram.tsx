@@ -65,36 +65,37 @@ function ringSlice(
 export default function VerticalCheckupDiagram() {
   const [active, setActive] = useState<number | null>(null);
 
-  const size = 640;
-  const cx = size / 2;
-  const cy = size / 2;
-  const outerR = 186;
-  const innerR = 126;
-  const photoR = 118;
-  const leaderR = outerR + 22;
-  const arm = 22;
-  const labelInset = 12;
+  // Широкий viewBox з полями під підписи — нічого не виходить за межі SVG
+  const vbW = 800;
+  const vbH = 720;
+  const cx = vbW / 2;
+  const cy = vbH / 2;
+  const outerR = 168;
+  const innerR = 114;
+  const photoR = 106;
+  const leaderR = outerR + 18;
+  const arm = 18;
+  const labelPad = 10;
 
   return (
     <>
       <style>{`
         .vt-check-section {
           background: #fff;
-          padding: 72px 24px 88px;
+          padding: 64px 16px 80px;
           overflow: visible;
         }
         .vt-check-inner {
-          max-width: 1100px;
+          max-width: 860px;
           margin: 0 auto;
-          text-align: center;
           overflow: visible;
         }
         .vt-check-stage {
           position: relative;
-          width: min(100%, 680px);
+          width: 100%;
+          max-width: 800px;
           margin: 0 auto;
-          aspect-ratio: 1;
-          container-type: inline-size;
+          aspect-ratio: ${vbW} / ${vbH};
           overflow: visible;
         }
         .vt-check-svg {
@@ -102,6 +103,7 @@ export default function VerticalCheckupDiagram() {
           inset: 0;
           width: 100%;
           height: 100%;
+          display: block;
           overflow: visible;
         }
         .vt-check-slice {
@@ -118,22 +120,21 @@ export default function VerticalCheckupDiagram() {
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%);
-          width: ${(photoR * 2) / size * 100}%;
+          width: ${(photoR * 2) / vbW * 100}%;
           aspect-ratio: 1;
           border-radius: 50%;
           overflow: hidden;
           z-index: 2;
           pointer-events: none;
           box-shadow:
-            0 0 0 5px #fff,
-            0 12px 36px rgba(64, 26, 75, 0.18);
-          transition: box-shadow 0.3s ease;
+            0 0 0 4px #fff,
+            0 10px 28px rgba(64, 26, 75, 0.16);
         }
         .vt-check-stage.has-active .vt-check-photo {
           box-shadow:
-            0 0 0 5px #fff,
-            0 0 0 9px rgba(215, 171, 214, 0.35),
-            0 16px 40px rgba(64, 26, 75, 0.22);
+            0 0 0 4px #fff,
+            0 0 0 8px rgba(215, 171, 214, 0.35),
+            0 14px 32px rgba(64, 26, 75, 0.2);
         }
         .vt-check-photo-img {
           object-fit: cover;
@@ -155,7 +156,6 @@ export default function VerticalCheckupDiagram() {
           mix-blend-mode: soft-light;
           opacity: 0.72;
           pointer-events: none;
-          transition: opacity 0.3s ease;
         }
         .vt-check-stage.has-active .vt-check-photo-filter {
           opacity: 0.9;
@@ -176,7 +176,7 @@ export default function VerticalCheckupDiagram() {
           position: absolute;
           inset: 0;
           border-radius: 50%;
-          box-shadow: inset 0 0 28px rgba(90, 61, 89, 0.18);
+          box-shadow: inset 0 0 24px rgba(90, 61, 89, 0.18);
           pointer-events: none;
           z-index: 2;
         }
@@ -185,18 +185,19 @@ export default function VerticalCheckupDiagram() {
           z-index: 3;
           font-family: 'Montserrat', sans-serif;
           font-weight: 500;
-          font-size: clamp(0.72rem, 3.4cqi, 1.15rem);
+          font-size: clamp(0.7rem, 2.4vw, 1.1rem);
           color: #222;
           letter-spacing: 0.01em;
           cursor: pointer;
-          transition: color 0.2s ease, font-weight 0.2s ease;
           line-height: 1.2;
           -webkit-tap-highlight-color: transparent;
           box-sizing: border-box;
-          max-width: 28cqi;
-          word-break: keep-all;
-          overflow-wrap: normal;
-          hyphens: none;
+          width: 22%;
+          max-width: 160px;
+          overflow: visible;
+          word-break: normal;
+          overflow-wrap: break-word;
+          hyphens: manual;
         }
         .vt-check-label.is-active {
           color: #5a3d59;
@@ -206,17 +207,20 @@ export default function VerticalCheckupDiagram() {
           opacity: 0.4;
         }
         .vt-check-lines {
-          transition: opacity 0.25s ease;
           pointer-events: none;
+          transition: opacity 0.25s ease;
         }
         .vt-check-lines.is-dimmed {
           opacity: 0.25;
         }
         @media (max-width: 700px) {
-          .vt-check-section { padding: 56px 10px 72px; }
+          .vt-check-section {
+            padding: 40px 4px 56px;
+          }
           .vt-check-label {
-            font-size: clamp(0.58rem, 3.3cqi, 0.78rem);
-            max-width: 30cqi;
+            font-size: clamp(0.55rem, 2.8vw, 0.72rem);
+            width: 24%;
+            max-width: none;
             line-height: 1.15;
           }
         }
@@ -232,7 +236,7 @@ export default function VerticalCheckupDiagram() {
           >
             <svg
               className="vt-check-svg"
-              viewBox={`0 0 ${size} ${size}`}
+              viewBox={`0 0 ${vbW} ${vbH}`}
               role="img"
               aria-label="Діаграма чекапу: пʼять складових програми"
             >
@@ -251,7 +255,7 @@ export default function VerticalCheckupDiagram() {
                     strokeWidth="5"
                     strokeLinejoin="round"
                     style={{
-                      transform: isActive ? 'scale(1.04)' : 'scale(1)',
+                      transform: isActive ? 'scale(1.035)' : 'scale(1)',
                     }}
                     onMouseEnter={() => setActive(i)}
                     onMouseLeave={() => setActive(null)}
@@ -275,9 +279,10 @@ export default function VerticalCheckupDiagram() {
                 const xMid = cx + leaderR * Math.cos(rad);
                 const yMid = cy + leaderR * Math.sin(rad);
                 const isRight = Math.cos(rad) >= 0;
+                // Лінія закінчується перед зоною підпису
                 const xEnd = isRight
-                  ? Math.min(size - labelInset - 8, xMid + arm)
-                  : Math.max(labelInset + 8, xMid - arm);
+                  ? Math.min(vbW * 0.72, xMid + arm)
+                  : Math.max(vbW * 0.28, xMid - arm);
                 const isDimmed = active !== null && active !== i;
 
                 return (
@@ -285,12 +290,12 @@ export default function VerticalCheckupDiagram() {
                     key={`line-${item.label}`}
                     className={`vt-check-lines${isDimmed ? ' is-dimmed' : ''}`}
                   >
-                    <circle cx={xDot} cy={yDot} r={3.2} fill="#1a1a1a" />
+                    <circle cx={xDot} cy={yDot} r={3} fill="#1a1a1a" />
                     <path
                       d={`M ${xDot} ${yDot} L ${xMid} ${yMid} L ${xEnd} ${yMid}`}
                       fill="none"
                       stroke="#1a1a1a"
-                      strokeWidth="1.15"
+                      strokeWidth="1.1"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
@@ -304,7 +309,7 @@ export default function VerticalCheckupDiagram() {
                 src="/vertical/checkup-portrait.png"
                 alt="Вертикаль — чекап і програма"
                 fill
-                sizes="(max-width: 700px) 55vw, 320px"
+                sizes="(max-width: 700px) 45vw, 280px"
                 className="vt-check-photo-img"
                 priority={false}
               />
@@ -318,24 +323,27 @@ export default function VerticalCheckupDiagram() {
               const rad = (a * Math.PI) / 180;
               const isRight = Math.cos(rad) >= 0;
               const yMid = cy + leaderR * Math.sin(rad);
-              const xMid = cx + leaderR * Math.cos(rad);
-              const xEnd = isRight
-                ? Math.min(size - labelInset - 8, xMid + arm)
-                : Math.max(labelInset + 8, xMid - arm);
-              const topPct = (yMid / size) * 100;
+              const topPct = (yMid / vbH) * 100;
               const isActive = active === i;
               const isDimmed = active !== null && active !== i;
 
+              // Підписи строго всередині stage: ліва/права колонки
               const style = isRight
                 ? {
                     top: `${topPct}%`,
-                    left: `${(xEnd / size) * 100 + 0.8}%`,
+                    left: '73%',
+                    right: `${labelPad / 10}%`,
+                    width: 'auto',
+                    maxWidth: '25%',
                     transform: 'translateY(-50%)',
                     textAlign: 'left' as const,
                   }
                 : {
                     top: `${topPct}%`,
-                    right: `${100 - (xEnd / size) * 100 + 0.8}%`,
+                    left: `${labelPad / 10}%`,
+                    right: '73%',
+                    width: 'auto',
+                    maxWidth: '25%',
                     transform: 'translateY(-50%)',
                     textAlign: 'right' as const,
                   };
