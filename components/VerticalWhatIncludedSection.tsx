@@ -1,18 +1,36 @@
 import Image from 'next/image';
+import type { ReactNode } from 'react';
 
-const items = [
-  '8 тижнів занять із поступовою прогресією',
-  'тренування в особистому кабінеті',
-  'заняття від 15 до 40 хвилин',
-  'діагностика постави на старті та у фіналі',
-  'функціональні тести і фото «до/після»',
-  'блок із розбором техніки виконання вправ',
+const items: ReactNode[] = [
+  <>
+    <strong>8 тижнів занять</strong> із поступовою прогресією
+  </>,
+  <>
+    <strong>Тренування</strong> в особистому кабінеті від 15 до 40 хвилин
+  </>,
+  <>
+    <strong>діагностика постави</strong> на старті та у фіналі
+  </>,
+  <>
+    <strong>функціональні тести і фото «до/після»</strong>
+  </>,
+  <>
+    <strong>блок із розбором техніки</strong> виконання вправ
+  </>,
   'бонус «Фітнес-аптечка» з доступом назавжди',
-  'блок харчування з нутриціологом',
-  'чек-лист «Здорові звички для постави»',
+  <>
+    <strong>блок з нутриціологом</strong>
+  </>,
+  <>
+    <strong>чек-лист</strong> «Здорові звички для постави»
+  </>,
   'бонусний урок «Легка хода»',
-  'рекомендації після програми',
-  'сертифікат після завершення',
+  <>
+    <strong>рекомендації</strong> після програми
+  </>,
+  <>
+    <strong>сертифікат</strong> після завершення
+  </>,
 ];
 
 export default function VerticalWhatIncludedSection() {
@@ -52,6 +70,9 @@ export default function VerticalWhatIncludedSection() {
           color: #3b2845;
           margin-bottom: 6px;
         }
+        .vt-what-list li strong {
+          font-weight: 700;
+        }
         @media (max-width: 900px) {
           .vt-what-card { flex-direction: column; }
           .vt-what-image, .vt-what-content { width: 100%; }
@@ -73,8 +94,8 @@ export default function VerticalWhatIncludedSection() {
             <div className="vt-what-content">
               <h2 className="vt-what-title">Що входить?</h2>
               <ul className="vt-what-list">
-                {items.map((item) => (
-                  <li key={item}>{item}</li>
+                {items.map((item, index) => (
+                  <li key={index}>{item}</li>
                 ))}
               </ul>
             </div>

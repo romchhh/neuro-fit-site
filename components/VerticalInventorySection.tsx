@@ -127,18 +127,6 @@ export default function VerticalInventorySection() {
           color: #3b2845;
           margin-bottom: 6px;
         }
-        .vt-inv-note {
-          font-family: 'Montserrat', sans-serif;
-          font-weight: 500;
-          font-style: italic;
-          font-size: 0.95rem;
-          color: #5a3d59;
-          padding: 16px 20px;
-          border-radius: 16px;
-          background: rgba(252, 224, 255, 0.45);
-          border: 1px solid #e8c4e6;
-          margin-bottom: 28px;
-        }
       `}</style>
 
       <section className="vt-inv-section reveal-up" data-animate>
@@ -147,7 +135,8 @@ export default function VerticalInventorySection() {
           <p className="vt-inv-lead">
             Усі тренування проходять вдома й не потребують складного інвентарю.
             <br />
-            Частину обладнання можна замінити домашніми аналогами —{' '}
+            Частину обладнання можна замінити домашніми аналогами —
+            <br />
             <strong>Юлія пояснює це в окремому відео.</strong>
           </p>
 
@@ -190,10 +179,6 @@ export default function VerticalInventorySection() {
               <li key={item}>{item}</li>
             ))}
           </ul>
-          <p className="vt-inv-note">
-            Учасники програми отримають спеціальний промокод зі знижкою на інвентар від Boomerang Fit
-            Store
-          </p>
         </div>
       </section>
     </>

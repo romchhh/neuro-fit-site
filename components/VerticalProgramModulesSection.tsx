@@ -64,22 +64,27 @@ export default function VerticalProgramModulesSection() {
     <>
       <style>{`
         .vt-mod-section {
-          background: #fff;
-          padding: 48px 0 64px;
+          background: linear-gradient(
+            180deg,
+            rgba(252, 224, 255, 0.55) 0%,
+            rgba(255, 240, 250, 0.72) 45%,
+            rgba(252, 224, 255, 0.4) 100%
+          );
+          padding: 64px 0 80px;
         }
         .vt-mod-inner {
-          max-width: 900px;
+          max-width: 960px;
           margin: 0 auto;
           padding: 0 32px;
         }
         .vt-mod-title {
           font-family: 'Montserrat', sans-serif;
-          font-weight: 600;
+          font-weight: 700;
           font-style: italic;
-          font-size: clamp(40px, 7vw, 80px);
-          line-height: 1;
-          color: #f1d7f3;
-          margin-bottom: 28px;
+          font-size: clamp(56px, 10vw, 104px);
+          line-height: 0.95;
+          color: #d7abd6;
+          margin-bottom: 32px;
         }
         .vt-mod-list {
           border-radius: 18px;
@@ -88,37 +93,37 @@ export default function VerticalProgramModulesSection() {
           display: grid;
           grid-template-columns: auto 1fr auto;
           align-items: center;
-          gap: 14px 16px;
-          padding: 16px 0;
-          border-bottom: 1px solid #f0e2f3;
+          gap: 16px 20px;
+          padding: 22px 0;
+          border-bottom: 1px solid rgba(224, 180, 220, 0.55);
           cursor: pointer;
           -webkit-tap-highlight-color: transparent;
         }
         .vt-mod-item:first-child {
-          border-top: 1px solid #f0e2f3;
+          border-top: 1px solid rgba(224, 180, 220, 0.55);
         }
         .vt-mod-week {
           font-family: 'Montserrat', sans-serif;
-          font-weight: 500;
-          font-size: 13px;
-          letter-spacing: 0.18em;
+          font-weight: 600;
+          font-size: clamp(0.85rem, 1.4vw, 1rem);
+          letter-spacing: 0.16em;
           text-transform: uppercase;
-          color: #b49acb;
-          min-width: 110px;
+          color: #9b6aad;
+          min-width: 130px;
         }
         .vt-mod-name {
           font-family: 'Montserrat', sans-serif;
-          font-weight: 500;
-          font-size: clamp(1.05rem, 2.2vw, 1.35rem);
-          color: #222;
+          font-weight: 600;
+          font-size: clamp(1.35rem, 3vw, 1.85rem);
+          color: #2d1636;
           text-align: left;
         }
         .vt-mod-plus {
           font-family: 'Montserrat', sans-serif;
           font-weight: 400;
-          font-size: 24px;
-          color: #e2b5ea;
-          width: 36px;
+          font-size: 32px;
+          color: #d7abd6;
+          width: 40px;
           text-align: right;
           user-select: none;
           line-height: 1;
@@ -131,16 +136,16 @@ export default function VerticalProgramModulesSection() {
           grid-column: 2 / 4;
           font-family: 'Montserrat', sans-serif;
           font-weight: 300;
-          font-size: 15px;
+          font-size: clamp(1rem, 1.8vw, 1.2rem);
           line-height: 1.7;
-          color: #4a4a4a;
+          color: #4a3044;
           margin: 0;
           padding-right: 40px;
           text-align: left;
         }
         .vt-mod-quote {
-          margin: 36px auto 0;
-          max-width: 720px;
+          margin: 40px auto 0;
+          max-width: 760px;
           position: relative;
           padding: 28px 28px 28px 36px;
           border: none;
@@ -163,7 +168,7 @@ export default function VerticalProgramModulesSection() {
           font-family: 'Montserrat', sans-serif;
           font-weight: 400;
           font-style: italic;
-          font-size: clamp(1.05rem, 2vw, 1.35rem);
+          font-size: clamp(1.15rem, 2.4vw, 1.5rem);
           line-height: 1.55;
           color: #4a2f49;
           margin: 0;
@@ -177,31 +182,34 @@ export default function VerticalProgramModulesSection() {
           color: #4a2f49;
         }
         @media (max-width: 640px) {
+          .vt-mod-section { padding: 52px 0 68px; }
           .vt-mod-inner { padding: 0 20px; }
+          .vt-mod-title { margin-bottom: 24px; }
           .vt-mod-item {
             grid-template-columns: 1fr auto;
-            gap: 8px 12px;
-            padding: 14px 0;
+            gap: 10px 12px;
+            padding: 18px 0;
           }
           .vt-mod-week {
             grid-column: 1 / 2;
             min-width: 0;
-            font-size: 11px;
-            letter-spacing: 0.14em;
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
           }
           .vt-mod-plus {
             grid-column: 2;
             grid-row: 1 / 3;
             align-self: center;
+            font-size: 28px;
           }
           .vt-mod-name {
             grid-column: 1 / 2;
-            font-size: 1.05rem;
+            font-size: clamp(1.25rem, 5.5vw, 1.55rem);
           }
           .vt-mod-answer {
             grid-column: 1 / -1;
             padding-right: 0;
-            font-size: 14px;
+            font-size: 1rem;
           }
           .vt-mod-quote { padding: 20px 8px 12px 12px; }
           .vt-mod-quote p { padding-left: 18px; }

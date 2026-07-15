@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useRef } from 'react';
 import PaywallLeadButton from '@/components/PaywallLeadButton';
 
 const cards = [
@@ -37,6 +38,17 @@ const cards = [
 ];
 
 export default function VerticalForWhoSection() {
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollByCard = (direction: -1 | 1) => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const card = container.querySelector<HTMLElement>('.vt-forwho-card');
+    const gap = 16;
+    const step = (card?.offsetWidth ?? 280) + gap;
+    container.scrollBy({ left: direction * step, behavior: 'smooth' });
+  };
+
   return (
     <>
       <style>{`
@@ -67,13 +79,40 @@ export default function VerticalForWhoSection() {
           max-width: 720px;
           margin: 0 auto 12px;
         }
+        .vt-forwho-lead-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+          margin: 24px 0 20px;
+          max-width: 1120px;
+        }
         .vt-forwho-lead {
           font-family: 'Montserrat', sans-serif;
           font-weight: 500;
           font-size: clamp(0.95rem, 1.6vw, 1.1rem);
           color: #4a2f49;
-          margin: 24px auto 20px;
+          margin: 0;
+          text-align: left;
         }
+        .vt-forwho-arrows {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          flex-shrink: 0;
+        }
+        .vt-forwho-arrow {
+          font-size: 24px;
+          color: #c9a0d4;
+          cursor: pointer;
+          user-select: none;
+          transition: color 0.2s;
+          line-height: 1;
+          background: transparent;
+          border: none;
+          padding: 0;
+        }
+        .vt-forwho-arrow:hover { color: #9b6aad; }
         .vt-forwho-scroll-wrap {
           width: 100vw;
           margin-left: calc(50% - 50vw);
@@ -163,6 +202,11 @@ export default function VerticalForWhoSection() {
         @media (max-width: 640px) {
           .vt-forwho-section { padding-left: 0; padding-right: 0; }
           .vt-forwho-inner { padding: 0 20px; }
+          .vt-forwho-lead-row {
+            margin-left: 0;
+            margin-right: 0;
+          }
+          .vt-forwho-arrows { gap: 12px; }
           .vt-forwho-scroll-wrap { overflow: visible; }
           .vt-forwho-scroll {
             padding-left: 20px;
@@ -186,10 +230,31 @@ export default function VerticalForWhoSection() {
             Для тих, хто хоче м&apos;яко і системно попрацювати з поставою, спиною та глибокими
             м&apos;язами без жорстких навантажень.
           </p>
-          <p className="vt-forwho-lead">Програма підійде, якщо ти помічаєш:</p>
+
+          <div className="vt-forwho-lead-row">
+            <p className="vt-forwho-lead">Програма підійде, якщо ти помічаєш:</p>
+            <div className="vt-forwho-arrows" aria-label="Навігація картками">
+              <button
+                type="button"
+                className="vt-forwho-arrow"
+                onClick={() => scrollByCard(-1)}
+                aria-label="Попередній"
+              >
+                ←
+              </button>
+              <button
+                type="button"
+                className="vt-forwho-arrow"
+                onClick={() => scrollByCard(1)}
+                aria-label="Наступний"
+              >
+                →
+              </button>
+            </div>
+          </div>
 
           <div className="vt-forwho-scroll-wrap reveal-up reveal-delay-1" data-animate>
-            <div className="vt-forwho-scroll">
+            <div className="vt-forwho-scroll" ref={scrollRef}>
               {cards.map((card) => (
                 <article key={card.title} className="vt-forwho-card">
                   <div className="vt-forwho-card-image">

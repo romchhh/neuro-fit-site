@@ -41,7 +41,11 @@ export default function VerticalPage() {
         <VerticalForWhoSection />
         <VerticalPricingSection />
         <VerticalInventorySection />
-        <InventorySection hideBrandName />
+        <InventorySection
+          hideBrandName
+          showDiscount={false}
+          subtitle="Інвентар, для твоїх ефективних тренувань"
+        />
         <VerticalTrialTrainingSection />
         <FaqSectionVertical />
         <VerticalNeuroPilatesPromo />

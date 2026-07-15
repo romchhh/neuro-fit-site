@@ -117,9 +117,14 @@ export default function VerticalTrialTrainingSection() {
 
       <section className="vt-trial-section reveal-up" data-animate>
         <div className="vt-trial-inner">
-          <h2 className="vt-trial-title">Пробне тренування із Юлією</h2>
+          <h2 className="vt-trial-title">
+            Пробне тренування
+            <br />
+            із&nbsp;Юлією
+          </h2>
           <p className="vt-trial-lead">
-            Відчуйте атмосферу занять і зрозумійте, чи вам комфортно займатися разом
+            Відчуйте атмосферу занять і&nbsp;зрозумійте, чи&nbsp;вам комфортно
+            займатися разом
           </p>
 
           <div className="vt-trial-video reveal-up reveal-delay-1" data-animate>

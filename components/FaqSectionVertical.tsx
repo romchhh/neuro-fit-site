@@ -137,28 +137,6 @@ export default function FaqSectionVertical() {
           color: #f1d7f3;
         }
 
-        .vt-faq-note-wrapper {
-          grid-column: 1 / -1;
-          margin-top: 40px;
-          display: flex;
-          justify-content: center;
-        }
-
-        .vt-faq-note {
-          max-width: 880px;
-          padding: 18px 40px;
-          border-radius: 999px;
-          border: 1px solid #f0d4f0;
-          background: #ffffff;
-          box-shadow: 0 18px 45px rgba(180, 122, 188, 0.12);
-          font-family: 'Montserrat', sans-serif;
-          font-weight: 300;
-          font-size: 15px;
-          line-height: 1.7;
-          text-align: center;
-          color: #4a4a4a;
-        }
-
         @media (max-width: 640px) {
           .vt-faq-inner {
             padding: 0 20px;
@@ -181,12 +159,6 @@ export default function FaqSectionVertical() {
           .vt-faq-answer {
             font-size: 15px;
             padding-right: 0;
-          }
-          .vt-faq-note-wrapper {
-            margin-top: 28px;
-          }
-          .vt-faq-note {
-            padding-inline: 24px;
           }
         }
       `}</style>
@@ -224,14 +196,6 @@ export default function FaqSectionVertical() {
           <div className="vt-faq-title-wrap reveal-fade" data-animate>
             <p className="vt-faq-label">Часті питання</p>
             <p className="vt-faq-bg-title">FAQ</p>
-          </div>
-
-          <div className="vt-faq-note-wrapper reveal-up reveal-delay-2" data-animate>
-            <p className="vt-faq-note">
-              Якщо протягом першого тижня з моменту оплати ви захочете повернути кошти, напишіть нам.
-              <br />
-              <strong>Ми гарантовано виконаємо повернення.</strong>
-            </p>
           </div>
         </div>
       </section>

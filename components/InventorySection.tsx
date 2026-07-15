@@ -19,6 +19,9 @@ type InventorySectionProps = {
   showShop?: boolean;
   /** Якщо true — у тексті магазину не згадуємо NeuroFit */
   hideBrandName?: boolean;
+  /** Якщо false — ховаємо бейдж зі знижкою */
+  showDiscount?: boolean;
+  subtitle?: string;
 };
 
 const SHOP_TEXT_DEFAULT =
@@ -27,9 +30,13 @@ const SHOP_TEXT_DEFAULT =
 const SHOP_TEXT_NO_BRAND =
   'Підібраний інвентар, який ідеально доповнює програму: мʼячі, еластичні стрічки, ролери та все, що допоможе мʼяко працювати з тілом та відновленням.';
 
+const SUBTITLE_DEFAULT = 'Інвентар, який знадобиться вам для тренувань.';
+
 export default function InventorySection({
   showShop = true,
   hideBrandName = false,
+  showDiscount = true,
+  subtitle = SUBTITLE_DEFAULT,
 }: InventorySectionProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -533,7 +540,7 @@ export default function InventorySection({
           <div className="inventory-header reveal-fade" data-animate>
             <div className="inventory-header-top">
               <p className="inventory-subtitle">
-                Інвентар, який знадобиться вам для тренувань.
+                {subtitle}
               </p>
 
               <div className="inventory-arrows" aria-label="Навігація інвентарем">
@@ -617,9 +624,11 @@ export default function InventorySection({
               </p>
             </div>
             <div className="inventory-shop-right">
-              <div className="inventory-shop-discount">
-                ЗНИЖКА 15% ДЛЯ УЧАСНИКІВ ПРОЄКТІВ ЮЛІЇ
-              </div>
+              {showDiscount && (
+                <div className="inventory-shop-discount">
+                  ЗНИЖКА 15% ДЛЯ УЧАСНИКІВ ПРОЄКТІВ ЮЛІЇ
+                </div>
+              )}
               <a
                 href="https://www.instagram.com/boomerang.fitstore?igsh=MXM5eThtcGJmOXlyeg=="
                 target="_blank"

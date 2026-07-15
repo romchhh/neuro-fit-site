@@ -65,35 +65,35 @@ function ringSlice(
 export default function VerticalCheckupDiagram() {
   const [active, setActive] = useState<number | null>(null);
 
-  // Широкий viewBox з полями під підписи — нічого не виходить за межі SVG
-  const vbW = 800;
+  const vbW = 840;
   const vbH = 720;
   const cx = vbW / 2;
   const cy = vbH / 2;
   const outerR = 168;
   const innerR = 114;
   const photoR = 106;
-  const leaderR = outerR + 18;
-  const arm = 18;
-  const labelPad = 10;
+  const leaderR = outerR + 20;
+  const arm = 28;
+  const labelGap = 10;
+  const lineHeight = 18;
 
   return (
     <>
       <style>{`
         .vt-check-section {
           background: #fff;
-          padding: 64px 16px 80px;
+          padding: 64px 12px 80px;
           overflow: visible;
         }
         .vt-check-inner {
-          max-width: 860px;
+          max-width: 900px;
           margin: 0 auto;
           overflow: visible;
         }
         .vt-check-stage {
           position: relative;
           width: 100%;
-          max-width: 800px;
+          max-width: 840px;
           margin: 0 auto;
           aspect-ratio: ${vbW} / ${vbH};
           overflow: visible;
@@ -180,30 +180,21 @@ export default function VerticalCheckupDiagram() {
           pointer-events: none;
           z-index: 2;
         }
-        .vt-check-label {
-          position: absolute;
-          z-index: 3;
+        .vt-check-label-hit {
+          cursor: pointer;
+        }
+        .vt-check-label-text {
           font-family: 'Montserrat', sans-serif;
           font-weight: 500;
-          font-size: clamp(0.7rem, 2.4vw, 1.1rem);
-          color: #222;
-          letter-spacing: 0.01em;
-          cursor: pointer;
-          line-height: 1.2;
-          -webkit-tap-highlight-color: transparent;
-          box-sizing: border-box;
-          width: 22%;
-          max-width: 160px;
-          overflow: visible;
-          word-break: normal;
-          overflow-wrap: break-word;
-          hyphens: manual;
+          font-size: 17px;
+          fill: #222;
+          pointer-events: none;
         }
-        .vt-check-label.is-active {
-          color: #5a3d59;
+        .vt-check-label-hit.is-active .vt-check-label-text {
           font-weight: 700;
+          fill: #5a3d59;
         }
-        .vt-check-label.is-dimmed {
+        .vt-check-label-hit.is-dimmed {
           opacity: 0.4;
         }
         .vt-check-lines {
@@ -215,17 +206,15 @@ export default function VerticalCheckupDiagram() {
         }
         @media (max-width: 700px) {
           .vt-check-section {
-            padding: 40px 4px 56px;
+            padding: 36px 2px 52px;
           }
-          .vt-check-label {
-            font-size: clamp(0.55rem, 2.8vw, 0.72rem);
-            width: 24%;
-            max-width: none;
-            line-height: 1.15;
+          .vt-check-label-text {
+            font-size: 13px;
           }
         }
         @media (hover: none) {
-          .vt-check-slice { cursor: default; }
+          .vt-check-slice,
+          .vt-check-label-hit { cursor: default; }
         }
       `}</style>
 
@@ -279,26 +268,73 @@ export default function VerticalCheckupDiagram() {
                 const xMid = cx + leaderR * Math.cos(rad);
                 const yMid = cy + leaderR * Math.sin(rad);
                 const isRight = Math.cos(rad) >= 0;
-                // Лінія закінчується перед зоною підпису
                 const xEnd = isRight
-                  ? Math.min(vbW * 0.72, xMid + arm)
-                  : Math.max(vbW * 0.28, xMid - arm);
+                  ? Math.min(vbW - 150, xMid + arm)
+                  : Math.max(150, xMid - arm);
+                const isActive = active === i;
                 const isDimmed = active !== null && active !== i;
+                const textX = isRight ? xEnd + labelGap : xEnd - labelGap;
+                const textAnchor = isRight ? 'start' : 'end';
+                const blockH = (item.lines.length - 1) * lineHeight;
+                const firstY = yMid - blockH / 2;
 
                 return (
-                  <g
-                    key={`line-${item.label}`}
-                    className={`vt-check-lines${isDimmed ? ' is-dimmed' : ''}`}
-                  >
-                    <circle cx={xDot} cy={yDot} r={3} fill="#1a1a1a" />
-                    <path
-                      d={`M ${xDot} ${yDot} L ${xMid} ${yMid} L ${xEnd} ${yMid}`}
-                      fill="none"
-                      stroke="#1a1a1a"
-                      strokeWidth="1.1"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
+                  <g key={`anno-${item.label}`}>
+                    <g
+                      className={`vt-check-lines${isDimmed ? ' is-dimmed' : ''}`}
+                    >
+                      <circle cx={xDot} cy={yDot} r={3} fill="#1a1a1a" />
+                      <path
+                        d={`M ${xDot} ${yDot} L ${xMid} ${yMid} L ${xEnd} ${yMid}`}
+                        fill="none"
+                        stroke="#1a1a1a"
+                        strokeWidth="1.1"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </g>
+
+                    <g
+                      className={`vt-check-label-hit${isActive ? ' is-active' : ''}${isDimmed ? ' is-dimmed' : ''}`}
+                      onMouseEnter={() => setActive(i)}
+                      onMouseLeave={() => setActive(null)}
+                      onClick={() => setActive(isActive ? null : i)}
+                      role="button"
+                      tabIndex={0}
+                      aria-label={item.label}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          setActive(isActive ? null : i);
+                        }
+                      }}
+                    >
+                      {/* Невидима зона кліку */}
+                      <rect
+                        x={isRight ? textX - 4 : textX - 130}
+                        y={firstY - 14}
+                        width={134}
+                        height={item.lines.length * lineHeight + 12}
+                        fill="transparent"
+                      />
+                      <text
+                        className="vt-check-label-text"
+                        x={textX}
+                        y={firstY}
+                        textAnchor={textAnchor}
+                        dominantBaseline="middle"
+                      >
+                        {item.lines.map((line, li) => (
+                          <tspan
+                            key={line}
+                            x={textX}
+                            dy={li === 0 ? 0 : lineHeight}
+                          >
+                            {line}
+                          </tspan>
+                        ))}
+                      </text>
+                    </g>
                   </g>
                 );
               })}
@@ -317,54 +353,6 @@ export default function VerticalCheckupDiagram() {
               <div className="vt-check-photo-glow" aria-hidden="true" />
               <div className="vt-check-photo-edge" aria-hidden="true" />
             </div>
-
-            {items.map((item, i) => {
-              const a = midAngle(i);
-              const rad = (a * Math.PI) / 180;
-              const isRight = Math.cos(rad) >= 0;
-              const yMid = cy + leaderR * Math.sin(rad);
-              const topPct = (yMid / vbH) * 100;
-              const isActive = active === i;
-              const isDimmed = active !== null && active !== i;
-
-              // Підписи строго всередині stage: ліва/права колонки
-              const style = isRight
-                ? {
-                    top: `${topPct}%`,
-                    left: '73%',
-                    right: `${labelPad / 10}%`,
-                    width: 'auto',
-                    maxWidth: '25%',
-                    transform: 'translateY(-50%)',
-                    textAlign: 'left' as const,
-                  }
-                : {
-                    top: `${topPct}%`,
-                    left: `${labelPad / 10}%`,
-                    right: '73%',
-                    width: 'auto',
-                    maxWidth: '25%',
-                    transform: 'translateY(-50%)',
-                    textAlign: 'right' as const,
-                  };
-
-              return (
-                <span
-                  key={`label-${item.label}`}
-                  className={`vt-check-label${isActive ? ' is-active' : ''}${isDimmed ? ' is-dimmed' : ''}`}
-                  style={style}
-                  onMouseEnter={() => setActive(i)}
-                  onMouseLeave={() => setActive(null)}
-                >
-                  {item.lines.map((line, li) => (
-                    <span key={line}>
-                      {li > 0 && <br />}
-                      {line}
-                    </span>
-                  ))}
-                </span>
-              );
-            })}
           </div>
         </div>
       </section>

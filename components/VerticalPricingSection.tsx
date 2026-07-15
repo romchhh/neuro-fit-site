@@ -107,10 +107,14 @@ export default function VerticalPricingSection() {
         }
         .vt-price-card h3 {
           font-family: 'Montserrat', sans-serif;
-          font-weight: 700;
-          font-size: 1.25rem;
-          color: #4a2f49;
-          margin-bottom: 8px;
+          font-weight: 800;
+          font-style: italic;
+          font-size: clamp(1.85rem, 4vw, 2.45rem);
+          line-height: 1.1;
+          color: #D7ABD6;
+          margin: 0 0 18px;
+          letter-spacing: -0.02em;
+          text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
         }
         .vt-price-card .vt-price-lead {
           font-family: 'Montserrat', sans-serif;
