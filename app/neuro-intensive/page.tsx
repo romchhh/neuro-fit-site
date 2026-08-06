@@ -6,6 +6,7 @@ import NeuroIntensiveFormatSection from '@/components/NeuroIntensiveFormatSectio
 import NeuroIntensiveWhatIncludedSection from '@/components/NeuroIntensiveWhatIncludedSection';
 import FaqSectionNeuroIntensive from '@/components/FaqSectionNeuroIntensive';
 import ForWhoSection from '@/components/ForWhoSection';
+import ProgramsCrossPromo from '@/components/ProgramsCrossPromo';
 import BottomContactBlock from '@/components/BottomContactBlock';
 import FooterSection from '@/components/FooterSection';
 
@@ -31,6 +32,7 @@ export default function NeuroIntensivePage() {
         <NeuroIntensiveWhatIncludedSection />
         <ForWhoSection />
         <FaqSectionNeuroIntensive />
+        <ProgramsCrossPromo excludeHref="/neuro-intensive" />
         <BottomContactBlock />
         <FooterSection />
       </div>

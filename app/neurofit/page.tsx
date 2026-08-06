@@ -7,6 +7,7 @@ import NeurofitWhatIncludedSection from '@/components/NeurofitWhatIncludedSectio
 import FaqSectionNeurofit from '@/components/FaqSectionNeurofit';
 import NeurofitProgramModulesSection from '@/components/NeurofitProgramModulesSection';
 import ForWhoSection from '@/components/ForWhoSection';
+import ProgramsCrossPromo from '@/components/ProgramsCrossPromo';
 import BottomContactBlock from '@/components/BottomContactBlock';
 import FooterSection from '@/components/FooterSection';
 
@@ -33,6 +34,7 @@ export default function NeurofitPage() {
         <NeurofitWhatIncludedSection />
         <ForWhoSection />
         <FaqSectionNeurofit />
+        <ProgramsCrossPromo excludeHref="/neurofit" />
         <BottomContactBlock />
         <FooterSection />
       </div>

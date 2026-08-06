@@ -626,7 +626,7 @@ export default function InventorySection({
             <div className="inventory-shop-right">
               {showDiscount && (
                 <div className="inventory-shop-discount">
-                  ЗНИЖКА 15% ДЛЯ УЧАСНИКІВ ПРОЄКТІВ ЮЛІЇ
+                  ЗНИЖКИ ДЛЯ УЧАСНИКІВ ПРОЄКТІВ
                 </div>
               )}
               <a
