@@ -9,7 +9,7 @@ export default function BottomContactBlock() {
             Залишилися запитання?
           </p>
           <a
-            href="https://t.me/JuliButenko"
+            href="https://t.me/ButenkoFit"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm md:text-base font-semibold tracking-[0.18em] uppercase whitespace-nowrap transition-colors"
