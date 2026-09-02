@@ -156,7 +156,7 @@ export default function HeroNeurofit() {
                       color: '#5A2345',
                     }}
                   >
-                    ДО КІНЦЯ СЕРПНЯ
+                    ДО КІНЦЯ ВЕРЕСНЯ
                   </p>
                 </div>
 
