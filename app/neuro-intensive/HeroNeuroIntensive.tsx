@@ -155,7 +155,7 @@ export default function HeroNeuroIntensive() {
                       color: '#5A2345',
                     }}
                   >
-                    ДО КІНЦЯ СЕРПНЯ
+                    ДО КІНЦЯ ВЕРЕСНЯ
                   </p>
                 </div>
 
@@ -170,8 +170,8 @@ export default function HeroNeuroIntensive() {
                   }}
                 >
                   Ціна:{' '}
-                  <span style={{ textDecoration: 'line-through', opacity: 0.85 }}>62$</span>{' '}
-                  11$
+                  <span style={{ textDecoration: 'line-through', opacity: 0.85 }}>880</span>{' '}
+                  470 грн
                 </p>
                 <p
                   style={{
