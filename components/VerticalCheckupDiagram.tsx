@@ -342,7 +342,7 @@ export default function VerticalCheckupDiagram() {
 
             <div className="vt-check-photo">
               <Image
-                src="/vertical/checkup-portrait.png"
+                src="/vertical/checkup-portrait.jpg"
                 alt="Вертикаль — чекап і програма"
                 fill
                 sizes="(max-width: 700px) 45vw, 280px"

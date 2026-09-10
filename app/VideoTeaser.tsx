@@ -21,7 +21,7 @@ export default function VideoTeaser() {
       {!isPlaying && (
         <>
           <Image
-            src="/neurofit/video-poster.png"
+            src="/neurofit/video-poster.jpg"
             alt="Neuro-Pilates, відео"
             fill
             sizes="100vw"
