@@ -5,10 +5,10 @@ import PaywallLeadButton from '@/components/PaywallLeadButton';
 
 const PAYMENT_SELF =
   process.env.NEXT_PUBLIC_VERTICAL_SELF_PAYMENT_URL ??
-  'https://vertical.kwiga.com/o/toXLp48qPKvT';
+  'https://butenkofit.kwiga.com/o/9abme5LTg9Te';
 const PAYMENT_SUPPORT =
-  process.env.NEXT_PUBLIC_VERTICAL_SUPPORT_PAYMENT_URL ??
-  'https://vertical.kwiga.com/o/ovjUbHwUhdpK';
+    process.env.NEXT_PUBLIC_VERTICAL_SUPPORT_PAYMENT_URL ??
+  'https://butenkofit.kwiga.com/o/ovjUbHwUhdpK';
 
 const tariffs = [
   {
