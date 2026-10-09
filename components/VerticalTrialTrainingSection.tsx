@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-const YOUTUBE_ID = '1DaUrPz9ySg';
+const YOUTUBE_ID = '3nXS0nciP3E';
 
 export default function VerticalTrialTrainingSection() {
   const [isPlaying, setIsPlaying] = useState(false);
