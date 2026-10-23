@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-const YOUTUBE_ID = 'vDG_Vo58bHc';
+const YOUTUBE_ID = 'LRsssZcdNYM';
 
 const items = [
   'килимок',
