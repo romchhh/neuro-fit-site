@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-const navItems = ['HOME', 'NEUROFIT', 'NEURO-ІНТЕНСИВ', 'ВЕРТИКАЛЬ'];
+const navItems = ['HOME', 'NEUROFIT', 'NEURO-ІНТЕНСИВ', 'ВЕРТИКАЛЬ', 'ПЛАСКИЙ ЖИВІТ'];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -80,6 +80,19 @@ export default function Header() {
               style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}
             >
               ВЕРТИКАЛЬ
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://u-body.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`px-6 lg:px-8 py-3 rounded-full text-sm lg:text-base font-bold uppercase tracking-[0.18em] whitespace-nowrap hover:bg-white/25 hover:shadow-xl transition-all duration-200 ${
+                scrolled ? 'text-[#5f3a6b]' : 'text-white'
+              }`}
+              style={{ textShadow: '0 1px 8px rgba(0,0,0,0.25)' }}
+            >
+              ПЛАСКИЙ ЖИВІТ
             </a>
           </li>
         </ul>
@@ -174,9 +187,18 @@ export default function Header() {
             <a
               href="/vertical"
               onClick={() => setMenuOpen(false)}
-              className="block px-6 py-4 text-sm font-bold uppercase tracking-wider text-[#764F75] hover:bg-purple-50 transition"
+              className="block px-6 py-4 text-sm font-bold uppercase tracking-wider text-[#764F75] hover:bg-purple-50 transition border-b border-purple-100/60"
             >
               ВЕРТИКАЛЬ
+            </a>
+            <a
+              href="https://u-body.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMenuOpen(false)}
+              className="block px-6 py-4 text-sm font-bold uppercase tracking-wider text-[#764F75] hover:bg-purple-50 transition"
+            >
+              ПЛАСКИЙ ЖИВІТ
             </a>
           </div>
         )}
