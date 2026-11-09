@@ -118,7 +118,7 @@ export default function HeroNeuroIntensive() {
                 координації, концентрації та легкості в русі.
               </p>
 
-              {/* Плашка: ціна, доступ, бонус + рожева вкладка зверху */}
+              {/* Плашка: ціна, доступ, бонус */}
               <div
                 className="mt-4 text-left mx-auto rounded-2xl px-5 py-4"
                 style={{
@@ -133,32 +133,6 @@ export default function HeroNeuroIntensive() {
                   zIndex: 2,
                 }}
               >
-                {/* Рожева вкладка "до кінця березня" */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: -15,
-                    right: 0,
-                    padding: '6px 20px 7px',
-                    background: 'rgba(255, 219, 236, 0.92)',
-                    borderRadius: '12px 12px 0 12px',
-                    boxShadow: '0 10px 26px rgba(0,0,0,0.35)',
-                  }}
-                >
-                  <p
-                    style={{
-                      margin: 0,
-                      fontSize: '0.88rem',
-                      fontWeight: 800,
-                      letterSpacing: '0.12em',
-                      textTransform: 'uppercase',
-                      color: '#5A2345',
-                    }}
-                  >
-                    ДО КІНЦЯ ВЕРЕСНЯ
-                  </p>
-                </div>
-
                 <p
                   style={{
                     fontWeight: 600,
